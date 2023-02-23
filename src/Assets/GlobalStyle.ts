@@ -2,6 +2,8 @@ import reset from "styled-reset";
 import { createGlobalStyle } from "styled-components";
 import { FlexCenter, ScreenOut } from "./MixinStyle";
 
+import "./Fonts/Fonts.css";
+
 const GlobalStyle = createGlobalStyle`
   ${reset}
 
@@ -26,6 +28,12 @@ const GlobalStyle = createGlobalStyle`
     body {
       position: relative;
       min-height: 100%;
+      font-family: "NotoSansKR", "Manrope", sans-serif;
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: #000;
+      line-height: 1.6;
+      letter-spacing: -0.06em;
       word-break: keep-all;
       word-wrap: break-word;
       scroll-behavior: smooth;
