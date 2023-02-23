@@ -1,24 +1,17 @@
-import React from 'react';
-import './App.css';
+import GlobalStyle from "./Assets/GlobalStyle"
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          바뀔려나
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <GlobalStyle />
+      <section className="App">
+        <h1>은혜의 포트폴리오</h1>
+        <table>
+          <caption> zz</caption>
+          </table>
+      </section>
+    </>
+  )
 }
 
-export default App;
+export default App
