@@ -1,9 +1,9 @@
 import reset from "styled-reset";
 import { createGlobalStyle } from "styled-components";
-import { flexCenter, screenOut } from "./MixinStyle";
-import { width } from "./StyleVariable";
+import { flexCenter, screenOut } from "Assets/MixinStyle";
+import { width } from "Assets/StyleVariable";
 
-import "./Fonts/Fonts.css";
+import "Assets/Fonts/Fonts.css";
 
 const GlobalStyle = createGlobalStyle`
   ${reset}

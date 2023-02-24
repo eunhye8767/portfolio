@@ -1,4 +1,4 @@
-import { iconName, IconSet } from "./constants";
+import { iconName, IconSet } from "Assets/Ico/constants";
 
 interface IconProps {
 	icon: iconName;

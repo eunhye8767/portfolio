@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import styled from "styled-components";
 
-import GlobalStyle from "./Assets/GlobalStyle";
-import { screenOut } from "./Assets/MixinStyle";
-import Icon from "./Assets/Ico/Icons";
-import Visual from "./components/Visual";
+import GlobalStyle from "Assets/GlobalStyle";
+import { screenOut } from "Assets/MixinStyle";
+import Icon from "Assets/Ico/Icons";
+import Visual from "components/Visual";
 
 const App = () => {
   const setScreenSize = () => {

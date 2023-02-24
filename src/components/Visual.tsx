@@ -1,5 +1,5 @@
 import React from 'react'
-import { ScreenOutTitle } from '../Assets/MixinStyle';
+import { ScreenOutTitle } from 'Assets/MixinStyle';
 
 const Visual = () => {
   return (
