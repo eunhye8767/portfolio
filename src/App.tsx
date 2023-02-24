@@ -25,6 +25,12 @@ const App = () => {
           <caption> zz</caption>
         </table>
         <Icon size={30} color="red" icon="download" />
+        <Icon size={30} color="red" icon="arrowLeft" />
+        <Icon size={30} color="red" icon="arrowRight" />
+        <Icon size={30} color="red" icon="about" />
+        <Icon size={30} color="red" icon="work" />
+        <Icon size={30} color="red" icon="skills" />
+        <Icon size={16} color="red" icon="arrowTop" />
       </section>
     </>
   );
