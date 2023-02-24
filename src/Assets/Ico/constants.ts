@@ -1,4 +1,4 @@
-// 사용할 icon 이름들 (| 구분)
+// 사용할 icon 이름들
 export type iconName = "download" | "arrowLeft" | "arrowRight" | "about" | "work" | "skills" | "arrowTop";
 
 type icon = {

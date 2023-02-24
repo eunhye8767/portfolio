@@ -58,10 +58,10 @@ export const flexColumn = css`
 
 export const FontStyle = (
   size = 16,
-  weight = "400",
+  weight = 400,
   color = "#000",
   lineH = "1.6",
-  spac = "0.06"
+  spac = 0.06
 ) => css`
   font-size: ${size * 0.1}rem;
   font-weight: ${weight};

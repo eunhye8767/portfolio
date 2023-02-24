@@ -92,7 +92,6 @@ const GlobalStyle = createGlobalStyle`
 
   .container {
     width: 100%;
-    background: red;
 
     @media (min-width: ${width.minMobile}) {
       max-width: ${width.minMobile};
