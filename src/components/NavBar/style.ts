@@ -29,6 +29,11 @@ export const NavGroup = styled.ul`
 
     position: relative;
     width: 20%;
+    opacity: 0.6;
+
+    &.is-active {
+      opacity: 1;
+    }
   }
 `;
 
@@ -36,7 +41,6 @@ export const NavItem = styled.button`
   ${flexColumn}
 
   padding-bottom: 24px;
-  opacity: 0.6;
   pointer-events: all;
 
   .ico {
@@ -53,9 +57,5 @@ export const NavItem = styled.button`
     margin-top: 10px;
     transform: translateX(-50%);
     text-transform: uppercase;
-  }
-
-  &.is-active {
-    opacity: 1;
   }
 `;

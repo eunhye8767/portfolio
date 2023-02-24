@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import Icon from "Assets/Ico/Icons";
 import { ScreenOutTitle } from "Assets/MixinStyle";
 import { color } from "Assets/StyleVariable";
@@ -9,44 +11,47 @@ import {
 } from "components/NavBar/style";
 
 const NavBar = () => {
+  const menuList = [
+    {
+      txt: "about",
+      ico: <Icon size={24} color={color.white} icon="about" />,
+    },
+    {
+      txt: "work",
+      ico: <Icon size={22} color={color.white} icon="work" />,
+    },
+    {
+      txt: "skills",
+      ico: <Icon size={22} color={color.white} icon="skills" />,
+    },
+    {
+      txt: "top",
+      ico: <Icon size={16} color={color.white} icon="arrowTop" />,
+    },
+  ];
+
+  const [currTab, setCurrTab] = useState(0);
+
+  const handleTabSelect = (idx: number) => {
+    setCurrTab(idx);
+    console.log(idx);
+    
+  };
+
   return (
     <NavSection>
       <ScreenOutTitle>포트폴리오 메뉴</ScreenOutTitle>
 
       <NavArea>
         <NavGroup>
-          <li>
-            <NavItem className="is-active">
-              <span className="ico">
-                <Icon size={24} color={color.white} icon="about" />
-              </span>
-              <span className="txt">About</span>
-            </NavItem>
-          </li>
-          <li>
-            <NavItem>
-              <span className="ico">
-                <Icon size={20} color={color.white} icon="work" />
-              </span>
-              <span className="txt">Work</span>
-            </NavItem>
-          </li>
-          <li>
-            <NavItem>
-              <span className="ico">
-                <Icon size={20} color={color.white} icon="skills" />
-              </span>
-              <span className="txt">Skills</span>
-            </NavItem>
-          </li>
-          <li>
-            <NavItem>
-              <span className="ico">
-                <Icon size={16} color={color.white} icon="arrowTop" />
-              </span>
-              <span className="txt">Top</span>
-            </NavItem>
-          </li>
+          {menuList.map((menu, idx) => (
+            <li className={idx === currTab ? "is-active" : ""} key={menu.txt}>
+              <NavItem onClick={() => handleTabSelect(idx)}>
+                <span className="ico">{menu.ico}</span>
+                <span className="txt">{menu.txt}</span>
+              </NavItem>
+            </li>
+          ))}
         </NavGroup>
       </NavArea>
     </NavSection>
