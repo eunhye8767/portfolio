@@ -1,19 +1,20 @@
 import { useEffect } from "react";
-import GlobalStyle from "./Assets/GlobalStyle"
+import GlobalStyle from "./Assets/GlobalStyle";
+import Icon from "./Assets/Ico/Icons";
 
 const App = () => {
   const setScreenSize = () => {
     let vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty('--vh', `${vh}px`);
-  }
+    document.documentElement.style.setProperty("--vh", `${vh}px`);
+  };
 
   useEffect(() => {
     setScreenSize();
     window.addEventListener("resize", setScreenSize);
 
     return window.removeEventListener("resize", setScreenSize);
-  }, [])
-  
+  }, []);
+
   return (
     <>
       <GlobalStyle />
@@ -22,10 +23,11 @@ const App = () => {
         <p>1234567890!AVD *&^%@#$%</p>
         <table>
           <caption> zz</caption>
-          </table>
+        </table>
+        <Icon size={30} color="red" icon="download" />
       </section>
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
