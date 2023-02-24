@@ -1,6 +1,10 @@
 import { useEffect } from "react";
+import styled from "styled-components";
+
 import GlobalStyle from "./Assets/GlobalStyle";
+import { screenOut } from "./Assets/MixinStyle";
 import Icon from "./Assets/Ico/Icons";
+import Visual from "./components/Visual";
 
 const App = () => {
   const setScreenSize = () => {
@@ -19,7 +23,12 @@ const App = () => {
     <>
       <GlobalStyle />
       <section className="App">
-        <h1>은혜의 포트폴리오</h1>
+        <AppTitle>은혜의 포트폴리오</AppTitle>
+
+        <div className="container">
+          <Visual />
+        </div>
+
         <p>1234567890!AVD *&^%@#$%</p>
         <table>
           <caption> zz</caption>
@@ -37,3 +46,7 @@ const App = () => {
 };
 
 export default App;
+
+const AppTitle = styled.h1`
+  ${screenOut}
+`;

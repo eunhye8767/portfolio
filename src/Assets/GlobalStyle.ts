@@ -1,6 +1,7 @@
 import reset from "styled-reset";
 import { createGlobalStyle } from "styled-components";
-import { FlexCenter, ScreenOut } from "./MixinStyle";
+import { flexCenter, screenOut } from "./MixinStyle";
+import { width } from "./StyleVariable";
 
 import "./Fonts/Fonts.css";
 
@@ -63,7 +64,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   button {
-    ${FlexCenter}
+    ${flexCenter}
     
     position: relative;
     border: 0;
@@ -81,12 +82,26 @@ const GlobalStyle = createGlobalStyle`
   }
 
   caption {
-    ${ScreenOut}
+    ${screenOut}
   }
 
   .App {
     min-height: 100vh;
     min-height: calc(var(--vh, 1vh) * 100);
+  }
+
+  .container {
+    width: 100%;
+    background: red;
+
+    @media (min-width: ${width.minMobile}) {
+      max-width: ${width.minMobile};
+      margin: 0 auto;
+    }
+
+    @media (min-width: ${width.mobile}) {
+      
+    }
   }
 `;
 

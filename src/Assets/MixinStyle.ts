@@ -1,6 +1,6 @@
-import { css } from "styled-components";
+import styled, { css } from "styled-components";
 
-export const ScreenOut = css`
+export const screenOut = css`
   position: absolute !important;
   top: 0 !important;
   left: 0 !important;
@@ -11,47 +11,47 @@ export const ScreenOut = css`
   text-indent: -9999px !important;
 `;
 
-export const FlexCenter = css`
+export const flexCenter = css`
   display: flex;
   justify-content: center;
   align-items: center;
 `;
 
-export const FlexAlignCen = css`
+export const flexAlignCen = css`
   display: flex;
   align-items: center;
 `;
 
-export const FlexAlignEnd = css`
+export const flexAlignEnd = css`
   display: flex;
   align-items: flex-end;
 `;
 
-export const FlexJustCen = css`
+export const flexJustCen = css`
   display: flex;
   justify-content: center;
 `;
-export const FlexJustStart = css`
+export const flexJustStart = css`
   display: flex;
   justify-content: flex-start;
 `;
 
-export const FlexJustEnd = css`
+export const flexJustEnd = css`
   display: flex;
   justify-content: flex-end;
 `;
 
-export const FlexJustBet = css`
+export const flexJustBet = css`
   display: flex;
   justify-content: space-between;
 `;
 
-export const FlexWrap = css`
+export const flexWrap = css`
   display: flex;
   flex-wrap: wrap;
 `;
 
-export const FlexColumn = css`
+export const flexColumn = css`
   display: flex;
   flex-direction: column;
 `;
@@ -107,3 +107,7 @@ export const ObjFitCover = css`
   object-fit: cover;
   object-position: 50% 50%;
 `;
+
+export const ScreenOutTitle = styled.h2`
+  ${screenOut}
+`
