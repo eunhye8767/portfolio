@@ -22,8 +22,8 @@ const Visual = () => {
       <ScreenOutTitle>웹 퍼블리셔 이은혜 소개 영역</ScreenOutTitle>
       <div>
         <VisualTitleGroup>
-          <small>Web Publisher</small>
-          <strong>LEE EUN-HYE</strong>
+          <small>Hello, world</small>
+          <strong>EH's PORTFOLIO</strong>
         </VisualTitleGroup>
         <VisualFigureGroup>
           <VisualFigure>

@@ -4,7 +4,8 @@ import styled from "styled-components";
 import { screenOut } from "Assets/MixinStyle";
 import Icon from "Assets/Ico/Icons";
 
-import Visual from "components/Visual/";
+import Visual from "components/Visual";
+import Work from "components/Work";
 import NavBar from "components/NavBar";
 
 const App = () => {
@@ -26,6 +27,7 @@ const App = () => {
 
       <div className="container">
         <Visual />
+        <Work />
         <NavBar />
       </div>
 
