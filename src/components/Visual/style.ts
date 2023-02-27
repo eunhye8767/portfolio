@@ -11,7 +11,7 @@ import {
 import { max, width, color } from "Assets/StyleVariable";
 
 export const VisualSection = styled.section`
-  background: ${color.red};
+  background: ${color.green};
   overflow: hidden;
 
   @media (min-width: ${width.minMobile}) {

@@ -9,7 +9,7 @@ import {
   VisualFigure,
   VisualResumeGroup,
   VisualResumeBtn,
-  VisualTitleGroup
+  VisualTitleGroup,
 } from "./style";
 
 const Visual = () => {
