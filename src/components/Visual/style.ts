@@ -1,14 +1,6 @@
 import styled from "styled-components";
-import {
-  flexAlignCen,
-  flexAlignEnd,
-  flexCenter,
-  flexColumn,
-  flexJustCen,
-  FontStyle,
-  SizeWH,
-} from "Assets/MixinStyle";
-import { max, width, color } from "Assets/StyleVariable";
+import { flexAlignCen, flexColumn, FontStyle } from "Assets/MixinStyle";
+import { width, color } from "Assets/StyleVariable";
 
 export const VisualSection = styled.section`
   background: ${color.green};
@@ -38,7 +30,7 @@ export const VisualFigureGroup = styled.div`
 export const VisualFigure = styled.figure`
   position: relative;
   z-index: 1;
-`
+`;
 
 export const VisualResumeGroup = styled.div`
   position: absolute;
@@ -57,7 +49,7 @@ export const VisualResumeGroup = styled.div`
   }
 `;
 
-export const VisualResumeBtn = styled.button`
+export const VisualResumeBtn = styled.a`
   ${flexAlignCen}
   height: 30px;
   padding: 8px 16px;
@@ -95,9 +87,3 @@ export const VisualTitleGroup = styled.h3`
     }
   }
 `;
-
-// @media (min-width: ${width.minMobile}) {
-// }
-
-// @media (max-width: ${width.mobile}) {
-// }
