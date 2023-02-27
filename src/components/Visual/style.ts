@@ -11,50 +11,49 @@ import {
 import { max, width, color } from "Assets/StyleVariable";
 
 export const VisualSection = styled.section`
-  aspect-ratio: 2 / 3;
   background: ${color.red};
-  padding: 60px 100px;
   overflow: hidden;
-`;
 
-export const VisualGroup = styled.div`
-  ${flexColumn}
+  @media (min-width: ${width.minMobile}) {
+    padding: 120px 140px 60px;
+  }
 
-  align-items: center;
-  justify-content: flex-end;
-  height: 100%;
-  background: green;
+  @media (max-width: ${width.mobile}) {
+    padding: 60px 50px 30px;
+  }
 `;
 
 export const VisualFigureGroup = styled.div`
   position: relative;
-  margin-top: auto;
-  background: blue;
-`;
 
-export const VisualFigure = styled.figure`
-  height: 100%;
-  overflow: hidden;
-
-  > img {
-    height: 100%;
-    object-fit: contain;
-  }
-`;
-
-export const VisualResumeGroup = styled.div`
-  position: absolute;
-  right: -30px;
-  background: ${color.black};
-  transform-origin: 100% 0;
-  transform: rotate(90deg);
-  
   @media (min-width: ${width.minMobile}) {
-    top: 200px;
+    margin-top: 60px;
   }
 
   @media (max-width: ${width.mobile}) {
-    top: 170px;
+    margin-top: 30px;
+  }
+`;
+
+export const VisualFigure = styled.figure`
+  position: relative;
+  z-index: 1;
+`
+
+export const VisualResumeGroup = styled.div`
+  position: absolute;
+  right: -29px;
+  background: ${color.black};
+  border-radius: 4px 4px 0 0;
+  transform-origin: 0 0;
+  transform: translateX(100%) rotate(90deg);
+
+  @media (min-width: ${width.minMobile}) {
+    top: 15%;
+  }
+
+  @media (max-width: ${width.mobile}) {
+    top: 13%;
   }
 `;
 
@@ -69,6 +68,30 @@ export const VisualResumeBtn = styled.button`
     & + svg {
       margin-left: 10px;
       transform: rotate(-90deg);
+    }
+  }
+`;
+
+export const VisualTitleGroup = styled.h3`
+  ${flexColumn}
+  align-items: center;
+
+  small {
+    ${FontStyle(24, 400, color.white, "1")}
+  }
+
+  strong {
+    ${FontStyle(36, 800, color.white, "1")}
+    margin-top: 10px;
+  }
+
+  @media (max-width: ${width.mobile}) {
+    small {
+      font-size: 16px;
+    }
+
+    strong {
+      font-size: 24px;
     }
   }
 `;

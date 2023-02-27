@@ -27,6 +27,7 @@ const GlobalStyle = createGlobalStyle`
 
     body {
       position: relative;
+      min-width: 280px;
       min-height: 100%;
       font-family: "NotoSansKR", "Manrope", sans-serif;
       font-size: 16px;

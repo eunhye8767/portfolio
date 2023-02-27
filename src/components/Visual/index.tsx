@@ -5,19 +5,22 @@ import Icon from "Assets/Ico/Icons";
 
 import {
   VisualSection,
-  VisualGroup,
   VisualFigureGroup,
   VisualFigure,
   VisualResumeGroup,
   VisualResumeBtn,
+  VisualTitleGroup
 } from "./style";
 
 const Visual = () => {
   return (
     <VisualSection>
       <ScreenOutTitle>웹 퍼블리셔 이은혜 소개 영역</ScreenOutTitle>
-      <VisualGroup>
-        <div>zzz</div>
+      <div>
+        <VisualTitleGroup>
+          <small>Web Publisher</small>
+          <strong>LEE EUN-HYE</strong>
+        </VisualTitleGroup>
         <VisualFigureGroup>
           <VisualFigure>
             <img src={myImg} alt="은혜랑 요셉이랑" />
@@ -34,7 +37,7 @@ const Visual = () => {
             </VisualResumeBtn>
           </VisualResumeGroup>
         </VisualFigureGroup>
-      </VisualGroup>
+      </div>
     </VisualSection>
   );
 };
