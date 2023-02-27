@@ -63,7 +63,7 @@ export const FontStyle = (
   lineH = "1.6",
   spac = 0.06
 ) => css`
-  font-size: ${size * 0.1}rem;
+  font-size: ${size}px;
   font-weight: ${weight};
   font-style: normal;
   color: ${color};

@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { screenOut } from "Assets/MixinStyle";
 import Icon from "Assets/Ico/Icons";
 
-import Visual from "components/Visual";
+import Visual from "components/Visual/";
 import NavBar from "components/NavBar";
 
 const App = () => {
@@ -33,7 +33,7 @@ const App = () => {
       <table>
         <caption> zz</caption>
       </table>
-      <Icon size={30} color="red" icon="download" />
+      
       <Icon size={30} color="red" icon="arrowLeft" />
       <Icon size={30} color="red" icon="arrowRight" />
     </section>

@@ -1,3 +1,7 @@
+export const max = {
+  vh: "calc(var(--vh, 1vh) * 100)",
+}
+
 export const width = {
   minMobile: "768px",
   mobile: "767px",

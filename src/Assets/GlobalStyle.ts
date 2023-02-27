@@ -1,7 +1,7 @@
 import reset from "styled-reset";
 import { createGlobalStyle } from "styled-components";
 import { flexCenter, screenOut } from "Assets/MixinStyle";
-import { width } from "Assets/StyleVariable";
+import { max, width } from "Assets/StyleVariable";
 
 import "Assets/Fonts/Fonts.css";
 
@@ -21,7 +21,6 @@ const GlobalStyle = createGlobalStyle`
   }
 
   html {
-    font-size: 10px;
     -webkit-text-size-adjust: none;
     -moz-text-size-adjust: none;
     -ms-text-size-adjust: none;
@@ -30,7 +29,7 @@ const GlobalStyle = createGlobalStyle`
       position: relative;
       min-height: 100%;
       font-family: "NotoSansKR", "Manrope", sans-serif;
-      font-size: 1.6rem;
+      font-size: 16px;
       font-weight: 400;
       color: #000;
       line-height: 1.6;
@@ -87,7 +86,7 @@ const GlobalStyle = createGlobalStyle`
 
   .App {
     min-height: 100vh;
-    min-height: calc(var(--vh, 1vh) * 100);
+    min-height: ${max.vh};
   }
 
   .container {

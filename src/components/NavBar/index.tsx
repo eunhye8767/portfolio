@@ -8,7 +8,7 @@ import {
   NavArea,
   NavGroup,
   NavItem,
-} from "components/NavBar/style";
+} from "./style";
 
 const NavBar = () => {
   const menuList = [
