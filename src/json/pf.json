@@ -1,0 +1,269 @@
+{
+  "mainTitle": [{ "work": "즐겁게\n일해요" }, { "skills": "즐겁게\n배워요" }],
+  "work": [
+    {
+      "slide": [
+        {
+          "id": 1,
+          "title": "ATOPS - 사용자지원포털",
+          "type": "반응형",
+          "desc": "메인(fullpage), react-ts 기반",
+          "url": "https://portal.atops.or.kr/",
+          "ia": null
+        },
+        {
+          "id": 2,
+          "title": "ATOPS - 실증지원포털",
+          "type": "반응형",
+          "desc": "메인(fullpage), react-ts 기반",
+          "url": "https://portal.atops.or.kr/tsp/",
+          "ia": null
+        },
+        {
+          "id": 3,
+          "title": "ATOPS - 데이터유통포털",
+          "type": "반응형",
+          "desc": "하드코딩(jsp 기반)",
+          "url": "https://portal.atops.or.kr/dxp/main",
+          "ia": "https://portal.atops.or.kr/dxp/main"
+        },
+        {
+          "id": 4,
+          "title": "ATOPS - 안심구역포털",
+          "type": "반응형",
+          "desc": "하드코딩(jsp 기반)",
+          "url": "https://portal.atops.or.kr/saz/svc/main/main.do",
+          "ia": "https://portal.atops.or.kr/dxp/main"
+        },
+        {
+          "id": 5,
+          "title": "사내 프로젝트, 디자인 프레임워크",
+          "type": "적응형, PC",
+          "desc": "미디어로그 사내 프로젝트 하드코딩",
+          "url": "https://leh317.iwinv.net/portfolio/website/dstudio.html",
+          "ia": null
+        },
+        {
+          "id": 6,
+          "title": "브레인드넷 자사 홈페이지",
+          "type": "반응형",
+          "desc": "main, solution, history, contact 작업",
+          "url": "null",
+          "ia": null
+        },
+        {
+          "id": 7,
+          "title": "ATOPS - 관리자",
+          "type": "IA",
+          "desc": "화면목록(IA) 페이지 연결",
+          "url": null,
+          "ia": "https://portal.atops.or.kr/dxp/main"
+        },
+        {
+          "id": 8,
+          "title": "농정원(귀농귀촌종합센터)",
+          "type": "IA",
+          "desc": "화면목록(IA) 페이지 연결",
+          "url": null,
+          "ia": "https://portal.atops.or.kr/dxp/main"
+        },
+        {
+          "id": 9,
+          "title": "한국관광공사(visit korea)",
+          "type": "IA",
+          "desc": "화면목록(IA) 페이지 연결",
+          "url": null,
+          "ia": "https://portal.atops.or.kr/dxp/main"
+        }
+      ]
+    },
+    {
+      "imgs": [
+        {
+          "id": 1,
+          "title": "수고했어, 올해도",
+          "url": "https://portal.atops.or.kr/dxp/main"
+        },
+        {
+          "id": 2,
+          "title": "휴대폰결제 이벤트",
+          "url": "https://portal.atops.or.kr/dxp/main"
+        },
+        {
+          "id": 3,
+          "title": "멤버스이벤트 출석체크",
+          "url": "https://portal.atops.or.kr/dxp/main"
+        },
+        {
+          "id": 4,
+          "title": "휴대폰 첫결제 이벤트, 여름안에서",
+          "url": "https://portal.atops.or.kr/dxp/main"
+        },
+        {
+          "id": 5,
+          "title": "휴대폰 첫결제 이벤트, 힘을내요 슈퍼팔월",
+          "url": "https://portal.atops.or.kr/dxp/main"
+        },
+        {
+          "id": 6,
+          "title": "혹시 휴대폰 결제를 아시나요?",
+          "url": "https://portal.atops.or.kr/dxp/main"
+        },
+        {
+          "id": 7,
+          "title": "휴대폰 결제 이벤트, 11월엔 1원 더하세요",
+          "url": "https://portal.atops.or.kr/dxp/main"
+        },
+        {
+          "id": 8,
+          "title": "휴대폰 결제 이벤트, 새해에도 혜택이 소복",
+          "url": "https://portal.atops.or.kr/dxp/main"
+        },
+        {
+          "id": 9,
+          "title": "휴대폰 결제 이벤트, 대봄단결",
+          "url": "https://portal.atops.or.kr/dxp/main"
+        }
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "slide": [
+        {
+          "id": 1,
+          "title": "호텔델루나 홍보 팬페이지",
+          "type": "반응형",
+          "desc": "호텔델루나 블루레이 추진 홍보 팬페이지",
+          "url": "null",
+          "ia": null
+        },
+        {
+          "id": 2,
+          "title": "클론코딩, 3D 리플릿",
+          "type": "적응형, PC",
+          "desc": "인터렉티브 웹 만들기",
+          "url": "https://portal.atops.or.kr/tsp/",
+          "ia": null
+        },
+        {
+          "id": 3,
+          "title": "클론코딩, 전진! 3D 스크롤",
+          "type": "반응형",
+          "desc": "반응형, 스크롤 이벤트",
+          "url": "https://portal.atops.or.kr/dxp/main",
+          "ia": null
+        }
+      ]
+    },
+    {
+      "imgs": [
+        {
+          "id": 1,
+          "title": "미러볼 회전효과",
+          "url": "https://portal.atops.or.kr/dxp/main"
+        },
+        {
+          "id": 2,
+          "title": "메뉴 마우스 오버",
+          "url": "https://portal.atops.or.kr/dxp/main"
+        },
+        {
+          "id": 3,
+          "title": "스포트라이트 효과",
+          "url": "https://portal.atops.or.kr/dxp/main"
+        },
+        {
+          "id": 4,
+          "title": "물방울 결합 배경",
+          "url": "https://portal.atops.or.kr/dxp/main"
+        },
+        {
+          "id": 5,
+          "title": "마우스 커서 커스텀",
+          "url": "https://portal.atops.or.kr/dxp/main"
+        },
+        {
+          "id": 6,
+          "title": "썸네일 마우스 오버",
+          "url": "https://portal.atops.or.kr/dxp/main"
+        },
+        {
+          "id": 7,
+          "title": "햄버거 메뉴",
+          "url": "https://portal.atops.or.kr/dxp/main"
+        },
+        {
+          "id": 8,
+          "title": "날아오는 글씨 효과",
+          "url": "https://portal.atops.or.kr/dxp/main"
+        },
+        {
+          "id": 9,
+          "title": "특정 영역 마우스 오버",
+          "url": "https://portal.atops.or.kr/dxp/main"
+        },
+        {
+          "id": 10,
+          "title": "낙엽 떨어지는 모션",
+          "url": "https://portal.atops.or.kr/dxp/main"
+        },
+        {
+          "id": 11,
+          "title": "배경 이미지 자동 변경",
+          "url": "https://portal.atops.or.kr/dxp/main"
+        },
+        {
+          "id": 12,
+          "title": "체크박스 모션",
+          "url": "https://portal.atops.or.kr/dxp/main"
+        },
+        {
+          "id": 13,
+          "title": "폰트 객체별 확대축소",
+          "url": "https://portal.atops.or.kr/dxp/main"
+        },
+        {
+          "id": 14,
+          "title": "박스 채워지는 효과",
+          "url": "https://portal.atops.or.kr/dxp/main"
+        },
+        {
+          "id": 15,
+          "title": "손글씨 효과",
+          "url": "https://portal.atops.or.kr/dxp/main"
+        },
+        {
+          "id": 16,
+          "title": "컬러풀 배경",
+          "url": "https://portal.atops.or.kr/dxp/main"
+        },
+        {
+          "id": 17,
+          "title": "HotSpot",
+          "url": "https://portal.atops.or.kr/dxp/main"
+        },
+        {
+          "id": 18,
+          "title": "전송 버튼 모션",
+          "url": "https://portal.atops.or.kr/dxp/main"
+        },
+        {
+          "id": 19,
+          "title": "원형 점선 회전 루프",
+          "url": "https://portal.atops.or.kr/dxp/main"
+        },
+        {
+          "id": 20,
+          "title": "라인따라 불빛이동",
+          "url": "https://portal.atops.or.kr/dxp/main"
+        },
+        {
+          "id": 21,
+          "title": "장바구니 버튼 모션",
+          "url": "https://portal.atops.or.kr/dxp/main"
+        }
+      ]
+    }
+  ]
+}
