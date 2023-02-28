@@ -27,7 +27,7 @@ const App = () => {
 
       <div className="container">
         <Visual />
-        <Work />
+        <Work type="slide" />
         <NavBar />
       </div>
 

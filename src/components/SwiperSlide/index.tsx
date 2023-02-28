@@ -1,22 +1,31 @@
-import DATA from "json/pf.json";
-
 import { color } from "Assets/StyleVariable";
-import { ScreenOutTitle } from "Assets/MixinStyle";
-import myImg from "Assets/Images/obj_my.png";
 import Icon from "Assets/Ico/Icons";
 
-// import {
-  
-// } from "./style";
+import { SwiperSection, SwiperTitle } from "./style";
 
-const SwiperSlide = () => {
-  console.log(DATA);
-  
-  return (
-    <div>
-      SwiperSlide
-    </div>
-  )
+interface Props {
+  data: Array<Swiper>;
+  title: string;
 }
 
-export default SwiperSlide
+interface Swiper {
+  id: number;
+  title: string;
+  type: string;
+  desc: string;
+  url: string;
+  ia: string;
+}
+
+const SwiperSlide = ({ title, data }: Props) => {
+  return (
+    <SwiperSection>
+      <SwiperTitle>
+        {title.replace("/n", "<br />")}
+      </SwiperTitle>
+      SwiperSlide
+    </SwiperSection>
+  );
+};
+
+export default SwiperSlide;
