@@ -7,7 +7,7 @@ export const VisualSection = styled.section`
   overflow: hidden;
 
   @media (min-width: ${width.minMobile}) {
-    padding: 120px 140px 60px;
+    padding: 100px 150px 40px;
   }
 
   @media (max-width: ${width.mobile}) {
@@ -19,7 +19,7 @@ export const VisualFigureGroup = styled.div`
   position: relative;
 
   @media (min-width: ${width.minMobile}) {
-    margin-top: 60px;
+    margin-top: 40px;
   }
 
   @media (max-width: ${width.mobile}) {
