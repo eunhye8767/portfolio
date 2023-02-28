@@ -1,5 +1,5 @@
 import DataWork from "db/DataWork";
-import SwiperSlide from "components/SwiperSlide";
+import SwiperSlider from "components/SwiperSlider";
 
 
 type Props = {
@@ -10,7 +10,7 @@ const Work = ({ type }: Props) => {
   return (
     <>
       {type === "slide" && (
-        <SwiperSlide title={DataWork.mainTitle} data={DataWork.slide} />
+        <SwiperSlider title={DataWork.mainTitle} data={DataWork.slide} />
       )}
       {type === "banner" && "배너용"}
     </>

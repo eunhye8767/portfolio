@@ -1,5 +1,5 @@
 const DataWork = {
-  mainTitle: "즐겁게/n일해요",
+  mainTitle: ["즐겁게","일해요"],
   slide: [
     {
       id: 1,
