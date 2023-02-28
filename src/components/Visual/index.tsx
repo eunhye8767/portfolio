@@ -31,8 +31,8 @@ const Visual = () => {
           </VisualFigure>
           <VisualResumeGroup>
             <VisualResumeBtn href={fileUrl}>
-              {resume.split("").map((txt) => (
-                <span className="txt">{txt}</span>
+              {resume.split("").map((txt, idx) => (
+                <span className="txt" key={idx}>{txt}</span>
               ))}
               <Icon size={16} color={color.white} icon="download" />
             </VisualResumeBtn>

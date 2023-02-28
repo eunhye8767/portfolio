@@ -7,11 +7,11 @@ export const VisualSection = styled.section`
   overflow: hidden;
 
   @media (min-width: ${width.minMobile}) {
-    padding: 100px 150px 40px;
+    padding: 100px 150px 50px;
   }
 
   @media (max-width: ${width.mobile}) {
-    padding: 60px 50px 30px;
+    padding: 60px 50px 40px;
   }
 `;
 
