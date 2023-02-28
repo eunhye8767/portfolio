@@ -1,7 +1,6 @@
 import DataWork from "db/DataWork";
 import SwiperSlider from "components/SwiperSlider";
 
-
 type Props = {
   type: string;
 };
