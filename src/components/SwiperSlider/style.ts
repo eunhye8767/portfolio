@@ -92,11 +92,11 @@ export const SwiperSection = styled.section`
   }
 
   @media (min-width: ${width.minMobile}) {
-    padding: 100px 0;
+    padding-top: 100px;
   }
 
   @media (max-width: ${width.mobile}) {
-    padding: 60px 0;
+    padding-top: 60px;
   }
 `;
 

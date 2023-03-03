@@ -28,6 +28,7 @@ const App = () => {
       <div className="container">
         <Visual />
         <Work type="slide" />
+        <Work type="banner" />
         <NavBar />
       </div>
 

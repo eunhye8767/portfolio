@@ -1,5 +1,6 @@
 import DataWork from "db/DataWork";
 import SwiperSlider from "components/SwiperSlider";
+import BannerList from "components/BannerList";
 
 type Props = {
   type: string;
@@ -11,7 +12,9 @@ const Work = ({ type }: Props) => {
       {type === "slide" && (
         <SwiperSlider title={DataWork.mainTitle} data={DataWork.slide} />
       )}
-      {type === "banner" && "배너용"}
+      {type === "banner" && (
+        <BannerList title={DataWork.subTitle} data={DataWork.banner} />
+      )}
     </>
   );
 };

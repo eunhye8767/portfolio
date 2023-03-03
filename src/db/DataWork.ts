@@ -1,5 +1,6 @@
 const DataWork = {
   mainTitle: ["즐겁게","일해요"],
+  subTitle: "프로모션",
   slide: [
     {
       id: 1,
@@ -87,46 +88,55 @@ const DataWork = {
     {
       id: 1,
       title: "수고했어, 올해도",
+      img:"https://via.placeholder.com/720x720/000/fff",
       url: "https://portal.atops.or.kr/dxp/main"
     },
     {
       id: 2,
       title: "휴대폰결제 이벤트",
+      img:"https://via.placeholder.com/720x720",
       url: "https://portal.atops.or.kr/dxp/main"
     },
     {
       id: 3,
       title: "멤버스이벤트 출석체크",
+      img:"https://via.placeholder.com/720x720/000/fff",
       url: "https://portal.atops.or.kr/dxp/main"
     },
     {
       id: 4,
       title: "휴대폰 첫결제 이벤트, 여름안에서",
+      img:"https://via.placeholder.com/720x720",
       url: "https://portal.atops.or.kr/dxp/main"
     },
     {
       id: 5,
       title: "휴대폰 첫결제 이벤트, 힘을내요 슈퍼팔월",
+      img:"https://via.placeholder.com/720x720/000/fff",
       url: "https://portal.atops.or.kr/dxp/main"
     },
     {
       id: 6,
       title: "혹시 휴대폰 결제를 아시나요?",
+      img:"https://via.placeholder.com/720x720",
       url: "https://portal.atops.or.kr/dxp/main"
     },
     {
       id: 7,
       title: "휴대폰 결제 이벤트, 11월엔 1원 더하세요",
+      img:"https://via.placeholder.com/720x720/000/fff",
       url: "https://portal.atops.or.kr/dxp/main"
     },
     {
       id: 8,
       title: "휴대폰 결제 이벤트, 새해에도 혜택이 소복",
+      img:"https://via.placeholder.com/720x720",
       url: "https://portal.atops.or.kr/dxp/main"
     },
     {
       id: 9,
       title: "휴대폰 결제 이벤트, 대봄단결",
+      img:"https://via.placeholder.com/720x720/000/fff",
       url: "https://portal.atops.or.kr/dxp/main"
     }
   ]
