@@ -17,8 +17,9 @@ export const NavSection = styled.nav`
   pointer-events: none;
 
   @media (min-width: ${width.minMobile}) {
-    ${SizeWH("100%", "80px")}
-    left: 0;
+    ${SizeWH("668px", "80px")}
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   @media (max-width: ${width.mobile}) {
@@ -28,8 +29,7 @@ export const NavSection = styled.nav`
 `;
 
 export const NavArea = styled.div`
-  ${SizeWH(width.minMobile, "100%")}
-
+  ${SizeWH("100%")}
   background: ${color.blue};
 
   @media (min-width: ${width.minMobile}) {

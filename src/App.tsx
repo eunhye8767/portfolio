@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import styled from "styled-components";
 
 import { screenOut, ObjFitCover } from "Assets/MixinStyle";
+import { width } from "Assets/StyleVariable";
 
 import Visual from "components/Visual";
 import Work from "components/Work";
@@ -47,13 +48,19 @@ const AppTitle = styled.h1`
 `;
 
 const AppBgSection = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  @media (min-width: ${width.mobile}) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 
-  img {
-    ${ObjFitCover}
+    img {
+      ${ObjFitCover}
+    }
   }
-`
+
+  @media (max-width: ${width.mobile}) {
+    display: none;
+  }
+`;

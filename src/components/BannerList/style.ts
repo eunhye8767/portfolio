@@ -10,6 +10,7 @@ import {
 import { width, color } from "Assets/StyleVariable";
 
 export const BannerListSection = styled.section`
+padding-bottom: 200px !important;
   @media (min-width: ${width.minMobile}) {
     padding: 100px 50px 0;
   }
