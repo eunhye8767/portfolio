@@ -11,11 +11,11 @@ import { width, color } from "Assets/StyleVariable";
 
 export const BannerListSection = styled.section`
   @media (min-width: ${width.minMobile}) {
-    padding-top: 100px;
+    padding: 100px 50px 0;
   }
 
   @media (max-width: ${width.mobile}) {
-    padding-top: 60px;
+    padding: 60px 20px 0;
   }
 `;
 

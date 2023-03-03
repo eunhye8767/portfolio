@@ -1,7 +1,7 @@
 import reset from "styled-reset";
 import { createGlobalStyle } from "styled-components";
 import { flexCenter, screenOut } from "Assets/MixinStyle";
-import { max, width } from "Assets/StyleVariable";
+import { max, width, color } from "Assets/StyleVariable";
 
 import "Assets/Fonts/Fonts.css";
 
@@ -91,7 +91,10 @@ const GlobalStyle = createGlobalStyle`
   }
 
   .container {
+    position: relative;
     width: 100%;
+    background: ${color.white};
+    z-index: 1;
 
     @media (min-width: ${width.minMobile}) {
       max-width: ${width.minMobile};

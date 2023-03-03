@@ -15,6 +15,10 @@ export const SwiperSection = styled.section`
     display: flex;
     flex-direction: column-reverse;
 
+    @media (min-width: ${width.minMobile}) {
+      padding: 0 50px;
+    }
+    
     @media (max-width: ${width.mobile}) {
       padding: 0 20px;
     }
@@ -46,7 +50,7 @@ export const SwiperSection = styled.section`
         background-image: url("/images/ico_swiper_prev.svg");
 
         @media (min-width: ${width.minMobile}) {
-          right: 230px;
+          right: 140px;
         }
 
         @media (max-width: ${width.mobile}) {
@@ -58,7 +62,7 @@ export const SwiperSection = styled.section`
         background-image: url("/images/ico_swiper_next.svg");
 
         @media (min-width: ${width.minMobile}) {
-          right: 140px;
+          right: 50px;
         }
 
         @media (max-width: ${width.mobile}) {
@@ -77,7 +81,7 @@ export const SwiperSection = styled.section`
         ${SizeWH("60px", "30px")}
 
         top: calc((72px * 2) - 30px);
-        right: 170px;
+        right: 80px;
       }
 
       @media (max-width: ${width.mobile}) {
@@ -113,12 +117,10 @@ export const SwiperTitle = styled.h2`
 
   @media (min-width: ${width.minMobile}) {
     margin-bottom: 50px;
-    padding: 0 150px;
   }
 
   @media (max-width: ${width.mobile}) {
     margin-bottom: 30px;
-    padding-left: 30px;
 
     span {
       font-size: 40px;

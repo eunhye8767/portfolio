@@ -1,12 +1,13 @@
 import { useEffect } from "react";
 import styled from "styled-components";
 
-import { screenOut } from "Assets/MixinStyle";
-import Icon from "Assets/Ico/Icons";
+import { screenOut, ObjFitCover } from "Assets/MixinStyle";
 
 import Visual from "components/Visual";
 import Work from "components/Work";
 import NavBar from "components/NavBar";
+
+import MainBgImg from "Assets/Images/bg_main.jpg";
 
 const App = () => {
   const setScreenSize = () => {
@@ -25,20 +26,16 @@ const App = () => {
     <section className="App">
       <AppTitle>은혜의 포트폴리오</AppTitle>
 
+      <AppBgSection>
+        <img src={MainBgImg} alt="메인bg" />
+      </AppBgSection>
+
       <div className="container">
         <Visual />
         <Work type="slide" />
         <Work type="banner" />
         <NavBar />
       </div>
-
-      <p>1234567890!AVD *&^%@#$%</p>
-      <table>
-        <caption> zz</caption>
-      </table>
-      
-      <Icon size={30} color="red" icon="arrowLeft" />
-      <Icon size={30} color="red" icon="arrowRight" />
     </section>
   );
 };
@@ -48,3 +45,15 @@ export default App;
 const AppTitle = styled.h1`
   ${screenOut}
 `;
+
+const AppBgSection = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  img {
+    ${ObjFitCover}
+  }
+`
