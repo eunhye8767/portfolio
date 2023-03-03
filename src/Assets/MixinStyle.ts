@@ -61,7 +61,7 @@ export const FontStyle = (
   weight = 400,
   color = "#000",
   lineH = "1.6",
-  spac = 0.06
+  spac = -0.06
 ) => css`
   font-size: ${size}px;
   font-weight: ${weight};
@@ -90,11 +90,11 @@ export const MultiEllipsis = (
   color = "#000"
 ) => css`
   display: -webkit-box;
-  max-height: ${lineH * lines};
-  font-size: ${size * 0.1}rem;
+  max-height: ${lineH * lines}px;
+  font-size: ${size}px;
   font-weight: ${weight};
   color: ${color};
-  line-height: ${lineH};
+  line-height: ${lineH}px;
   overflow: hidden;
   -webkit-line-clamp: ${lines};
   -webkit-box-orient: vertical;

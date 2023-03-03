@@ -1,11 +1,11 @@
 export const max = {
   vh: "calc(var(--vh, 1vh) * 100)",
-}
+};
 
 export const width = {
   minMobile: "768px",
   mobile: "767px",
-}
+};
 
 export const color = {
   blue: "#2d4dfe",
@@ -15,4 +15,7 @@ export const color = {
   purple: "#775be5",
   white: "#fff",
   black: "#06161c",
-}
+  line: "#e0e0e0",
+  grey: "#555",
+  lightGrey: "#999"
+};

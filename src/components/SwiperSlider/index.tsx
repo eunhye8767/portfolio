@@ -1,6 +1,3 @@
-import { color } from "Assets/StyleVariable";
-import Icon from "Assets/Ico/Icons";
-
 // Import Swiper React components
 import { Navigation, Pagination, A11y } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -13,6 +10,8 @@ import "swiper/css/scrollbar";
 
 import { SwiperSection, SwiperTitle } from "./style";
 
+import SwiperItem from "./SwiperItem";
+
 interface Props {
   data: Array<TypeSwiper>;
   title: string[];
@@ -20,8 +19,9 @@ interface Props {
 
 interface TypeSwiper {
   id: number;
+  img: string;
   title: string;
-  type: string;
+  type: string[];
   desc: string;
   url: string;
   ia: string;
@@ -36,8 +36,6 @@ const SwiperSlider = ({ title, data }: Props) => {
         slidesPerView={1.2}
         navigation
         pagination={{ type: "fraction" }}
-        onSwiper={(swiper) => console.log(swiper)}
-        onSlideChange={() => console.log("slide change")}
       >
         <SwiperTitle>
           {title.map((tit: string, idx: number) => (
@@ -45,13 +43,22 @@ const SwiperSlider = ({ title, data }: Props) => {
           ))}
         </SwiperTitle>
 
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
-        <SwiperSlide>Slide 6</SwiperSlide>
-        <SwiperSlide>Slide 7</SwiperSlide>
+        {data.map((item: TypeSwiper, idx: number) => {
+          const { title, img, type, desc, url, ia } = item;
+
+          return (
+            <SwiperSlide key={item.id}>
+              <SwiperItem
+                title={title}
+                img={img}
+                type={type}
+                desc={desc}
+                url={url}
+                ia={ia}
+              />
+            </SwiperSlide>
+          );
+        })}
       </Swiper>
     </SwiperSection>
   );

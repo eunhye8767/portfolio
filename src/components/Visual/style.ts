@@ -69,11 +69,11 @@ export const VisualTitleGroup = styled.h3`
   align-items: center;
 
   small {
-    ${FontStyle(24, 400, color.white, "1")}
+    ${FontStyle(24, 400, color.white, "1", 0.06)}
   }
 
   strong {
-    ${FontStyle(36, 800, color.white, "1")}
+    ${FontStyle(36, 800, color.white, "1", 0.06)}
     margin-top: 10px;
   }
 
