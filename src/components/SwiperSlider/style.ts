@@ -2,11 +2,11 @@ import styled from "styled-components";
 import {
   flexAlignCen,
   flexColumn,
-  flexWrap,
   FontStyle,
   screenOut,
   SizeWH,
   MultiEllipsis,
+  Ellipsis,
 } from "Assets/MixinStyle";
 import { width, color } from "Assets/StyleVariable";
 
@@ -15,12 +15,13 @@ export const SwiperSection = styled.section`
     display: flex;
     flex-direction: column-reverse;
 
+    @media (max-width: ${width.mobile}) {
+      padding: 0 20px;
+    }
+
     &-button {
       &-prev,
       &-next {
-        ${SizeWH("30px")}
-
-        top: calc((72px * 2) - 30px);
         left: initial;
         background: no-repeat center / contain;
         margin: 0;
@@ -29,27 +30,64 @@ export const SwiperSection = styled.section`
         &::after {
           display: none;
         }
+
+        @media (min-width: ${width.minMobile}) {
+          ${SizeWH("30px")}
+          top: calc((72px * 2) - 30px);
+        }
+
+        @media (max-width: ${width.mobile}) {
+          ${SizeWH("20px")}
+          top: calc((52px * 2) - 30px);
+        }
       }
 
       &-prev {
-        right: 230px;
         background-image: url("/images/ico_swiper_prev.svg");
+
+        @media (min-width: ${width.minMobile}) {
+          right: 230px;
+        }
+
+        @media (max-width: ${width.mobile}) {
+          right: 80px;
+        }
       }
 
       &-next {
-        right: 140px;
         background-image: url("/images/ico_swiper_next.svg");
+
+        @media (min-width: ${width.minMobile}) {
+          right: 140px;
+        }
+
+        @media (max-width: ${width.mobile}) {
+          right: 20px;
+        }
       }
     }
 
     &-pagination-fraction {
-      ${SizeWH("60px", "30px")}
       ${FontStyle(20, 400, color.black, "30px")}
 
       bottom: initial;
       left: initial;
-      top: calc((72px * 2) - 30px);
-      right: 170px;
+
+      @media (min-width: ${width.minMobile}) {
+        ${SizeWH("60px", "30px")}
+
+        top: calc((72px * 2) - 30px);
+        right: 170px;
+      }
+
+      @media (max-width: ${width.mobile}) {
+        ${SizeWH("40px", "20px")}
+
+        top: calc((52px * 2) - 30px);
+        right: 40px;
+        font-size: 16px;
+        line-height: 20px;
+      }
     }
   }
 
@@ -58,12 +96,12 @@ export const SwiperSection = styled.section`
   }
 
   @media (max-width: ${width.mobile}) {
+    padding: 60px 0;
   }
 `;
 
 export const SwiperTitle = styled.h2`
   ${flexColumn}
-  margin-bottom: 50px;
 
   span {
     ${FontStyle(60, 400, color.black, "72px")}
@@ -74,30 +112,58 @@ export const SwiperTitle = styled.h2`
   }
 
   @media (min-width: ${width.minMobile}) {
+    margin-bottom: 50px;
     padding: 0 150px;
   }
 
   @media (max-width: ${width.mobile}) {
+    margin-bottom: 30px;
+    padding-left: 30px;
+
+    span {
+      font-size: 40px;
+      line-height: 52px;
+    }
   }
 `;
 
 export const SwiperSlideItem = styled.div`
   box-shadow: inset 0 0 0 1px ${color.line};
-  border-radius: 20px;
+
+  @media (min-width: ${width.minMobile}) {
+    border-radius: 20px;
+  }
+
+  @media (max-width: ${width.mobile}) {
+    border-radius: 10px;
+  }
 `;
 
 export const SlideItemFigure = styled.figure`
   position: relative;
-  border-radius: 20px;
   overflow: hidden;
 
   figcaption {
     ${screenOut}
   }
+
+  @media (min-width: ${width.minMobile}) {
+    border-radius: 20px;
+  }
+
+  @media (max-width: ${width.mobile}) {
+    border-radius: 10px;
+  }
 `;
 
 export const SlideItemConts = styled.div`
-  padding: 30px;
+  @media (min-width: ${width.minMobile}) {
+    padding: 30px;
+  }
+
+  @media (max-width: ${width.mobile}) {
+    padding: 20px;
+  }
 `;
 
 export const SlideItemType = styled.p`
@@ -120,22 +186,42 @@ export const SlideItemType = styled.p`
 `;
 
 export const SlideItemTitle = styled.p`
-  ${MultiEllipsis(30, 40, 2, "700", color.black)}
-  height: 80px;
-
   a {
     font: inherit;
+  }
+
+  @media (min-width: ${width.minMobile}) {
+    ${MultiEllipsis(30, 40, 2, "700", color.black)}
+    height: 80px;
+  }
+
+  @media (max-width: ${width.mobile}) {
+    ${MultiEllipsis(20, 26, 2, "700", color.black)}
+    height: 52px;
+
+    span {
+      display: none;
+    }
   }
 `;
 
 export const SlideItemDesc = styled.p`
-  ${FontStyle(20, 400, color.black, "1.4")}
-  margin-top: 20px;
+  ${Ellipsis}
+
+  @media (min-width: ${width.minMobile}) {
+    ${FontStyle(20, 400, color.black, "1.4")}
+    margin-top: 20px;
+  }
+
+  @media (max-width: ${width.mobile}) {
+    ${FontStyle(14, 400, color.black, "1.4")}
+    margin-top: 10px;
+  }
 `;
 
 export const SlideItemUrl = styled.p`
   ${flexAlignCen}
-  
+
   margin-top: 20px;
   padding-top: 20px;
   border-top: 1px solid ${color.line};
@@ -146,6 +232,10 @@ export const SlideItemUrl = styled.p`
     span {
       ${FontStyle(16, 400, color.grey, "1")}
       margin-left: 4px;
+
+      @media (max-width: ${width.mobile}) {
+        font-size: 14px;
+      }
     }
 
     & + a {

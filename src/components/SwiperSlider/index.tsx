@@ -32,10 +32,16 @@ const SwiperSlider = ({ title, data }: Props) => {
     <SwiperSection>
       <Swiper
         modules={[Navigation, Pagination, A11y]}
-        spaceBetween={50}
-        slidesPerView={1.2}
+        spaceBetween={20}
+        slidesPerView={1.1}
         navigation
         pagination={{ type: "fraction" }}
+        breakpoints={{
+          "768": {
+            slidesPerView: 1.2,
+            spaceBetween: 40,
+          },
+        }}
       >
         <SwiperTitle>
           {title.map((tit: string, idx: number) => (

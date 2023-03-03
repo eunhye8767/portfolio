@@ -23,6 +23,8 @@ interface Props {
 }
 
 const SwiperItem = ({ title, img, type, desc, url, ia }: Props) => {
+  const links = [url, ia];
+
   return (
     <SwiperSlideItem>
       <SlideItemFigure>
@@ -54,17 +56,14 @@ const SwiperItem = ({ title, img, type, desc, url, ia }: Props) => {
         <SlideItemDesc>{desc}</SlideItemDesc>
 
         <SlideItemUrl>
-          {url.length > 0 && (
-            <Link to={url} target="_blank">
-              <Icon size={16} color={color.lightGrey} icon="link" />
-              <span>WEB</span>
-            </Link>
-          )}
-          {ia.length > 0 && (
-            <Link to={ia} target="_blank">
-              <Icon size={16} color={color.lightGrey} icon="link" />
-              <span>화면목록(IA)</span>
-            </Link>
+          {links.map(
+            (link: string, idx: number) =>
+              link.length > 0 && (
+                <Link to={link} target="_blank" key={link + idx}>
+                  <Icon size={16} color={color.lightGrey} icon="link" />
+                  <span>{idx === 0 ? "WEB" : "화면목록(IA)"}</span>
+                </Link>
+              )
           )}
         </SlideItemUrl>
       </SlideItemConts>
