@@ -53,4 +53,9 @@ export const BannerListGroup = styled.ul`
 export const BannerListTitle = styled.h3`
   ${FontStyle(40, 700, color.black, "1")}
   padding-bottom: 40px;
+
+  @media (max-width: ${width.mobile}) {
+    padding-bottom: 20px;
+    font-size: 28px;
+  }
 `;
