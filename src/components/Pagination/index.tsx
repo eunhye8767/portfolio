@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Props, TypeItems } from "Assets/CommonType";
 
-const Pagination = ({ data }: Props) => {
+interface PropsPagi extends Props {
+  type: string;
+}
+
+const Pagination = ({ data, type}: PropsPagi) => {
   const fix = { total: data.length, count: 5 };
   const [newData, setNewData] = useState<any | TypeItems>([]);
   const [numCount, setNumCount] = useState(1);

@@ -69,7 +69,7 @@ const ItemsList = ({ title, data }: Props) => {
           })}
         </ItemsListGroup> */}
       </ItemsListArea>
-      <Pagination data={data} />
+      <Pagination data={data} type="pagi" />
       {/* {count !== maxCount && <Pagination />} */}
     </ItemsListSection>
   );

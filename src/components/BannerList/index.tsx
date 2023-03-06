@@ -13,6 +13,8 @@ import {
   BannerBtnMore,
 } from "./style";
 
+import Pagination from "components/Pagination"
+
 const BannerList = ({ title, data }: Props) => {
   const [count, setCount] = useState(1);
   const [maxCount, setMaxCount] = useState(0);
@@ -70,6 +72,8 @@ const BannerList = ({ title, data }: Props) => {
             <span>더보기</span>
           </BannerBtnMore>
         )}
+
+        <Pagination data={data} type="more" />
       </BannerListArea>
     </BannerListSection>
   );
