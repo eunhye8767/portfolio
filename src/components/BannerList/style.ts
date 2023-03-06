@@ -1,8 +1,5 @@
 import styled from "styled-components";
 import {
-  flexCenter,
-  flexColumn,
-  flexJustCen,
   flexWrap,
   FontStyle,
   SizeWH,
