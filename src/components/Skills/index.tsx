@@ -1,12 +1,10 @@
+import { TypeProps } from "Assets/CommonType";
+
 import DataSkills from "db/DataSkills";
 import SwiperSlider from "components/SwiperSlider";
 import ItemsList from "components/ItemsList";
 
-type Props = {
-  type: string;
-};
-
-const Work = ({ type }: Props) => {
+const Work = ({ type }: TypeProps) => {
   return (
     <>
       {type === "slide" && (

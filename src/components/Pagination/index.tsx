@@ -1,14 +1,5 @@
 import React, { useEffect, useState } from "react";
-
-interface Props {
-  data: Array<TypeItems>;
-}
-
-interface TypeItems {
-  id: number;
-  title: string;
-  url: string;
-}
+import { Props, TypeItems } from "Assets/CommonType";
 
 const Pagination = ({ data }: Props) => {
   const fix = { total: data.length, count: 5 };

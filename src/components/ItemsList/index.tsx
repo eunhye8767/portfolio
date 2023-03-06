@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { Props, TypeItems } from "Assets/CommonType";
 
 import {
   ItemsListSection,
@@ -10,17 +11,6 @@ import {
 
 
 import Pagination from "components/Pagination"
-
-interface Props {
-  data: Array<TypeItems>;
-  title: string;
-}
-
-interface TypeItems {
-  id: number;
-  title: string;
-  url: string;
-}
 
 const ItemsList = ({ title, data }: Props) => {
   

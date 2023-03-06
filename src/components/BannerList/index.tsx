@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { Props, TypeItems } from "Assets/CommonType";
 
 import { color } from "Assets/StyleVariable";
 import Icon from "Assets/Ico/Icons";
@@ -11,18 +12,6 @@ import {
   BannerListTitle,
   BannerBtnMore,
 } from "./style";
-
-interface Props {
-  data: Array<TypeBanner>;
-  title: string;
-}
-
-interface TypeBanner {
-  id: number;
-  title: string;
-  img: string;
-  url: string;
-}
 
 const BannerList = ({ title, data }: Props) => {
   const [count, setCount] = useState(1);
@@ -62,7 +51,7 @@ const BannerList = ({ title, data }: Props) => {
       <BannerListTitle>{title}</BannerListTitle>
       <BannerListArea>
         <BannerListGroup>
-          {data.map((item: TypeBanner, idx: number) => {
+          {data.map((item: TypeItems, idx: number) => {
             const { id, title, img, url } = item;
             if (4 * count <= idx) return false;
             return (
