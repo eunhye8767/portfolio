@@ -1,11 +1,15 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+import { color } from "Assets/StyleVariable";
+import Icon from "Assets/Ico/Icons";
+
 import {
   BannerListSection,
   BannerListArea,
   BannerListGroup,
   BannerListTitle,
+  BannerBtnMore,
 } from "./style";
 
 interface Props {
@@ -72,7 +76,10 @@ const BannerList = ({ title, data }: Props) => {
         </BannerListGroup>
 
         {count !== maxCount && (
-          <button onClick={handleBannerAdd}>더보기</button>
+          <BannerBtnMore onClick={handleBannerAdd}>
+            <Icon size={10} color={color.grey} icon="arrowDown" />
+            <span>더보기</span>
+          </BannerBtnMore>
         )}
       </BannerListArea>
     </BannerListSection>

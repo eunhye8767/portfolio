@@ -1,12 +1,13 @@
 // 사용할 icon 이름들
 export type iconName =
   | "download"
+  | "arrowTop"
+  | "arrowDown"
   | "arrowLeft"
   | "arrowRight"
   | "about"
   | "work"
   | "skills"
-  | "arrowTop"
   | "link";
 
 type icon = {
@@ -42,6 +43,10 @@ const IconSet: Record<iconName, icon> = {
   },
   arrowTop: {
     path: "M0 16.67l2.829 2.83 9.175-9.339 9.167 9.339 2.829-2.83-11.996-12.17z",
+    viewBox: "0 0 24 24",
+  },
+  arrowDown: {
+    path: "M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z",
     viewBox: "0 0 24 24",
   },
   link: {
