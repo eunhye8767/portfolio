@@ -6,6 +6,7 @@ import { width } from "Assets/StyleVariable";
 
 import Visual from "components/Visual";
 import Work from "components/Work";
+import Skills from "components/Skills";
 import NavBar from "components/NavBar";
 
 import MainBgImg from "Assets/Images/bg_main.jpg";
@@ -35,6 +36,8 @@ const App = () => {
         <Visual />
         <Work type="slide" />
         <Work type="banner" />
+        <Skills type="slide" />
+        <Skills type="list" />
         <NavBar />
       </div>
     </section>
