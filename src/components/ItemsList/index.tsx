@@ -5,7 +5,8 @@ import { color } from "Assets/StyleVariable";
 import Icon from "Assets/Ico/Icons";
 
 import {
-  ItemsListSection
+  ItemsListSection,
+  ItemsListTitle
 } from "./style";
 
 interface Props {
@@ -54,7 +55,7 @@ const ItemsList = ({ title, data }: Props) => {
 
   return (
     <ItemsListSection>
-      {/* <BannerListTitle>{title}</BannerListTitle> */}
+      <ItemsListTitle>{title}</ItemsListTitle>
           {/* {data.map((item: TypeBanner, idx: number) => {
             const { id, title, img, url } = item;
             if (4 * count <= idx) return false;
