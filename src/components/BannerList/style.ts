@@ -1,11 +1,7 @@
 import styled from "styled-components";
-import {
-  flexWrap,
-  FontStyle,
-  SizeWH,
-} from "Assets/MixinStyle";
-import { width, color } from "Assets/StyleVariable";
-import { commonSection, subTitle } from "Assets/CommonStyle";
+import { flexWrap } from "Assets/MixinStyle";
+import { width } from "Assets/StyleVariable";
+import { commonSection, subTitle, moreBtn } from "Assets/CommonStyle";
 
 export const BannerListSection = styled.section`
   ${commonSection}
@@ -13,6 +9,10 @@ export const BannerListSection = styled.section`
 
 export const BannerListTitle = styled.h3`
   ${subTitle}
+`;
+
+export const BannerBtnMore = styled.button`
+  ${moreBtn}
 `;
 
 export const BannerListArea = styled.div`
@@ -46,30 +46,3 @@ export const BannerListGroup = styled.ul`
     }
   }
 `;
-
-export const BannerBtnMore = styled.button`
-  border: 1px solid ${color.line};
-
-  span {
-    ${FontStyle(16, 400, color.black, "1")}
-    margin-left: 10px;
-  }
-
-  @media (min-width: ${width.minMobile}) {
-    ${SizeWH("100%", "60px")}
-
-    margin-top: 40px;
-    border-radius: 20px;
-  }
-
-  @media (max-width: ${width.mobile}) {
-    ${SizeWH("100%", "50px")}
-
-    margin-top: 20px;
-    border-radius: 10px;
-
-    span {
-      font-size: 14px;
-    }
-  }
-`
