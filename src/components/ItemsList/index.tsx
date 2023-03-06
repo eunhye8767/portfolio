@@ -1,16 +1,15 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-import { color } from "Assets/StyleVariable";
-import Icon from "Assets/Ico/Icons";
-
 import {
   ItemsListSection,
   ItemsListTitle,
   ItemsListArea,
   ItemsListGroup,
-  ItemsBtnMore
 } from "./style";
+
+
+import Pagination from "components/Pagination"
 
 interface Props {
   data: Array<TypeItems>;
@@ -24,43 +23,44 @@ interface TypeItems {
 }
 
 const ItemsList = ({ title, data }: Props) => {
-  const [count, setCount] = useState(1);
-  const [maxCount, setMaxCount] = useState(0);
+  
+  // const [count, setCount] = useState(1);
+  // const [maxCount, setMaxCount] = useState(0);
 
-  const CheckDataLength = () => {
-    let MAX = 0,
-      count = 1;
-    const length = data.length;
-    const newData = [];
+  // const CheckDataLength = () => {
+  //   let MAX = 0,
+  //     count = 1;
+  //   const length = data.length;
+  //   const newData = [];
 
-    if (length % 5 === 0) {
-      MAX = length / 5;
-    } else {
-      MAX = Math.floor(length / 5) + 1;
-    }
+  //   if (length % 5 === 0) {
+  //     MAX = length / 5;
+  //   } else {
+  //     MAX = Math.floor(length / 5) + 1;
+  //   }
 
-    setMaxCount(MAX);
+  //   setMaxCount(MAX);
 
-    for (let i = 0; i < MAX; i++) {
-      const copyData = [...data];
-      newData.push(copyData.slice(i * 5, count * 5));
-      count++;
-    }
-  };
+  //   for (let i = 0; i < MAX; i++) {
+  //     const copyData = [...data];
+  //     newData.push(copyData.slice(i * 5, count * 5));
+  //     count++;
+  //   }
+  // };
 
-  const handleBannerAdd = () => {
-    setCount((prev) => prev + 1);
-  };
+  // const handleBannerAdd = () => {
+  //   setCount((prev) => prev + 1);
+  // };
 
-  useEffect(() => {
-    CheckDataLength();
-  }, []);
+  // useEffect(() => {
+  //   CheckDataLength();
+  // }, []);
 
   return (
     <ItemsListSection>
       <ItemsListTitle>{title}</ItemsListTitle>
       <ItemsListArea>
-        <ItemsListGroup
+        {/* <ItemsListGroup
           className={count === maxCount ? "is-not-more" : "is-more"}
         >
           {data.map((item: TypeItems, idx: number) => {
@@ -77,15 +77,10 @@ const ItemsList = ({ title, data }: Props) => {
               </li>
             );
           })}
-        </ItemsListGroup>
+        </ItemsListGroup> */}
       </ItemsListArea>
-
-      {count !== maxCount && (
-          <ItemsBtnMore onClick={handleBannerAdd}>
-            <Icon size={10} color={color.grey} icon="arrowDown" />
-            <span>더보기</span>
-          </ItemsBtnMore>
-        )}
+      <Pagination data={data} />
+      {/* {count !== maxCount && <Pagination />} */}
     </ItemsListSection>
   );
 };
