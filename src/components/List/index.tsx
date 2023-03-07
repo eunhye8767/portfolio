@@ -20,11 +20,9 @@ const List = ({ title, data, more }: PropsList) => {
   const [maxNumber, setMaxNumber] = useState<number>(0);
 
   const checkMaxNumber = () => {
-    if (!more) {
-      dataTotal % dataCount === 0
-        ? setMaxNumber(dataTotal / dataCount)
-        : setMaxNumber(Math.floor(dataTotal / dataCount) + 1);
-    }
+    dataTotal % dataCount === 0
+      ? setMaxNumber(dataTotal / dataCount)
+      : setMaxNumber(Math.floor(dataTotal / dataCount) + 1);
   };
 
   const checkNewData = () => {
@@ -41,7 +39,8 @@ const List = ({ title, data, more }: PropsList) => {
   };
 
   const handleMoreBtn = () => {
-    setCountNumber((prev) => prev + 1);
+    if (countNumber < maxNumber) setCountNumber((prev) => prev + 1);
+    if (countNumber < maxNumber) console.log("zz");
   };
 
   useEffect(() => {
@@ -49,21 +48,32 @@ const List = ({ title, data, more }: PropsList) => {
   }, []);
 
   useEffect(() => {
-    checkNewData();
+    if (!more) checkNewData();
   }, [maxNumber]);
+
+  // useEffect(() => {
+  //   console.log(countNumber, maxNumber);
+
+  // }, [countNumber]);
 
   // useEffect(() => {
   //   console.log(title, newData);
   // }, [newData]);
 
   return (
-    <ListSection>
+    <ListSection
+      className={more ? "" : countNumber < maxNumber ? "is-more" : ""}
+    >
       <ListTitle>{title}</ListTitle>
 
       {more ? (
         <>
-          <ListMore data={data} dataCount={dataCount} countNumber={countNumber} />
-          <BtnMore onMoreBtn={handleMoreBtn} />
+          <ListMore
+            data={data}
+            dataCount={dataCount}
+            countNumber={countNumber}
+          />
+          {countNumber < maxNumber && <BtnMore onMoreBtn={handleMoreBtn} />}
         </>
       ) : (
         <>

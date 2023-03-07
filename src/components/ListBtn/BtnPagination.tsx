@@ -1,13 +1,4 @@
-import React from "react";
-
-import { color } from "Assets/StyleVariable";
-import Icon from "Assets/Ico/Icons";
-
-import { PaginationMoreSection, PaginationMoreButton } from "./style";
-
-interface ButtonProps {
-  onMoreBtn: React.MouseEventHandler<HTMLButtonElement>;
-}
+import React from 'react'
 
 const BtnPagination = () => {
   return (
