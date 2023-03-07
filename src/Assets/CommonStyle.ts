@@ -13,7 +13,7 @@ export const commonSection = css`
 `;
 
 export const subTitle = css`
-  ${FontStyle(40, 700, color.black, "1")}
+  ${FontStyle(36, 700, color.black, "1")}
   padding-bottom: 40px;
 
   @media (max-width: ${width.mobile}) {

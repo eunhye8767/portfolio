@@ -108,7 +108,7 @@ export const SwiperTitle = styled.h2`
   ${flexColumn}
 
   span {
-    ${FontStyle(60, 400, color.black, "72px")}
+    ${FontStyle(50, 400, color.black, "62px")}
 
     &:nth-of-type(2) {
       font-weight: 700;
