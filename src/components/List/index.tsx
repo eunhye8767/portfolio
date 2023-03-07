@@ -31,12 +31,13 @@ const List = ({ title, data, more }: PropsList) => {
     const arrData = [];
 
     for (let i = 0; i < maxNumber; i++) {
-      const copyData = [...data];
+      const copyData = [...data].reverse();
       arrData.push(copyData.slice(i * dataCount, count * dataCount));
       if (count <= maxNumber) count++;
     }
 
     setNewData(arrData);
+    setCountNumber(0);
   };
 
   const handleMoreBtn = () => {
@@ -44,11 +45,11 @@ const List = ({ title, data, more }: PropsList) => {
   };
 
   const handlePaginationPrev = () => {
-    console.log("prev");
+    if (0 < countNumber) setCountNumber((prev) => prev - 1);
   };
 
   const handlePaginationNext = () => {
-    console.log("next");
+    if (countNumber < maxNumber - 1) setCountNumber((prev) => prev + 1);
   };
 
   useEffect(() => {
@@ -61,7 +62,15 @@ const List = ({ title, data, more }: PropsList) => {
 
   return (
     <ListSection
-      className={more ? "" : countNumber < maxNumber ? "is-more" : ""}
+      className={
+        more
+          ? ""
+          : countNumber === 0
+          ? "is-disabled-prev"
+          : countNumber === maxNumber - 1
+          ? "is-disabled-next"
+          : ""
+      }
     >
       <ListTitle>{title}</ListTitle>
 
@@ -77,13 +86,16 @@ const List = ({ title, data, more }: PropsList) => {
       ) : (
         <>
           <ListPagination
-            data={newData}
+            data={newData[countNumber]}
             dataCount={dataCount}
+            countNumber={countNumber}
             maxNumber={maxNumber}
           />
           <BtnPagination
             onPaginationPrev={handlePaginationPrev}
             onPaginationNext={handlePaginationNext}
+            countNumber={countNumber}
+            maxNumber={maxNumber}
           />
         </>
       )}

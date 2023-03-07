@@ -21,6 +21,6 @@ export interface ButtonProps {
 
 export interface PropsList extends Props {
   dataCount: number;
-  countNumber?:number | undefined;
+  countNumber?:number;
   maxNumber?:number;
 }

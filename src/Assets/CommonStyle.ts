@@ -40,3 +40,11 @@ export const btnInTxt = css`
     font-size: 14px;
   }
 `;
+
+export const btnDisabled = css`
+  cursor: not-allowed;
+  
+  span {
+    opacity: 0.2;
+  }
+`

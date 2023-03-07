@@ -1,13 +1,5 @@
 import styled from "styled-components";
-import {
-  flexCenter,
-  flexColumn,
-  flexJustCen,
-  flexWrap,
-  flexJustBet,
-  FontStyle,
-  SizeWH,
-} from "Assets/MixinStyle";
+import { flexWrap, flexJustBet, FontStyle, SizeWH } from "Assets/MixinStyle";
 import { width, color } from "Assets/StyleVariable";
 import { commonSection, subTitle } from "Assets/CommonStyle";
 
@@ -60,14 +52,13 @@ export const ListPaginationSection = styled.div`
 
 export const ListPaginationGroup = styled.ul`
   > li {
-    &:not(:last-of-type) {
-      border-bottom: 1px solid ${color.line};
-    }
+    border-bottom: 1px solid ${color.line};
+
     a {
       display: block;
       padding: 20px 0;
 
-      .date {
+      .id {
         ${FontStyle(16, 400, color.grey, "1")}
         margin-bottom: 10px;
 
