@@ -99,11 +99,11 @@ const GlobalStyle = createGlobalStyle`
     @media (min-width: ${width.minMobile}) {
       max-width: ${width.minMobile};
       margin: 0 auto;
-      padding-bottom: 200px;
+      padding-bottom: 120px;
     }
 
     @media (max-width: ${width.mobile}) {
-      padding-bottom: 140px;
+      padding-bottom: 100px;
     }
   }
 `;
