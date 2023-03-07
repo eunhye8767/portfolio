@@ -52,3 +52,50 @@ export const ListMoreGroup = styled.ul`
     }
   }
 `;
+
+export const ListPaginationSection = styled.div`
+  border-top: 2px solid ${color.black};
+  overflow: hidden;
+`;
+
+export const ListPaginationGroup = styled.ul`
+  > li {
+    &:not(:last-of-type) {
+      border-bottom: 1px solid ${color.line};
+    }
+    a {
+      display: block;
+      padding: 20px 0;
+
+      .date {
+        ${FontStyle(16, 400, color.grey, "1")}
+        margin-bottom: 10px;
+
+        @media (max-width: ${width.mobile}) {
+          font-size: 14px;
+        }
+      }
+
+      .tit {
+        ${flexJustBet}
+
+        span {
+          ${FontStyle(24, 700, color.black, "1.4")}
+
+          @media (max-width: ${width.mobile}) {
+            font-size: 18px;
+          }
+        }
+
+        &::after {
+          ${SizeWH("12px")}
+
+          content: "";
+          flex-shrink: 0;
+          margin: calc(((20px * 1.4) - 12px) / 2) 0 0 10px;
+          background: url(${ArrowRight}) no-repeat center / contain;
+        }
+      }
+    }
+  }
+`;

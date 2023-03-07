@@ -6,7 +6,7 @@ import { ListSection, ListTitle } from "./style";
 import ListMore from "./ListMore";
 import ListPagination from "./ListPagination";
 import BtnMore from "components/ListBtn/BtnMore";
-import BtnPagination from "components/ListBtn/TypePagi";
+import BtnPagination from "components/ListBtn/BtnPagination";
 
 interface PropsList extends Props {
   more: boolean;

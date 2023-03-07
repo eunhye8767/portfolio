@@ -1,11 +1,13 @@
-import React from 'react'
+import React from "react";
+
+import { ListPaginationSection, ListPaginationGroup } from "./style";
 
 const ListPagination = () => {
   return (
-    <div>
-      ListPagination
-    </div>
-  )
-}
+    <ListPaginationSection>
+      <ListPaginationGroup>11</ListPaginationGroup>
+    </ListPaginationSection>
+  );
+};
 
-export default ListPagination
+export default ListPagination;

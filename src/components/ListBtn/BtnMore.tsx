@@ -9,7 +9,7 @@ interface ButtonProps {
   onMoreBtn: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-const TypeMore = ({onMoreBtn} :ButtonProps) => {
+const BtnMore = ({onMoreBtn} :ButtonProps) => {
   return (
     <PaginationMoreSection>
       <PaginationMoreButton onClick={onMoreBtn}>
@@ -20,4 +20,4 @@ const TypeMore = ({onMoreBtn} :ButtonProps) => {
   );
 };
 
-export default TypeMore;
+export default BtnMore;
