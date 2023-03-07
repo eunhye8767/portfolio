@@ -1,11 +1,17 @@
-import React from 'react'
+import { ButtonProps } from "Assets/CommonType";
 
-const BtnPagination = () => {
+import { color } from "Assets/StyleVariable";
+import Icon from "Assets/Ico/Icons";
+
+import { PaginationMoreSection, PaginationMoreButton } from "./style";
+
+const BtnPagination = ({ onPaginationPrev, onPaginationNext }: ButtonProps) => {
   return (
     <div>
-      BtnPagination
+      <button onClick={onPaginationPrev}>prev</button>
+      <button onClick={onPaginationNext}>next</button>
     </div>
-  )
-}
+  );
+};
 
-export default BtnPagination
+export default BtnPagination;

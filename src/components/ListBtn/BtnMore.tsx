@@ -1,15 +1,11 @@
-import React from "react";
+import { ButtonProps } from "Assets/CommonType";
 
 import { color } from "Assets/StyleVariable";
 import Icon from "Assets/Ico/Icons";
 
 import { PaginationMoreSection, PaginationMoreButton } from "./style";
 
-interface ButtonProps {
-  onMoreBtn: React.MouseEventHandler<HTMLButtonElement>;
-}
-
-const BtnMore = ({onMoreBtn} :ButtonProps) => {
+const BtnMore = ({ onMoreBtn }: ButtonProps) => {
   return (
     <PaginationMoreSection>
       <PaginationMoreButton onClick={onMoreBtn}>

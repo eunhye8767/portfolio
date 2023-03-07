@@ -15,6 +15,10 @@ export interface TypeItems {
   url: string;
 }
 
+export interface ButtonProps {
+  [k: string] : React.MouseEventHandler<HTMLButtonElement>;
+}
+
 export interface PropsList extends Props {
   dataCount: number;
   countNumber?:number | undefined;

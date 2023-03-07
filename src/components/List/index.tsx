@@ -15,6 +15,7 @@ interface PropsList extends Props {
 const List = ({ title, data, more }: PropsList) => {
   const dataTotal = data.length;
   const dataCount = more ? 4 : 5;
+
   const [newData, setNewData] = useState<any>([]);
   const [countNumber, setCountNumber] = useState<number>(1);
   const [maxNumber, setMaxNumber] = useState<number>(0);
@@ -40,7 +41,14 @@ const List = ({ title, data, more }: PropsList) => {
 
   const handleMoreBtn = () => {
     if (countNumber < maxNumber) setCountNumber((prev) => prev + 1);
-    if (countNumber < maxNumber) console.log("zz");
+  };
+
+  const handlePaginationPrev = () => {
+    console.log("prev");
+  };
+
+  const handlePaginationNext = () => {
+    console.log("next");
   };
 
   useEffect(() => {
@@ -50,15 +58,6 @@ const List = ({ title, data, more }: PropsList) => {
   useEffect(() => {
     if (!more) checkNewData();
   }, [maxNumber]);
-
-  // useEffect(() => {
-  //   console.log(countNumber, maxNumber);
-
-  // }, [countNumber]);
-
-  // useEffect(() => {
-  //   console.log(title, newData);
-  // }, [newData]);
 
   return (
     <ListSection
@@ -77,8 +76,15 @@ const List = ({ title, data, more }: PropsList) => {
         </>
       ) : (
         <>
-          <ListPagination />
-          <BtnPagination />
+          <ListPagination
+            data={newData}
+            dataCount={dataCount}
+            maxNumber={maxNumber}
+          />
+          <BtnPagination
+            onPaginationPrev={handlePaginationPrev}
+            onPaginationNext={handlePaginationNext}
+          />
         </>
       )}
     </ListSection>
