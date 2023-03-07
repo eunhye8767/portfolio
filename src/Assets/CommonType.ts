@@ -2,6 +2,11 @@ export type TypeProps = {
   type: string;
 };
 
+export interface CoordTypeProps {
+  type: string;
+  offsetTop?: number;
+}
+
 export interface Props {
   data: Array<TypeItems>;
   items?: Array<TypeItems>;
@@ -16,11 +21,11 @@ export interface TypeItems {
 }
 
 export interface ButtonProps {
-  [k: string] : React.MouseEventHandler<HTMLButtonElement>;
+  [k: string]: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 export interface PropsList extends Props {
   dataCount: number;
-  countNumber?:number;
-  maxNumber?:number;
+  countNumber?: number;
+  maxNumber?: number;
 }

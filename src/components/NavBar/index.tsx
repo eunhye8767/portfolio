@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import Icon from "Assets/Ico/Icons";
 import { ScreenOutTitle } from "Assets/MixinStyle";
@@ -35,7 +35,6 @@ const NavBar = () => {
   const handleTabSelect = (idx: number) => {
     setCurrTab(idx);
     console.log(idx);
-    
   };
 
   return (
