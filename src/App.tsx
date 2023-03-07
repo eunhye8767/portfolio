@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, forwardRef } from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 
 import { screenOut, ObjFitCover } from "Assets/MixinStyle";
@@ -12,10 +12,8 @@ import NavBar from "components/NavBar";
 import MainBgImg from "Assets/Images/bg_main.jpg";
 
 const App = () => {
-  // const workRef = useRef<HTMLDivElement>(null);
-
   const [scrollTop, setScrollTop] = useState<number>(0);
-  const [offsetWork, setOffsetWork] = useState<number | undefined>(0);
+  const [currNumber, setCurrNumber] = useState<number>(0);
 
   const setScreenSize = () => {
     let vh = window.innerHeight * 0.01;
@@ -42,14 +40,13 @@ const App = () => {
     };
   }, []); 
   
+  // useEffect(() => {
+  //   console.log(scrollTop);
+  // }, [scrollTop])
+ 
   useEffect(() => {
-    console.log(scrollTop, offsetWork);
-  }, [scrollTop, offsetWork])
-
-
-  const WorkRef = forwardRef((props, ref) => {
-    return <Work ref={ref} type="slide" />
-});
+    console.log(currNumber);
+  }, [currNumber])
 
   return (
     <section className="App">
@@ -61,8 +58,7 @@ const App = () => {
 
       <div className="container">
         <Visual />
-        <WorkRef ref={WorkRef} />
-        {/* <Work ref={workRef} type="slide" /> */}
+        <Work type="slide" />
         <Work type="banner" />
         <Skills type="slide" />
         <Skills type="list" />

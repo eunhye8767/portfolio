@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction, useState,useEffect, useRef } from "react";
+import { Dispatch, SetStateAction, useEffect, useRef } from "react";
 
 // import { TypeProps, CoordTypeProps } from "Assets/CommonType";
 
@@ -8,21 +8,23 @@ import List from "components/List";
 
 interface Props {
   type: string;
-  ref?: React.LegacyRef<HTMLDivElement> | undefined
+  // setCurrNumber?: number | undefined;
+  // setCurrNumber?: Dispatch<SetStateAction<number>> | undefined;
   // setOffsetWork?: Dispatch<SetStateAction<number>> | null;
   // setOffsetWork?:React.RefObject<HTMLDivElement>.current: HTMLDivElement | null
 }
 
-const Work = ({ ref, type }: Props) => {
-  // const workRef = useRef<HTMLDivElement>(null);
-  // console.log(secCoordList);
+const Work = ({ type }: Props) => {
+  const workRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // secCoordList.work = workRef.current?.offsetTop;
-  }, []);
 
+    // console.log(workRef.current?.offsetTop);
+  }, [])
+
+  
   return (
-    <div ref={ref}>
+    <div ref={workRef}>
       {type === "slide" && (
         <SwiperSlider title={DataWork.mainTitle} data={DataWork.slide} />
       )}
