@@ -99,7 +99,7 @@ const GlobalStyle = createGlobalStyle`
     @media (min-width: ${width.minMobile}) {
       max-width: ${width.minMobile};
       margin: 0 auto;
-      padding-bottom: 120px;
+      padding-bottom: 140px;
     }
 
     @media (max-width: ${width.mobile}) {
