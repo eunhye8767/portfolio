@@ -9,7 +9,7 @@ import {
   SizeWH,
 } from "Assets/MixinStyle";
 import { width, color } from "Assets/StyleVariable";
-import { commonSection, subTitle, moreBtn } from "Assets/CommonStyle";
+import { commonSection, subTitle } from "Assets/CommonStyle";
 
 import ArrowRight from "Assets/Images/ico-arrowRight.svg";
 

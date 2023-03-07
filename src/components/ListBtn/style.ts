@@ -12,7 +12,6 @@ import { width, color } from "Assets/StyleVariable";
 import {
   commonSection,
   subTitle,
-  moreBtn,
   roundBox,
   btnInTxt,
 } from "Assets/CommonStyle";
