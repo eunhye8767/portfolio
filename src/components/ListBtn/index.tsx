@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Props, TypeItems } from "Assets/CommonType";
 
-import TypeMore from "./TypeMore";
-import TypePagi from "./TypePagi";
+import BtnMore from "./BtnMore";
+import BtnPagination from "./TypePagi";
 
 interface PropsPagi extends Props {
   type: string;
@@ -52,8 +52,8 @@ const Pagination = ({ data, type }: PropsPagi) => {
 
   return (
     <>
-      {type === "more" && <TypeMore onMoreBtn={handleMoreBtn} />}
-      {type === "pagi" && <TypePagi />}
+      {type === "more" && <BtnMore onMoreBtn={handleMoreBtn} />}
+      {type === "pagi" && <BtnPagination />}
     </>
   );
 };

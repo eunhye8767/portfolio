@@ -4,6 +4,7 @@ export type TypeProps = {
 
 export interface Props {
   data: Array<TypeItems>;
+  items?: Array<TypeItems>;
   title?: string;
 }
 
@@ -12,4 +13,10 @@ export interface TypeItems {
   title: string;
   img?: string;
   url: string;
+}
+
+export interface PropsList extends Props {
+  dataCount: number;
+  countNumber?:number | undefined;
+  maxNumber?:number;
 }

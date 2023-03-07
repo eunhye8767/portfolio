@@ -10,7 +10,7 @@ import {
 } from "./style";
 
 
-import Pagination from "components/Pagination"
+import Pagination from "components/ListBtn"
 
 const ItemsList = ({ title, data }: Props) => {
   

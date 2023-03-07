@@ -13,7 +13,7 @@ import {
   BannerBtnMore,
 } from "./style";
 
-import Pagination from "components/Pagination"
+import Pagination from "components/ListBtn"
 
 const BannerList = ({ title, data }: Props) => {
   const [count, setCount] = useState(1);
