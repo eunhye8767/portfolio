@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { Props, TypeItems } from "Assets/CommonType";
 
+import TypeMore from "./TypeMore";
+import TypePagi from "./TypePagi";
+
 interface PropsPagi extends Props {
   type: string;
 }
 
-const Pagination = ({ data, type}: PropsPagi) => {
+const Pagination = ({ data, type }: PropsPagi) => {
   const fix = { total: data.length, count: 5 };
-  const [newData, setNewData] = useState<any | TypeItems>([]);
+  const [newData, setNewData] = useState<any>([]);
   const [numCount, setNumCount] = useState(1);
   const [numMax, setNumMax] = useState(0);
 
@@ -27,7 +30,12 @@ const Pagination = ({ data, type}: PropsPagi) => {
       if (count <= numMax) count++;
     }
 
-    setNewData(arrData)
+    setNewData(arrData);
+  };
+
+  const handleMoreBtn = () => {
+    setNumCount((prev) => prev + 1);
+    console.log("zzz");
   };
 
   useEffect(() => {
@@ -36,14 +44,18 @@ const Pagination = ({ data, type}: PropsPagi) => {
 
   useEffect(() => {
     handleNewData();
-  }, [numMax])
+  }, [numMax]);
 
   useEffect(() => {
     console.log(newData);
-    
-  }, [newData])
+  }, [newData]);
 
-  return <div>Pagination</div>;
+  return (
+    <>
+      {type === "more" && <TypeMore onMoreBtn={handleMoreBtn} />}
+      {type === "pagi" && <TypePagi />}
+    </>
+  );
 };
 
 export default Pagination;

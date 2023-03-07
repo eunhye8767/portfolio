@@ -47,4 +47,23 @@ export const moreBtn = css`
       font-size: 14px;
     }
   }
-`
+`;
+
+export const roundBox = css`
+  border: 1px solid ${color.line};
+  @media (min-width: ${width.minMobile}) {
+    border-radius: 20px;
+  }
+
+  @media (max-width: ${width.mobile}) {
+    border-radius: 10px;
+  }
+`;
+
+export const btnInTxt = css`
+  ${FontStyle(16, 400, color.black, "1")}
+
+  @media (max-width: ${width.mobile}) {
+    font-size: 14px;
+  }
+`;
