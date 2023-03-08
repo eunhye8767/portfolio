@@ -28,7 +28,6 @@ const App = () => {
 
   useEffect(()=>{
     console.log(navCurrNuber);
-    
   }, [navCurrNuber])
 
   return (

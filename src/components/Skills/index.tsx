@@ -1,10 +1,6 @@
-// import { TypeProps } from "Assets/CommonType";
-
 import DataSkills from "db/DataSkills";
 import SwiperSlider from "components/SwiperSlider";
 import List from "components/List";
-
-import { Dispatch, SetStateAction } from "react";
 
 type TypeProps = {
   type: string;
@@ -18,6 +14,7 @@ const Work = ({ type, setNavCurrNuber }: TypeProps) => {
         <SwiperSlider
           title={DataSkills.mainTitle}
           data={DataSkills.slide}
+          swiperId={"skills"}
           setNavCurrNuber={setNavCurrNuber}
         />
       )}

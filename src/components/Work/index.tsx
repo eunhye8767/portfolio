@@ -1,9 +1,6 @@
-// import { TypeProps } from "Assets/CommonType";
-
 import DataWork from "db/DataWork";
 import SwiperSlider from "components/SwiperSlider";
 import List from "components/List";
-import { Dispatch, SetStateAction } from "react";
 
 type TypeProps = {
   type: string;
@@ -17,6 +14,7 @@ const Work = ({ type, setNavCurrNuber }: TypeProps) => {
         <SwiperSlider
           title={DataWork.mainTitle}
           data={DataWork.slide}
+          swiperId={"work"}
           setNavCurrNuber={setNavCurrNuber}
         />
       )}
