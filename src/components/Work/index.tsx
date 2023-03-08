@@ -1,10 +1,12 @@
+import { Dispatch, SetStateAction } from "react";
+
 import DataWork from "db/DataWork";
 import SwiperSlider from "components/SwiperSlider";
 import List from "components/List";
 
 type TypeProps = {
   type: string;
-  setNavCurrNuber?: React.Dispatch<React.SetStateAction<number>>;
+  setNavCurrNuber?:Dispatch<SetStateAction<number>>;
 };
 
 const Work = ({ type, setNavCurrNuber }: TypeProps) => {
