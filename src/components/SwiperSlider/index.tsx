@@ -1,9 +1,4 @@
-import {
-  HTMLAttributeReferrerPolicy,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import { useEffect, useRef, useState } from "react";
 
 // Import Swiper React components
 import { Navigation, Pagination, A11y } from "swiper";
@@ -40,24 +35,6 @@ const SwiperSlider = ({ title, data, swiperId, setNavCurrNuber }: Props) => {
   const scrollRef = useRef<HTMLHtmlElement>(null);
   const [scrollDirect, setScrollDirect] = useState<boolean>(false);
 
-  useEffect(() => {
-    if (!scrollRef.current) return;
-    yScrollEvent();
-    window.addEventListener("resize", yScrollEvent);
-    return window.removeEventListener("resize", yScrollEvent);
-  }, []);
-
-  useEffect(() => {
-    if (!scrollRef.current) return;
-    window.addEventListener("scroll", yScrollEvent);
-    window.addEventListener("wheel", yWheelEvent);
-
-    return () => {
-      window.removeEventListener("scroll", yScrollEvent);
-      window.removeEventListener("wheel", yWheelEvent);
-    };
-  }, [scrollRef.current, scrollDirect]);
-
   const yScrollEvent = () => {
     const scroll = scrollRef.current?.getBoundingClientRect();
 
@@ -86,6 +63,24 @@ const SwiperSlider = ({ title, data, swiperId, setNavCurrNuber }: Props) => {
   const yWheelEvent = (e: WheelEvent) => {
     0 < e.deltaY ? setScrollDirect(true) : setScrollDirect(false);
   };
+
+  useEffect(() => {
+    if (!scrollRef.current) return;
+    yScrollEvent();
+    window.addEventListener("resize", yScrollEvent);
+    return window.removeEventListener("resize", yScrollEvent);
+  }, []);
+
+  useEffect(() => {
+    if (!scrollRef.current) return;
+    window.addEventListener("scroll", yScrollEvent);
+    window.addEventListener("wheel", yWheelEvent);
+
+    return () => {
+      window.removeEventListener("scroll", yScrollEvent);
+      window.removeEventListener("wheel", yWheelEvent);
+    };
+  }, [scrollRef.current, scrollDirect]);
 
   return (
     <SwiperSection ref={scrollRef}>

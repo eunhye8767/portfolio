@@ -3,14 +3,12 @@ import { useState, useEffect } from "react";
 import Icon from "Assets/Ico/Icons";
 import { ScreenOutTitle } from "Assets/MixinStyle";
 import { color } from "Assets/StyleVariable";
-import {
-  NavSection,
-  NavArea,
-  NavGroup,
-  NavItem,
-} from "./style";
+import { NavSection, NavArea, NavGroup, NavItem } from "./style";
 
-const NavBar = () => {
+interface Props {
+  navCurrNuber: number;
+}
+const NavBar = ({ navCurrNuber }: Props) => {
   const menuList = [
     {
       txt: "about",
@@ -36,6 +34,10 @@ const NavBar = () => {
     setCurrTab(idx);
     console.log(idx);
   };
+
+  useEffect(()=>{
+    setCurrTab(navCurrNuber)
+  }, [navCurrNuber])
 
   return (
     <NavSection>

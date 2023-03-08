@@ -26,10 +26,6 @@ const App = () => {
     return window.removeEventListener("resize", setScreenSize);
   }, []);
 
-  useEffect(()=>{
-    console.log(navCurrNuber);
-  }, [navCurrNuber])
-
   return (
     <section className="App">
       <AppTitle>은혜의 포트폴리오</AppTitle>
@@ -44,7 +40,7 @@ const App = () => {
         <Work type="banner" />
         <Skills type="slide" setNavCurrNuber={setNavCurrNuber} />
         <Skills type="list" />
-        <NavBar />
+        <NavBar navCurrNuber={navCurrNuber} />
       </div>
     </section>
   );
