@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 
 import { screenOut, ObjFitCover } from "Assets/MixinStyle";
@@ -14,10 +14,16 @@ import MainBgImg from "Assets/Images/bg_main.jpg";
 const App = () => {
   const [navCurrNuber, setNavCurrNuber] = useState<number>(0);
 
+  const homeRef = useRef<HTMLDivElement>(null);
+
   const setScreenSize = () => {
     let vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty("--vh", `${vh}px`);
   };
+
+  const handleTopMove = () => {
+    homeRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }
 
   useEffect(() => {
     setScreenSize();
@@ -39,12 +45,14 @@ const App = () => {
       </AppBgSection>
 
       <div className="container">
-        <Visual />
+        <div ref={homeRef}>
+          <Visual />
+        </div>
         <Work type="slide" setNavCurrNuber={setNavCurrNuber} />
         <Work type="banner" />
         <Skills type="slide" setNavCurrNuber={setNavCurrNuber} />
         <Skills type="list" />
-        <NavBar navCurrNuber={navCurrNuber} setNavCurrNuber={setNavCurrNuber} />
+        <NavBar navCurrNuber={navCurrNuber} setNavCurrNuber={setNavCurrNuber} onTopMove={handleTopMove} />
       </div>
     </section>
   );

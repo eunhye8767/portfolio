@@ -8,8 +8,9 @@ import { NavSection, NavArea, NavGroup, NavItem } from "./style";
 interface Props {
   navCurrNuber: number;
   setNavCurrNuber: React.Dispatch<React.SetStateAction<number>>;
+  onTopMove?: () => void;
 }
-const NavBar = ({ navCurrNuber, setNavCurrNuber }: Props) => {
+const NavBar = ({ navCurrNuber, setNavCurrNuber, onTopMove }: Props) => {
   const menuList = [
     {
       txt: "about",
@@ -67,9 +68,13 @@ const NavBar = ({ navCurrNuber, setNavCurrNuber }: Props) => {
               key={menu.txt}
             >
               <NavItem
-                onClick={() => {
-                  idx === lastIdx ? handleMoveTop() : handleTabSelect(idx);
-                }}
+                onClick={
+                  idx === lastIdx
+                    ? onTopMove
+                    : () => {
+                        handleTabSelect(idx);
+                      }
+                }
               >
                 <span className="ico">{menu.ico}</span>
                 <span className="txt">{menu.txt}</span>
