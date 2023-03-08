@@ -36,11 +36,15 @@ const NavBar = ({ navCurrNuber, setNavCurrNuber }: Props) => {
 
   const handleMoveTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
-    setNavCurrNuber(0);
+  };
+
+  const handleScrollCheck = () => {
+    if (window.scrollY === 0) setNavCurrNuber(0);
   };
 
   useEffect(() => {
-    console.log(navCurrNuber);
+    window.addEventListener("scroll", handleScrollCheck);
+    return window.removeEventListener("scroll", handleScrollCheck);
   }, [navCurrNuber]);
 
   return (

@@ -21,8 +21,12 @@ const App = () => {
 
   useEffect(() => {
     setScreenSize();
+    
+    window.onbeforeunload = function pushRefresh() {
+      window.scrollTo(0, 0);
+    };
+    
     window.addEventListener("resize", setScreenSize);
-
     return window.removeEventListener("resize", setScreenSize);
   }, []);
 
