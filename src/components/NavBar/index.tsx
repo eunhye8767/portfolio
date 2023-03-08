@@ -9,24 +9,36 @@ interface Props {
   navCurrNuber: number;
   setNavCurrNuber: React.Dispatch<React.SetStateAction<number>>;
   onTopMove?: () => void;
+  onWorkMove?: () => void;
+  onSkillsMove?: () => void;
 }
-const NavBar = ({ navCurrNuber, setNavCurrNuber, onTopMove }: Props) => {
+const NavBar = ({
+  navCurrNuber,
+  setNavCurrNuber,
+  onTopMove,
+  onWorkMove,
+  onSkillsMove,
+}: Props) => {
   const menuList = [
     {
       txt: "about",
       ico: <Icon size={24} color={color.white} icon="about" />,
+      onclick: onTopMove,
     },
     {
       txt: "work",
       ico: <Icon size={22} color={color.white} icon="work" />,
+      onclick: onWorkMove,
     },
     {
       txt: "skills",
       ico: <Icon size={22} color={color.white} icon="skills" />,
+      onclick: onSkillsMove,
     },
     {
       txt: "top",
       ico: <Icon size={16} color={color.white} icon="arrowTop" />,
+      onclick: onTopMove,
     },
   ];
   const lastIdx = menuList.length - 1;
@@ -56,26 +68,10 @@ const NavBar = ({ navCurrNuber, setNavCurrNuber, onTopMove }: Props) => {
         <NavGroup>
           {menuList.map((menu, idx) => (
             <li
-              className={
-                idx === 0
-                  ? ""
-                  : idx === lastIdx
-                  ? ""
-                  : idx === navCurrNuber
-                  ? "is-active"
-                  : ""
-              }
+              className={idx === navCurrNuber ? "is-active" : ""}
               key={menu.txt}
             >
-              <NavItem
-                onClick={
-                  idx === lastIdx
-                    ? onTopMove
-                    : () => {
-                        handleTabSelect(idx);
-                      }
-                }
-              >
+              <NavItem onClick={menu.onclick}>
                 <span className="ico">{menu.ico}</span>
                 <span className="txt">{menu.txt}</span>
               </NavItem>

@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, MouseEvent, Ref, RefObject } from "react";
 import styled from "styled-components";
 
 import { screenOut, ObjFitCover } from "Assets/MixinStyle";
@@ -15,23 +15,25 @@ const App = () => {
   const [navCurrNuber, setNavCurrNuber] = useState<number>(0);
 
   const homeRef = useRef<HTMLDivElement>(null);
+  const workRef = useRef<HTMLDivElement>(null);
+  const skillsRef = useRef<HTMLDivElement>(null);
 
   const setScreenSize = () => {
     let vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty("--vh", `${vh}px`);
   };
 
-  const handleTopMove = () => {
-    homeRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }
+  const handleMove = (ref: RefObject<HTMLDivElement>) => {
+    ref.current?.scrollIntoView({ behavior: "smooth" });
+  };
 
   useEffect(() => {
     setScreenSize();
-    
+
     window.onbeforeunload = function pushRefresh() {
       window.scrollTo(0, 0);
     };
-    
+
     window.addEventListener("resize", setScreenSize);
     return window.removeEventListener("resize", setScreenSize);
   }, []);
@@ -48,11 +50,21 @@ const App = () => {
         <div ref={homeRef}>
           <Visual />
         </div>
-        <Work type="slide" setNavCurrNuber={setNavCurrNuber} />
+        <div ref={workRef}>
+          <Work type="slide" setNavCurrNuber={setNavCurrNuber} />
+        </div>
         <Work type="banner" />
-        <Skills type="slide" setNavCurrNuber={setNavCurrNuber} />
+        <div ref={skillsRef}>
+          <Skills type="slide" setNavCurrNuber={setNavCurrNuber} />
+        </div>
         <Skills type="list" />
-        <NavBar navCurrNuber={navCurrNuber} setNavCurrNuber={setNavCurrNuber} onTopMove={handleTopMove} />
+        <NavBar
+          navCurrNuber={navCurrNuber}
+          setNavCurrNuber={setNavCurrNuber}
+          onTopMove={() => {handleMove(homeRef)}}
+          onWorkMove={() => {handleMove(workRef)}}
+          onSkillsMove={() => {handleMove(skillsRef)}}
+        />
       </div>
     </section>
   );
