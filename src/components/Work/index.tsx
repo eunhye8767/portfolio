@@ -8,18 +8,20 @@ import List from "components/List";
 
 interface Props {
   type: string;
+  setCurrNumber?:React.Dispatch<React.SetStateAction<number>>;
   // setCurrNumber?: number | undefined;
   // setCurrNumber?: Dispatch<SetStateAction<number>> | undefined;
   // setOffsetWork?: Dispatch<SetStateAction<number>> | null;
   // setOffsetWork?:React.RefObject<HTMLDivElement>.current: HTMLDivElement | null
 }
 
-const Work = ({ type }: Props) => {
+const Work = ({ type, setCurrNumber }: Props) => {
   const workRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-
-    // console.log(workRef.current?.offsetTop);
+    const scrollY = workRef.current?.offsetTop;
+    if (setCurrNumber && scrollY) setCurrNumber(scrollY)
+    console.log(workRef.current);
   }, [])
 
   

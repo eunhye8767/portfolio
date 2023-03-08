@@ -13,7 +13,7 @@ import MainBgImg from "Assets/Images/bg_main.jpg";
 
 const App = () => {
   const [scrollTop, setScrollTop] = useState<number>(0);
-  const [currNumber, setCurrNumber] = useState<number>(0);
+  const [currNumber, setCurrNumber] = useState<number>(1);
 
   const setScreenSize = () => {
     let vh = window.innerHeight * 0.01;
@@ -58,7 +58,7 @@ const App = () => {
 
       <div className="container">
         <Visual />
-        <Work type="slide" />
+        <Work type="slide" setCurrNumber={setCurrNumber} />
         <Work type="banner" />
         <Skills type="slide" />
         <Skills type="list" />
