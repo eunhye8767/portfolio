@@ -56,7 +56,13 @@ const NavBar = ({ navCurrNuber, setNavCurrNuber }: Props) => {
           {menuList.map((menu, idx) => (
             <li
               className={
-                idx === lastIdx ? "" : idx === navCurrNuber ? "is-active" : ""
+                idx === 0
+                  ? ""
+                  : idx === lastIdx
+                  ? ""
+                  : idx === navCurrNuber
+                  ? "is-active"
+                  : ""
               }
               key={menu.txt}
             >
