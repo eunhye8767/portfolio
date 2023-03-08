@@ -7,8 +7,9 @@ import { NavSection, NavArea, NavGroup, NavItem } from "./style";
 
 interface Props {
   navCurrNuber: number;
+  setNavCurrNuber: React.Dispatch<React.SetStateAction<number>>;
 }
-const NavBar = ({ navCurrNuber }: Props) => {
+const NavBar = ({ navCurrNuber, setNavCurrNuber }: Props) => {
   const menuList = [
     {
       txt: "about",
@@ -27,17 +28,20 @@ const NavBar = ({ navCurrNuber }: Props) => {
       ico: <Icon size={16} color={color.white} icon="arrowTop" />,
     },
   ];
-
-  const [currTab, setCurrTab] = useState(0);
+  const lastIdx = menuList.length - 1;
 
   const handleTabSelect = (idx: number) => {
-    setCurrTab(idx);
-    console.log(idx);
+    setNavCurrNuber(idx);
   };
 
-  useEffect(()=>{
-    setCurrTab(navCurrNuber)
-  }, [navCurrNuber])
+  const handleMoveTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    setNavCurrNuber(0);
+  };
+
+  useEffect(() => {
+    console.log(navCurrNuber);
+  }, [navCurrNuber]);
 
   return (
     <NavSection>
@@ -46,8 +50,17 @@ const NavBar = ({ navCurrNuber }: Props) => {
       <NavArea>
         <NavGroup>
           {menuList.map((menu, idx) => (
-            <li className={idx === currTab ? "is-active" : ""} key={menu.txt}>
-              <NavItem onClick={() => handleTabSelect(idx)}>
+            <li
+              className={
+                idx === lastIdx ? "" : idx === navCurrNuber ? "is-active" : ""
+              }
+              key={menu.txt}
+            >
+              <NavItem
+                onClick={() => {
+                  idx === lastIdx ? handleMoveTop() : handleTabSelect(idx);
+                }}
+              >
                 <span className="ico">{menu.ico}</span>
                 <span className="txt">{menu.txt}</span>
               </NavItem>

@@ -40,7 +40,7 @@ const App = () => {
         <Work type="banner" />
         <Skills type="slide" setNavCurrNuber={setNavCurrNuber} />
         <Skills type="list" />
-        <NavBar navCurrNuber={navCurrNuber} />
+        <NavBar navCurrNuber={navCurrNuber} setNavCurrNuber={setNavCurrNuber} />
       </div>
     </section>
   );
