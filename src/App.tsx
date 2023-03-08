@@ -12,6 +12,8 @@ import NavBar from "components/NavBar";
 import MainBgImg from "Assets/Images/bg_main.jpg";
 
 const App = () => {
+  const [navCurrNuber, setNavCurrNuber] = useState<number>(0);
+
   const setScreenSize = () => {
     let vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty("--vh", `${vh}px`);
@@ -24,6 +26,11 @@ const App = () => {
     return window.removeEventListener("resize", setScreenSize);
   }, []);
 
+  useEffect(()=>{
+    console.log(navCurrNuber);
+    
+  }, [navCurrNuber])
+
   return (
     <section className="App">
       <AppTitle>은혜의 포트폴리오</AppTitle>
@@ -34,9 +41,9 @@ const App = () => {
 
       <div className="container">
         <Visual />
-        <Work type="slide" />
+        <Work type="slide" setNavCurrNuber={setNavCurrNuber} />
         <Work type="banner" />
-        <Skills type="slide" />
+        <Skills type="slide" setNavCurrNuber={setNavCurrNuber} />
         <Skills type="list" />
         <NavBar />
       </div>

@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, Dispatch, SetStateAction } from "react";
 
 // Import Swiper React components
 import { Navigation, Pagination, A11y } from "swiper";
@@ -17,6 +17,7 @@ import SwiperItem from "./SwiperItem";
 interface Props {
   data: Array<TypeSwiper>;
   title: string[];
+  setNavCurrNuber?: React.Dispatch<React.SetStateAction<number>>;
 }
 
 interface TypeSwiper {
@@ -29,7 +30,7 @@ interface TypeSwiper {
   ia: string;
 }
 
-const SwiperSlider = ({ title, data }: Props) => {
+const SwiperSlider = ({ title, data, setNavCurrNuber }: Props) => {
   const [hideElement, setHideElement] = useState<boolean>(false);
   const scrollRef= useRef<HTMLHtmlElement>(null);
   const [currNumber, setCurrNumber] = useState<number>(0);
@@ -43,12 +44,13 @@ const SwiperSlider = ({ title, data }: Props) => {
   }, [scrollRef.current])
 
   const yScrollEvent = () => {
-    // const scroll = scrollRef.current.getBoundingClientRect();
     const scroll = scrollRef.current?.getBoundingClientRect();
-    const scrollTop = scroll?.top;
-    if (scrollTop) setCurrNumber(scrollTop)
-    console.log(scrollTop);
-    // setHideElement(scrollTop);
+
+    console.log(scrollRef.current);
+    
+
+
+    // if (scroll && setNavCurrNuber) {setNavCurrNuber(scroll?.top)
   };
 
   return (

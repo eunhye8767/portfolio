@@ -1,5 +1,8 @@
+import React from "react";
+
 export type TypeProps = {
   type: string;
+  setNavCurrNuber?: React.Dispatch<React.SetStateAction<number>>
 };
 
 export interface Props {
