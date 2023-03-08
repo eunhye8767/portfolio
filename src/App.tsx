@@ -12,19 +12,10 @@ import NavBar from "components/NavBar";
 import MainBgImg from "Assets/Images/bg_main.jpg";
 
 const App = () => {
-  const [scrollTop, setScrollTop] = useState<number>(0);
-  const [currNumber, setCurrNumber] = useState<number>(1);
-
   const setScreenSize = () => {
     let vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty("--vh", `${vh}px`);
   };
-
-  const handleScroll = () => {
-    // console.log(workRef.current?.offsetTop);
-    
-    // setScrollTop();
-  }
 
   useEffect(() => {
     setScreenSize();
@@ -32,21 +23,6 @@ const App = () => {
 
     return window.removeEventListener("resize", setScreenSize);
   }, []);
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []); 
-  
-  // useEffect(() => {
-  //   console.log(scrollTop);
-  // }, [scrollTop])
- 
-  useEffect(() => {
-    console.log(currNumber);
-  }, [currNumber])
 
   return (
     <section className="App">
@@ -58,7 +34,7 @@ const App = () => {
 
       <div className="container">
         <Visual />
-        <Work type="slide" setCurrNumber={setCurrNumber} />
+        <Work type="slide" />
         <Work type="banner" />
         <Skills type="slide" />
         <Skills type="list" />

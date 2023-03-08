@@ -2,11 +2,6 @@ export type TypeProps = {
   type: string;
 };
 
-export interface CoordTypeProps {
-  type: string;
-  offsetTop?: number;
-}
-
 export interface Props {
   data: Array<TypeItems>;
   items?: Array<TypeItems>;
