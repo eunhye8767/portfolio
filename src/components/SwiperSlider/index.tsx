@@ -1,3 +1,5 @@
+import { useState, useEffect, useRef } from "react";
+
 // Import Swiper React components
 import { Navigation, Pagination, A11y } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -28,8 +30,29 @@ interface TypeSwiper {
 }
 
 const SwiperSlider = ({ title, data }: Props) => {
+  const [hideElement, setHideElement] = useState<boolean>(false);
+  const scrollRef= useRef<HTMLHtmlElement>(null);
+  const [currNumber, setCurrNumber] = useState<number>(0);
+
+  useEffect(() => {
+    if (!scrollRef.current) return;
+    window.addEventListener("scroll", yScrollEvent);
+    return () => {
+      window.removeEventListener("scroll", yScrollEvent);
+    };
+  }, [scrollRef.current])
+
+  const yScrollEvent = () => {
+    // const scroll = scrollRef.current.getBoundingClientRect();
+    const scroll = scrollRef.current?.getBoundingClientRect();
+    const scrollTop = scroll?.top;
+    if (scrollTop) setCurrNumber(scrollTop)
+    console.log(scrollTop);
+    // setHideElement(scrollTop);
+  };
+
   return (
-    <SwiperSection>
+    <SwiperSection ref={scrollRef}>
       <Swiper
         modules={[Navigation, Pagination, A11y]}
         spaceBetween={20}
