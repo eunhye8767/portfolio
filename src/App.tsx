@@ -9,6 +9,7 @@ import ContsForm from "components/ContsElem";
 import NavBar from "components/NavBar";
 
 import MainBgImg from "Assets/Images/bg_main.jpg";
+import About from "components/About";
 
 type PropsNumber = number | undefined;
 
@@ -158,6 +159,8 @@ const App = () => {
             handleMove(skillsRef);
           }}
         />
+
+        <About />
       </div>
     </section>
   );
