@@ -1,10 +1,4 @@
-import React, {
-  useState,
-  useEffect,
-  useRef,
-  RefObject,
-  useCallback,
-} from "react";
+import { useState, useEffect, useRef, RefObject, useCallback } from "react";
 import styled from "styled-components";
 
 import { screenOut, ObjFitCover } from "Assets/MixinStyle";
@@ -20,8 +14,6 @@ import MainBgImg from "Assets/Images/bg_main.jpg";
 type PropsNumber = number | undefined;
 
 const App = () => {
-  const [navCurrNuber, setNavCurrNuber] = useState<number>(0);
-
   const homeRef = useRef<HTMLDivElement>(null);
   const workRef = useRef<HTMLDivElement>(null);
   const skillsRef = useRef<HTMLDivElement>(null);
@@ -29,13 +21,9 @@ const App = () => {
   const [fixHeightHome, setFixHeightHome] = useState<PropsNumber>(0);
   const [fixHeightWork, setFixHeightWork] = useState<PropsNumber>(0);
   const [fixHeightSkills, setFixHeightSkills] = useState<PropsNumber>(0);
-  const [currScrollTop, setCurrScrollTop] = useState(0);
-
-  const [scrollDirect, setScrollDirect] = useState(false);
-
-  // const [boundTopHome, setBoundTopHome] = useState(0);
-  // const [boundTopWork, setBoundTopWork] = useState(0);
-  // const [boundTopSkills, setBoundTopSkills] = useState(0);
+  const [navCurrNuber, setNavCurrNuber] = useState<number>(0);
+  const [currScrollTop, setCurrScrollTop] = useState<number>(0);
+  const [scrollDirect, setScrollDirect] = useState<boolean>(false);
 
   const setScreenSize = () => {
     let vh = window.innerHeight * 0.01;
@@ -68,22 +56,36 @@ const App = () => {
       setFixHeightSkills(checkRefHeight(skillsRef));
   };
 
-  const handleScrollRefCheck = (inH: number, pst: { [k: string]: number }) => {
-    const minInH = inH * 0.1;
+  const handleScrollRefCheck = () => {
+    const { innerHeight } = window;
+
+    const minInH = innerHeight * 0.1;
+    const maxInH = innerHeight * 0.5;
+
+    const pst = {
+      home: changeElemBoundTop(homeRef),
+      work: changeElemBoundTop(workRef),
+      skills: changeElemBoundTop(skillsRef),
+    };
 
     if (scrollDirect) {
       // up
       if (0 < pst.home && pst.home < minInH) {
-        console.log("home");
+        setNavCurrNuber(0);
       } else if (0 < pst.work && pst.work < minInH) {
-        console.log("work");
+        setNavCurrNuber(1);
       } else if (0 < pst.skills && pst.skills < minInH) {
-        console.log("skills");
+        setNavCurrNuber(2);
       }
     } else {
       // down
-      console.log("zz");
-      
+      if (pst.home <= maxInH && pst.work > minInH) {
+        setNavCurrNuber(0);
+      } else if (pst.work <= maxInH && pst.skills > minInH) {
+        setNavCurrNuber(1);
+      } else if (pst.skills <= maxInH) {
+        setNavCurrNuber(2);
+      }
     }
   };
 
@@ -93,32 +95,20 @@ const App = () => {
   };
 
   const handleScrollEvt = useCallback((): void => {
-    const { innerHeight } = window;
-    const { scrollHeight } = document.body;
     const { scrollTop } = document.documentElement;
-
-    const boundingTop = {
-      home: changeElemBoundTop(homeRef),
-      work: changeElemBoundTop(workRef),
-      skills: changeElemBoundTop(skillsRef),
-    };
 
     handleRefHeight();
     setCurrScrollTop(scrollTop);
 
-    handleScrollRefCheck(innerHeight, boundingTop);
+    handleScrollRefCheck();
   }, [currScrollTop]);
 
   useEffect(() => {
     setScreenSize();
+    handleScrollRefCheck();
 
     window.addEventListener("resize", setScreenSize);
     window.addEventListener("resize", handleScrollEvt);
-
-    // 새로고침 시 맨 위로 이동
-    // window.onbeforeunload = function pushRefresh() {
-    //   window.scrollTo(0, 0);
-    // };
 
     return () => {
       window.removeEventListener("resize", setScreenSize);
@@ -126,22 +116,9 @@ const App = () => {
     };
   }, []);
 
-  // useEffect(() => {
-  //   console.log("fixHeight", fixHeightHome, fixHeightWork, fixHeightSkills);
-  // }, [fixHeightHome, fixHeightWork, fixHeightSkills]);
-
-  // useEffect(() => {
-  //   console.log(
-  //     "currScrollTop :",
-  //     currScrollTop,
-  //     "navCurrNuber :",
-  //     navCurrNuber
-  //   );
-  // }, [currScrollTop, navCurrNuber]);
-
   useEffect(() => {
-    console.log(scrollDirect);
-  }, [scrollDirect]);
+    console.log("navCurrNuber :", navCurrNuber);
+  }, [navCurrNuber]);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScrollEvt, true);
