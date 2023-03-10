@@ -143,11 +143,11 @@ const App = () => {
           <Visual />
         </div>
         <div ref={workRef}>
-          <Work type="slide" setNavCurrNuber={setNavCurrNuber} />
+          <Work type="slide" />
           <Work type="banner" />
         </div>
         <div ref={skillsRef}>
-          <Skills type="slide" setNavCurrNuber={setNavCurrNuber} />
+          <Skills type="slide" />
           <Skills type="list" />
         </div>
         <NavBar

@@ -1,5 +1,3 @@
-import { useEffect, useRef, useState } from "react";
-
 // Import Swiper React components
 import { Navigation, Pagination, A11y } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -17,8 +15,6 @@ import SwiperItem from "./SwiperItem";
 interface Props {
   data: Array<TypeSwiper>;
   title: string[];
-  swiperId?: string;
-  setNavCurrNuber?: React.Dispatch<React.SetStateAction<number>>;
 }
 
 interface TypeSwiper {
@@ -31,59 +27,9 @@ interface TypeSwiper {
   ia: string;
 }
 
-const SwiperSlider = ({ title, data, swiperId, setNavCurrNuber }: Props) => {
-  const scrollRef = useRef<HTMLHtmlElement>(null);
-  const [scrollDirect, setScrollDirect] = useState<boolean>(false);
-
-  // const yScrollEvent = () => {
-  //   const scroll = scrollRef.current?.getBoundingClientRect();
-
-  //   if (scroll && setNavCurrNuber) {
-  //     let scrollTop = scroll.top;
-  //     const FixHeight = window.innerHeight;
-  //     const FixMinHeight = FixHeight * 0.1;
-  //     const FixMaxHeight = FixHeight * 0.8;
-
-  //     if (scrollDirect) {
-  //       // console.log("up");
-  //       if (0 < scrollTop && scrollTop < FixMinHeight) {
-  //         if (swiperId === "work") setNavCurrNuber(1);
-  //         if (swiperId === "skills") setNavCurrNuber(2);
-  //       }
-  //     } else {
-  //       // console.log("down");
-  //       if (FixHeight * 0.5 < scrollTop && scrollTop < FixMaxHeight) {
-  //         if (swiperId === "work") setNavCurrNuber(0);
-  //         if (swiperId === "skills") setNavCurrNuber(1);
-  //       }
-  //     }
-  //   }
-  // };
-
-  // const yWheelEvent = (e: WheelEvent) => {
-  //   0 < e.deltaY ? setScrollDirect(true) : setScrollDirect(false);
-  // };
-
-  // useEffect(() => {
-  //   if (!scrollRef.current) return;
-  //   yScrollEvent();
-  //   window.addEventListener("resize", yScrollEvent);
-  //   return window.removeEventListener("resize", yScrollEvent);
-  // }, []);
-
-  // useEffect(() => {
-  //   if (!scrollRef.current) return;
-  //   window.addEventListener("scroll", yScrollEvent);
-  //   window.addEventListener("wheel", yWheelEvent);
-
-  //   return () => {
-  //     window.removeEventListener("scroll", yScrollEvent);
-  //     window.removeEventListener("wheel", yWheelEvent);
-  //   };
-  // }, [scrollRef.current, scrollDirect]);
-
+const SwiperSlider = ({ title, data }: Props) => {
   return (
-    <SwiperSection ref={scrollRef}>
+    <SwiperSection>
       <Swiper
         modules={[Navigation, Pagination, A11y]}
         spaceBetween={20}

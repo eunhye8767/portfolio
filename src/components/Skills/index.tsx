@@ -1,23 +1,16 @@
-import { Dispatch, SetStateAction } from "react";
+import { TypeProps } from "Assets/CommonType"
 
 import DataSkills from "db/DataSkills";
 import SwiperSlider from "components/SwiperSlider";
 import List from "components/List";
 
-type TypeProps = {
-  type: string;
-  setNavCurrNuber?:Dispatch<SetStateAction<number>>;
-};
-
-const Work = ({ type, setNavCurrNuber }: TypeProps) => {
+const Work = ({ type }: TypeProps) => {
   return (
     <>
       {type === "slide" && (
         <SwiperSlider
           title={DataSkills.mainTitle}
           data={DataSkills.slide}
-          swiperId={"skills"}
-          setNavCurrNuber={setNavCurrNuber}
         />
       )}
       {type === "list" && (
