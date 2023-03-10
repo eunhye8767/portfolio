@@ -54,6 +54,17 @@ const App = () => {
     ref.current?.scrollIntoView({ behavior: "smooth" });
   };
 
+  // Ref Height 재계산
+  const handleRefHeight = () => {
+    // 기존값과 다를 경우
+    if (fixHeightHome !== checkRefHeight(homeRef))
+      setFixHeightHome(checkRefHeight(homeRef));
+    if (fixHeightWork !== checkRefHeight(workRef))
+      setFixHeightWork(checkRefHeight(workRef));
+    if (fixHeightSkills !== checkRefHeight(skillsRef))
+      setFixHeightSkills(checkRefHeight(skillsRef));
+  };
+
   const handleScrollEvt = useCallback((): void => {
     const { innerHeight } = window;
     const { scrollHeight } = document.body;
@@ -65,22 +76,12 @@ const App = () => {
       skills: changeElemBoundTop(skillsRef),
     };
 
-    // 기존값과 다를 경우, Ref height 재계산
-    if (fixHeightHome !== checkRefHeight(homeRef))
-      setFixHeightHome(checkRefHeight(homeRef));
-    if (fixHeightWork !== checkRefHeight(workRef))
-      setFixHeightWork(checkRefHeight(workRef));
-    if (fixHeightSkills !== checkRefHeight(skillsRef))
-      setFixHeightSkills(checkRefHeight(skillsRef));
-
+    handleRefHeight();
     setCurrScrollTop(scrollTop);
 
-    // Object.values(boundingTop).map((top, idx) => {
-    //   if(top && 0 < top && top < innerHeight) {
-    //     console.log(idx);
+    console.log(innerHeight, boundingTop.home, fixHeightHome);
+    
 
-    //   }
-    // })
   }, [currScrollTop]);
 
   useEffect(() => {
@@ -91,7 +92,7 @@ const App = () => {
     return () => {
       window.removeEventListener("resize", setScreenSize);
       window.removeEventListener("resize", handleScrollEvt);
-    }
+    };
   }, []);
 
   useEffect(() => {
