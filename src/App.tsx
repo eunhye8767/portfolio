@@ -60,7 +60,7 @@ const App = () => {
     const { innerHeight } = window;
 
     const minInH = innerHeight * 0.1;
-    const maxInH = innerHeight * 0.5;
+    const maxInH = innerHeight * 0.6;
 
     const pst = {
       home: changeElemBoundTop(homeRef),
@@ -79,9 +79,9 @@ const App = () => {
       }
     } else {
       // down
-      if (pst.home <= maxInH && pst.work > minInH) {
+      if (pst.home <= maxInH && pst.work > maxInH) {
         setNavCurrNuber(0);
-      } else if (pst.work <= maxInH && pst.skills > minInH) {
+      } else if (pst.work <= maxInH && pst.skills > maxInH) {
         setNavCurrNuber(1);
       } else if (pst.skills <= maxInH) {
         setNavCurrNuber(2);
