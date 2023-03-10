@@ -111,8 +111,14 @@ const App = () => {
 
   useEffect(() => {
     setScreenSize();
+
     window.addEventListener("resize", setScreenSize);
     window.addEventListener("resize", handleScrollEvt);
+
+    // 새로고침 시 맨 위로 이동
+    // window.onbeforeunload = function pushRefresh() {
+    //   window.scrollTo(0, 0);
+    // };
 
     return () => {
       window.removeEventListener("resize", setScreenSize);
