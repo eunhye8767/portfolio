@@ -21,7 +21,7 @@ const App = () => {
   const [fixHeightHome, setFixHeightHome] = useState<PropsNumber>(0);
   const [fixHeightWork, setFixHeightWork] = useState<PropsNumber>(0);
   const [fixHeightSkills, setFixHeightSkills] = useState<PropsNumber>(0);
-  const [navCurrNuber, setNavCurrNuber] = useState<number>(0);
+  const [navCurrNumber, setNavCurrNumber] = useState<number>(0);
   const [currScrollTop, setCurrScrollTop] = useState<number>(0);
   const [scrollDirect, setScrollDirect] = useState<boolean>(false);
 
@@ -71,20 +71,20 @@ const App = () => {
     if (scrollDirect) {
       // up
       if (0 < pst.home && pst.home < minInH) {
-        setNavCurrNuber(0);
+        setNavCurrNumber(0);
       } else if (0 < pst.work && pst.work < minInH) {
-        setNavCurrNuber(1);
+        setNavCurrNumber(1);
       } else if (0 < pst.skills && pst.skills < minInH) {
-        setNavCurrNuber(2);
+        setNavCurrNumber(2);
       }
     } else {
       // down
       if (pst.home <= maxInH && pst.work > maxInH) {
-        setNavCurrNuber(0);
+        setNavCurrNumber(0);
       } else if (pst.work <= maxInH && pst.skills > maxInH) {
-        setNavCurrNuber(1);
+        setNavCurrNumber(1);
       } else if (pst.skills <= maxInH) {
-        setNavCurrNuber(2);
+        setNavCurrNumber(2);
       }
     }
   };
@@ -97,9 +97,8 @@ const App = () => {
   const handleScrollEvt = useCallback((): void => {
     const { scrollTop } = document.documentElement;
 
-    handleRefHeight();
     setCurrScrollTop(scrollTop);
-
+    handleRefHeight();
     handleScrollRefCheck();
   }, [currScrollTop]);
 
@@ -117,8 +116,12 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    console.log("navCurrNuber :", navCurrNuber);
-  }, [navCurrNuber]);
+    console.log("navCurrNumber :", navCurrNumber);
+  }, [navCurrNumber]);
+
+  useEffect(() => {
+    if (currScrollTop === 0) setNavCurrNumber(0);
+  }, [currScrollTop]);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScrollEvt, true);
@@ -151,8 +154,7 @@ const App = () => {
           <Skills type="list" />
         </div>
         <NavBar
-          navCurrNuber={navCurrNuber}
-          setNavCurrNuber={setNavCurrNuber}
+          navCurrNumber={navCurrNumber}
           onTopMove={() => {
             handleMove(homeRef);
           }}

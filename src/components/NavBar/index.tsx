@@ -6,15 +6,13 @@ import { color } from "Assets/StyleVariable";
 import { NavSection, NavArea, NavGroup, NavItem } from "./style";
 
 interface Props {
-  navCurrNuber: number;
-  setNavCurrNuber: React.Dispatch<React.SetStateAction<number>>;
+  navCurrNumber: number;
   onTopMove?: () => void;
   onWorkMove?: () => void;
   onSkillsMove?: () => void;
 }
 const NavBar = ({
-  navCurrNuber,
-  setNavCurrNuber,
+  navCurrNumber,
   onTopMove,
   onWorkMove,
   onSkillsMove,
@@ -41,24 +39,6 @@ const NavBar = ({
       onclick: onTopMove,
     },
   ];
-  const lastIdx = menuList.length - 1;
-
-  const handleTabSelect = (idx: number) => {
-    setNavCurrNuber(idx);
-  };
-
-  const handleMoveTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
-  const handleScrollCheck = () => {
-    if (window.scrollY === 0) setNavCurrNuber(0);
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScrollCheck);
-    return window.removeEventListener("scroll", handleScrollCheck);
-  }, [navCurrNuber]);
 
   return (
     <NavSection>
@@ -68,7 +48,7 @@ const NavBar = ({
         <NavGroup>
           {menuList.map((menu, idx) => (
             <li
-              className={idx === navCurrNuber ? "is-active" : ""}
+              className={idx === navCurrNumber ? "is-active" : ""}
               key={menu.txt}
             >
               <NavItem onClick={menu.onclick}>
