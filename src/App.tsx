@@ -116,10 +116,6 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    console.log("navCurrNumber :", navCurrNumber);
-  }, [navCurrNumber]);
-
-  useEffect(() => {
     if (currScrollTop === 0) setNavCurrNumber(0);
   }, [currScrollTop]);
 
