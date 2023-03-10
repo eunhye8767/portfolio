@@ -1,4 +1,10 @@
-import { useState, useEffect, useRef, MouseEvent, Ref, RefObject } from "react";
+import React, {
+  useState,
+  useEffect,
+  useRef,
+  RefObject,
+  useCallback,
+} from "react";
 import styled from "styled-components";
 
 import { screenOut, ObjFitCover } from "Assets/MixinStyle";
@@ -11,6 +17,8 @@ import NavBar from "components/NavBar";
 
 import MainBgImg from "Assets/Images/bg_main.jpg";
 
+type PropsNumber = number | undefined;
+
 const App = () => {
   const [navCurrNuber, setNavCurrNuber] = useState<number>(0);
 
@@ -18,25 +26,96 @@ const App = () => {
   const workRef = useRef<HTMLDivElement>(null);
   const skillsRef = useRef<HTMLDivElement>(null);
 
+  const [fixHeightHome, setFixHeightHome] = useState<PropsNumber>(0);
+  const [fixHeightWork, setFixHeightWork] = useState<PropsNumber>(0);
+  const [fixHeightSkills, setFixHeightSkills] = useState<PropsNumber>(0);
+  const [currScrollTop, setCurrScrollTop] = useState(0);
+  // const [boundTopHome, setBoundTopHome] = useState(0);
+  // const [boundTopWork, setBoundTopWork] = useState(0);
+  // const [boundTopSkills, setBoundTopSkills] = useState(0);
+
   const setScreenSize = () => {
     let vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty("--vh", `${vh}px`);
   };
 
+  // Ref Height
+  const checkRefHeight = (ref: RefObject<HTMLDivElement>) => {
+    return ref.current?.offsetHeight;
+  };
+
+  // Ref 실시간 top
+  const changeElemBoundTop = (ref: RefObject<HTMLDivElement>) => {
+    return ref.current?.getBoundingClientRect().top;
+  };
+
+  // Ref move로 이동
   const handleMove = (ref: RefObject<HTMLDivElement>) => {
     ref.current?.scrollIntoView({ behavior: "smooth" });
   };
 
-  useEffect(() => {
-    setScreenSize();
+  const handleScrollEvt = useCallback((): void => {
+    const { innerHeight } = window;
+    const { scrollHeight } = document.body;
+    const { scrollTop } = document.documentElement;
 
-    window.onbeforeunload = function pushRefresh() {
-      window.scrollTo(0, 0);
+    const boundingTop = {
+      home: changeElemBoundTop(homeRef),
+      work: changeElemBoundTop(workRef),
+      skills: changeElemBoundTop(skillsRef),
     };
 
+    // 기존값과 다를 경우, Ref height 재계산
+    if (fixHeightHome !== checkRefHeight(homeRef)) 
+      setFixHeightHome(checkRefHeight(homeRef));
+    if (fixHeightWork !== checkRefHeight(workRef))
+      setFixHeightWork(checkRefHeight(workRef));
+    if (fixHeightSkills !== checkRefHeight(skillsRef))
+      setFixHeightSkills(checkRefHeight(skillsRef));
+
+    setCurrScrollTop(scrollTop);
+
+    // Object.values(boundingTop).map((top, idx) => {
+    //   if(top && 0 < top && top < innerHeight) {
+    //     console.log(idx);
+
+    //   }
+    // })
+  }, [currScrollTop]);
+
+  useEffect(() => {
+    setScreenSize();
     window.addEventListener("resize", setScreenSize);
-    return window.removeEventListener("resize", setScreenSize);
+
+    return () => window.removeEventListener("resize", setScreenSize);
   }, []);
+
+  useEffect(() => {
+    console.log("fixHeightHome", fixHeightHome);
+  }, [fixHeightHome]);
+  useEffect(() => {
+    console.log("fixHeightWork", fixHeightWork);
+  }, [fixHeightWork]);
+  useEffect(() => {
+    console.log("fixHeightSkills", fixHeightSkills);
+  }, [fixHeightSkills]);
+
+  // useEffect(() => {
+  //   console.log(
+  //     "currScrollTop :",
+  //     currScrollTop,
+  //     "navCurrNuber :",
+  //     navCurrNuber
+  //   );
+  // }, [currScrollTop, navCurrNuber]);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScrollEvt, true);
+
+    return () => {
+      window.removeEventListener("scroll", handleScrollEvt, true);
+    };
+  }, [handleScrollEvt]);
 
   return (
     <section className="App">
@@ -52,18 +131,24 @@ const App = () => {
         </div>
         <div ref={workRef}>
           <Work type="slide" setNavCurrNuber={setNavCurrNuber} />
+          <Work type="banner" />
         </div>
-        <Work type="banner" />
         <div ref={skillsRef}>
           <Skills type="slide" setNavCurrNuber={setNavCurrNuber} />
+          <Skills type="list" />
         </div>
-        <Skills type="list" />
         <NavBar
           navCurrNuber={navCurrNuber}
           setNavCurrNuber={setNavCurrNuber}
-          onTopMove={() => {handleMove(homeRef)}}
-          onWorkMove={() => {handleMove(workRef)}}
-          onSkillsMove={() => {handleMove(skillsRef)}}
+          onTopMove={() => {
+            handleMove(homeRef);
+          }}
+          onWorkMove={() => {
+            handleMove(workRef);
+          }}
+          onSkillsMove={() => {
+            handleMove(skillsRef);
+          }}
         />
       </div>
     </section>
