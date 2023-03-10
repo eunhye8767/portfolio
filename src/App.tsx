@@ -30,6 +30,9 @@ const App = () => {
   const [fixHeightWork, setFixHeightWork] = useState<PropsNumber>(0);
   const [fixHeightSkills, setFixHeightSkills] = useState<PropsNumber>(0);
   const [currScrollTop, setCurrScrollTop] = useState(0);
+
+  const [scrollDirect, setScrollDirect] = useState(false);
+
   // const [boundTopHome, setBoundTopHome] = useState(0);
   // const [boundTopWork, setBoundTopWork] = useState(0);
   // const [boundTopSkills, setBoundTopSkills] = useState(0);
@@ -46,7 +49,7 @@ const App = () => {
 
   // Ref 실시간 top
   const changeElemBoundTop = (ref: RefObject<HTMLDivElement>) => {
-    return ref.current?.getBoundingClientRect().top;
+    return Number(ref.current?.getBoundingClientRect().top);
   };
 
   // Ref move로 이동
@@ -65,6 +68,30 @@ const App = () => {
       setFixHeightSkills(checkRefHeight(skillsRef));
   };
 
+  const handleScrollRefCheck = (inH: number, pst: { [k: string]: number }) => {
+    const minInH = inH * 0.1;
+
+    if (scrollDirect) {
+      // up
+      if (0 < pst.home && pst.home < minInH) {
+        console.log("home");
+      } else if (0 < pst.work && pst.work < minInH) {
+        console.log("work");
+      } else if (0 < pst.skills && pst.skills < minInH) {
+        console.log("skills");
+      }
+    } else {
+      // down
+      console.log("zz");
+      
+    }
+  };
+
+  // wheel 방향
+  const handleScrollWheel = (e: WheelEvent) => {
+    0 < e.deltaY ? setScrollDirect(true) : setScrollDirect(false);
+  };
+
   const handleScrollEvt = useCallback((): void => {
     const { innerHeight } = window;
     const { scrollHeight } = document.body;
@@ -79,9 +106,7 @@ const App = () => {
     handleRefHeight();
     setCurrScrollTop(scrollTop);
 
-    console.log(innerHeight, boundingTop.home, fixHeightHome);
-    
-
+    handleScrollRefCheck(innerHeight, boundingTop);
   }, [currScrollTop]);
 
   useEffect(() => {
@@ -95,9 +120,9 @@ const App = () => {
     };
   }, []);
 
-  useEffect(() => {
-    console.log("fixHeight", fixHeightHome, fixHeightWork, fixHeightSkills);
-  }, [fixHeightHome, fixHeightWork, fixHeightSkills]);
+  // useEffect(() => {
+  //   console.log("fixHeight", fixHeightHome, fixHeightWork, fixHeightSkills);
+  // }, [fixHeightHome, fixHeightWork, fixHeightSkills]);
 
   // useEffect(() => {
   //   console.log(
@@ -109,12 +134,18 @@ const App = () => {
   // }, [currScrollTop, navCurrNuber]);
 
   useEffect(() => {
+    console.log(scrollDirect);
+  }, [scrollDirect]);
+
+  useEffect(() => {
     window.addEventListener("scroll", handleScrollEvt, true);
+    window.addEventListener("wheel", handleScrollWheel);
 
     return () => {
       window.removeEventListener("scroll", handleScrollEvt, true);
+      window.removeEventListener("wheel", handleScrollWheel);
     };
-  }, [handleScrollEvt]);
+  }, [handleScrollEvt, scrollDirect]);
 
   return (
     <section className="App">
