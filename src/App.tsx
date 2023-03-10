@@ -66,7 +66,7 @@ const App = () => {
     };
 
     // 기존값과 다를 경우, Ref height 재계산
-    if (fixHeightHome !== checkRefHeight(homeRef)) 
+    if (fixHeightHome !== checkRefHeight(homeRef))
       setFixHeightHome(checkRefHeight(homeRef));
     if (fixHeightWork !== checkRefHeight(workRef))
       setFixHeightWork(checkRefHeight(workRef));
@@ -86,19 +86,17 @@ const App = () => {
   useEffect(() => {
     setScreenSize();
     window.addEventListener("resize", setScreenSize);
+    window.addEventListener("resize", handleScrollEvt);
 
-    return () => window.removeEventListener("resize", setScreenSize);
+    return () => {
+      window.removeEventListener("resize", setScreenSize);
+      window.removeEventListener("resize", handleScrollEvt);
+    }
   }, []);
 
   useEffect(() => {
-    console.log("fixHeightHome", fixHeightHome);
-  }, [fixHeightHome]);
-  useEffect(() => {
-    console.log("fixHeightWork", fixHeightWork);
-  }, [fixHeightWork]);
-  useEffect(() => {
-    console.log("fixHeightSkills", fixHeightSkills);
-  }, [fixHeightSkills]);
+    console.log("fixHeight", fixHeightHome, fixHeightWork, fixHeightSkills);
+  }, [fixHeightHome, fixHeightWork, fixHeightSkills]);
 
   // useEffect(() => {
   //   console.log(
