@@ -10,6 +10,9 @@ import {
 } from "Assets/MixinStyle";
 import { width, color } from "Assets/StyleVariable";
 
+import IcoPrev from "Assets/Images/ico_swiper_prev.svg";
+import IcoNext from "Assets/Images/ico_swiper_next.svg";
+
 export const SwiperSection = styled.section`
   .swiper {
     display: flex;
@@ -47,7 +50,7 @@ export const SwiperSection = styled.section`
       }
 
       &-prev {
-        background-image: url("/images/ico_swiper_prev.svg");
+        background-image: url(${IcoPrev});
 
         @media (min-width: ${width.minMobile}) {
           right: 140px;
@@ -59,7 +62,7 @@ export const SwiperSection = styled.section`
       }
 
       &-next {
-        background-image: url("/images/ico_swiper_next.svg");
+        background-image: url(${IcoNext});
 
         @media (min-width: ${width.minMobile}) {
           right: 50px;
