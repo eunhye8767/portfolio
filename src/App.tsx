@@ -24,6 +24,7 @@ const App = () => {
   const [navCurrNumber, setNavCurrNumber] = useState<number>(0);
   const [currScrollTop, setCurrScrollTop] = useState<number>(0);
   const [scrollDirect, setScrollDirect] = useState<boolean>(false);
+  const [isOpened, setIsOpened] = useState(false);
 
   const setScreenSize = () => {
     let vh = window.innerHeight * 0.01;
@@ -44,6 +45,11 @@ const App = () => {
   const handleMove = (ref: RefObject<HTMLDivElement>) => {
     ref.current?.scrollIntoView({ behavior: "smooth" });
   };
+
+  const handleAboutOpen = () => {
+    setIsOpened(true)
+    handleMove(homeRef)
+  }
 
   // Ref Height 재계산
   const handleRefHeight = () => {
@@ -158,9 +164,10 @@ const App = () => {
           onSkillsMove={() => {
             handleMove(skillsRef);
           }}
+          onOpen={handleAboutOpen}
         />
 
-        <About />
+        {isOpened && <About setIsOpened={setIsOpened} />}
       </div>
     </section>
   );

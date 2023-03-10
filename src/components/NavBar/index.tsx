@@ -10,18 +10,20 @@ interface Props {
   onTopMove?: () => void;
   onWorkMove?: () => void;
   onSkillsMove?: () => void;
+  onOpen?: () => void;
 }
 const NavBar = ({
   navCurrNumber,
   onTopMove,
   onWorkMove,
   onSkillsMove,
+  onOpen
 }: Props) => {
   const menuList = [
     {
       txt: "about",
       ico: <Icon size={24} color={color.white} icon="about" />,
-      onclick: onTopMove,
+      onclick: onOpen,
     },
     {
       txt: "work",
