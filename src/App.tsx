@@ -5,8 +5,7 @@ import { screenOut, ObjFitCover } from "Assets/MixinStyle";
 import { width } from "Assets/StyleVariable";
 
 import Visual from "components/Visual";
-import Work from "components/Work";
-import Skills from "components/Skills";
+import ContsForm from "components/ContsElem";
 import NavBar from "components/NavBar";
 
 import MainBgImg from "Assets/Images/bg_main.jpg";
@@ -142,12 +141,10 @@ const App = () => {
           <Visual />
         </div>
         <div ref={workRef}>
-          <Work type="slide" />
-          <Work type="banner" />
+          <ContsForm cate="work" />
         </div>
         <div ref={skillsRef}>
-          <Skills type="slide" />
-          <Skills type="list" />
+          <ContsForm cate="skills" />
         </div>
         <NavBar
           navCurrNumber={navCurrNumber}

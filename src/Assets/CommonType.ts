@@ -4,6 +4,18 @@ export type TypeProps = {
   type: string;
 };
 
+export interface PropsConts {
+  cate: string;
+}
+
+export interface TypeDataItems {
+  mainTitle: Array<TypeItems>;
+  subTitle: string;
+  slide?: Array<TypeDataItems>;
+  banner?: Array<TypeDataItems>;
+  list?: Array<TypeDataItems>;
+}
+
 export interface Props {
   data: Array<TypeItems>;
   items?: Array<TypeItems>;
