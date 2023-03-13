@@ -21,9 +21,9 @@ const NavBar = ({
 }: Props) => {
   const menuList = [
     {
-      txt: "about",
-      ico: <Icon size={24} color={color.white} icon="about" />,
-      onclick: onOpen,
+      txt: "home",
+      ico: <Icon size={24} color={color.white} icon="home" />,
+      onclick: onTopMove,
     },
     {
       txt: "work",
@@ -36,10 +36,10 @@ const NavBar = ({
       onclick: onSkillsMove,
     },
     {
-      txt: "top",
-      ico: <Icon size={16} color={color.white} icon="arrowTop" />,
-      onclick: onTopMove,
-    },
+      txt: "about",
+      ico: <Icon size={24} color={color.white} icon="about" />,
+      onclick: onOpen,
+    }
   ];
 
   return (

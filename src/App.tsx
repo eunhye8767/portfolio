@@ -47,9 +47,9 @@ const App = () => {
   };
 
   const handleAboutOpen = () => {
-    setIsOpened(true)
-    handleMove(homeRef)
-  }
+    setIsOpened(true);
+    handleMove(homeRef);
+  };
 
   // Ref Height 재계산
   const handleRefHeight = () => {

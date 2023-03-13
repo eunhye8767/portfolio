@@ -27,12 +27,10 @@ const About = ({ setIsOpened }: Props) => {
 
         <AboutInfoList>
           <li>
-            <Icon size={24} color={color.grey} icon="email" />
-            <span className="txt">leh8767@nate.com</span>
+            <span className="email">leh8767@nate.com</span>
           </li>
           <li>
-            <Icon size={24} color={color.grey} icon="call" />
-            <span className="txt">010-2990-8767</span>
+            <span className="phone">010-2990-8767</span>
           </li>
         </AboutInfoList>
 

@@ -6,6 +6,7 @@ import {
   SizeWH,
   screenOut,
   flexColumn,
+  flexAlignCen,
 } from "Assets/MixinStyle";
 import { width, color } from "Assets/StyleVariable";
 
@@ -74,4 +75,30 @@ export const AboutGreet = styled.h3`
 `
 
 export const AboutInfoList = styled.ul`
+  margin-top: 40px;
+
+  > li {
+    ${flexAlignCen}
+
+    span {
+      ${FontStyle(20, 400, color.grey, "1", 0.02)}
+
+      &::before {
+        margin-right: 10px;
+        font-weight: 600;
+      }
+
+      &.email::before {
+        content: "E.";
+      }
+      
+      &.phone::before {
+        content: "P.";
+      }
+    }
+
+    & + li {
+      margin-top: 10px;
+    }
+  }
 `

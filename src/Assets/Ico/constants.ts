@@ -10,7 +10,8 @@ export type iconName =
   | "skills"
   | "link"
   | "call"
-  | "email";
+  | "email"
+  | "home";
 
 type icon = {
   path: string;
@@ -61,6 +62,10 @@ const IconSet: Record<iconName, icon> = {
   },
   email: {
     path: "M24 21h-24v-18h24v18zm-23-16.477v15.477h22v-15.477l-10.999 10-11.001-10zm21.089-.523h-20.176l10.088 9.171 10.088-9.171z",
+    viewBox: "0 0 24 24",
+  },
+  home: {
+    path: "M20 7.093v-5.093h-3v2.093l3 3zm4 5.907l-12-12-12 12h3v10h7v-5h4v5h7v-10h3zm-5 8h-3v-5h-8v5h-3v-10.26l7-6.912 7 6.99v10.182z",
     viewBox: "0 0 24 24",
   },
 };
