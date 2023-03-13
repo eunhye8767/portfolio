@@ -47,8 +47,7 @@ const App = () => {
   };
 
   const handleAboutOpen = () => {
-    setIsOpened(true);
-    handleMove(homeRef);
+    isOpened ? setIsOpened(false) : setIsOpened(true);
   };
 
   // Ref Height 재계산
@@ -155,6 +154,7 @@ const App = () => {
         </div>
         <NavBar
           navCurrNumber={navCurrNumber}
+          isOpened={isOpened}
           onTopMove={() => {
             handleMove(homeRef);
           }}

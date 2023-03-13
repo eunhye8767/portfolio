@@ -9,6 +9,7 @@ export const width = {
 
 export const color = {
   blue: "#2d4dfe",
+  yellow: "#fff400",
   orange: "#fe8d00",
   red: "#ff4c24",
   green: "#1ec756",

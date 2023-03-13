@@ -7,6 +7,7 @@ import { NavSection, NavArea, NavGroup, NavItem } from "./style";
 
 interface Props {
   navCurrNumber: number;
+  isOpened: boolean;
   onTopMove?: () => void;
   onWorkMove?: () => void;
   onSkillsMove?: () => void;
@@ -14,10 +15,11 @@ interface Props {
 }
 const NavBar = ({
   navCurrNumber,
+  isOpened,
   onTopMove,
   onWorkMove,
   onSkillsMove,
-  onOpen
+  onOpen,
 }: Props) => {
   const menuList = [
     {
@@ -35,11 +37,6 @@ const NavBar = ({
       ico: <Icon size={22} color={color.white} icon="skills" />,
       onclick: onSkillsMove,
     },
-    {
-      txt: "about",
-      ico: <Icon size={24} color={color.white} icon="about" />,
-      onclick: onOpen,
-    }
   ];
 
   return (
@@ -59,6 +56,14 @@ const NavBar = ({
               </NavItem>
             </li>
           ))}
+          <li className={`about ${isOpened ? "is-active" : ""}`}>
+            <NavItem onClick={onOpen}>
+              <span className="ico">
+                <Icon size={24} color={color.white} icon="about" />
+              </span>
+              <span className="txt">about</span>
+            </NavItem>
+          </li>
         </NavGroup>
       </NavArea>
     </NavSection>

@@ -54,6 +54,18 @@ export const NavGroup = styled.ul`
 
     &.is-active {
       opacity: 1;
+
+      &.about {
+        .ico {
+          svg {
+            fill: ${color.yellow} !important;
+          }
+        }
+
+        .txt {
+          color: ${color.yellow};
+        }
+      }
     }
   }
 
