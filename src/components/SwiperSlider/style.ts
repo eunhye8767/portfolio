@@ -147,6 +147,7 @@ export const SwiperSlideItem = styled.div`
 export const SlideItemFigure = styled.figure`
   position: relative;
   overflow: hidden;
+  border: 1px solid ${color.line};
 
   figcaption {
     ${screenOut}
