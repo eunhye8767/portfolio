@@ -1,15 +1,12 @@
-import { useState, useEffect, useRef, RefObject, useCallback } from "react";
-import styled from "styled-components";
-
-import { screenOut, ObjFitCover } from "Assets/MixinStyle";
-import { width } from "Assets/StyleVariable";
+import { useState, useEffect, useRef, useCallback, RefObject } from "react";
+import { AppTitle, AppBgSection } from "./style";
 
 import Visual from "components/Visual";
 import ContsForm from "components/ContsElem";
 import NavBar from "components/NavBar";
+import About from "components/About";
 
 import MainBgImg from "Assets/Images/bg_main.jpg";
-import About from "components/About";
 
 type PropsNumber = number | undefined;
 
@@ -24,7 +21,7 @@ const App = () => {
   const [navCurrNumber, setNavCurrNumber] = useState<number>(0);
   const [currScrollTop, setCurrScrollTop] = useState<number>(0);
   const [scrollDirect, setScrollDirect] = useState<boolean>(false);
-  const [isOpened, setIsOpened] = useState(false);
+  const [isOpened, setIsOpened] = useState<boolean>(false);
 
   const setScreenSize = () => {
     let vh = window.innerHeight * 0.01;
@@ -174,25 +171,3 @@ const App = () => {
 };
 
 export default App;
-
-const AppTitle = styled.h1`
-  ${screenOut}
-`;
-
-const AppBgSection = styled.div`
-  @media (min-width: ${width.mobile}) {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-
-    img {
-      ${ObjFitCover}
-    }
-  }
-
-  @media (max-width: ${width.mobile}) {
-    display: none;
-  }
-`;
