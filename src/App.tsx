@@ -51,7 +51,7 @@ const App = () => {
   };
 
   // Ref Height 재계산
-  const handleRefHeight = () => {
+  const handleRefHeight = useCallback(() => {
     // 기존값과 다를 경우
     if (fixHeightHome !== checkRefHeight(homeRef))
       setFixHeightHome(checkRefHeight(homeRef));
@@ -59,9 +59,9 @@ const App = () => {
       setFixHeightWork(checkRefHeight(workRef));
     if (fixHeightSkills !== checkRefHeight(skillsRef))
       setFixHeightSkills(checkRefHeight(skillsRef));
-  };
+  }, [fixHeightHome, fixHeightWork, fixHeightSkills]);
 
-  const handleScrollRefCheck = () => {
+  const handleScrollRefCheck = useCallback(() => {
     const { innerHeight } = window;
 
     const minInH = innerHeight * 0.1;
@@ -92,7 +92,7 @@ const App = () => {
         setNavCurrNumber(2);
       }
     }
-  };
+  }, [scrollDirect]);
 
   // wheel 방향
   const handleScrollWheel = useCallback((e: WheelEvent) => {
