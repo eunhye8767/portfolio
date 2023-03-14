@@ -95,9 +95,9 @@ const App = () => {
   };
 
   // wheel 방향
-  const handleScrollWheel = (e: WheelEvent) => {
+  const handleScrollWheel = useCallback((e: WheelEvent) => {
     0 < e.deltaY ? setScrollDirect(true) : setScrollDirect(false);
-  };
+  }, []);
 
   const handleScrollEvt = useCallback((): void => {
     const { scrollTop } = document.documentElement;
@@ -105,7 +105,7 @@ const App = () => {
     setCurrScrollTop(scrollTop);
     handleRefHeight();
     handleScrollRefCheck();
-  }, [currScrollTop]);
+  }, [handleRefHeight, handleScrollRefCheck]);
 
   useEffect(() => {
     setScreenSize();
@@ -132,7 +132,7 @@ const App = () => {
       window.removeEventListener("scroll", handleScrollEvt, true);
       window.removeEventListener("wheel", handleScrollWheel);
     };
-  }, [handleScrollEvt, scrollDirect]);
+  }, [handleScrollEvt, scrollDirect, handleScrollWheel]);
 
   return (
     <section className="App">
