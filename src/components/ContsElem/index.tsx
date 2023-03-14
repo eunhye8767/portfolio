@@ -7,24 +7,23 @@ import SwiperSlider from "components/SwiperSlider";
 import List from "components/List";
 
 const Work = ({ cate }: PropsConts) => {
+  const renderList = (DATA: any, MORE: boolean) => {
+    return (
+      <>
+        <SwiperSlider title={DATA.mainTitle} data={DATA.slide} />
+        {MORE ? (
+          <List title={DATA.subTitle} data={DATA.banner} more={MORE} />
+        ) : (
+          <List title={DATA.subTitle} data={DATA.list} more={MORE} />
+        )}
+      </>
+    );
+  };
+
   return (
     <>
-      {cate === "work" && (
-        <>
-          <SwiperSlider title={DataWork.mainTitle} data={DataWork.slide} />
-          <List title={DataWork.subTitle} data={DataWork.banner} more={true} />
-        </>
-      )}
-      {cate === "skills" && (
-        <>
-          <SwiperSlider title={DataSkills.mainTitle} data={DataSkills.slide} />
-          <List
-            title={DataSkills.subTitle}
-            data={DataSkills.list}
-            more={false}
-          />
-        </>
-      )}
+      {cate === "work" && renderList(DataWork, true)}
+      {cate === "skills" && renderList(DataSkills, false)}
     </>
   );
 };
