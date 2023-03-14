@@ -106,16 +106,19 @@ const App = () => {
 
   useEffect(() => {
     setScreenSize();
-    handleScrollRefCheck();
-
     window.addEventListener("resize", setScreenSize);
-    window.addEventListener("resize", handleScrollEvt);
 
     return () => {
       window.removeEventListener("resize", setScreenSize);
-      window.removeEventListener("resize", handleScrollEvt);
     };
   }, []);
+
+  useEffect(() => {
+    handleScrollRefCheck();
+    window.addEventListener("resize", handleScrollEvt);
+
+    return () => window.removeEventListener("resize", handleScrollEvt);
+  }, [handleScrollEvt, handleScrollRefCheck]);
 
   useEffect(() => {
     if (currScrollTop === 0) setNavCurrNumber(0);
