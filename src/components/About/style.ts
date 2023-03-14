@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import {
   flexColumn,
   flexCenter,
@@ -10,6 +10,18 @@ import {
 import { width, color } from "Assets/StyleVariable";
 
 import IcoClose from "Assets/Images/ico-close.svg";
+
+const aniAboutOpen = keyframes`
+  0% {
+    opacity: 0;
+    transform: scaleY(0.3);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+`;
 
 export const AboutSection = styled.section`
   position: fixed;
@@ -37,6 +49,8 @@ export const AboutArea = styled.div`
   background: ${color.white};
   box-shadow: inset 0 0 0 1px ${color.blue};
   overflow-y: auto;
+  transform-origin: 0 100%;
+  animation: ${aniAboutOpen} 0.3s;
 
   @media (min-width: ${width.minMobile}) {
     max-height: calc(100vh - 120px);

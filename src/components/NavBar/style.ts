@@ -14,7 +14,6 @@ export const NavSection = styled.nav`
   position: fixed;
   bottom: 20px;
   z-index: 900;
-  pointer-events: none;
 
   @media (min-width: ${width.minMobile}) {
     ${SizeWH("668px", "80px")}
