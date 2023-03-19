@@ -146,6 +146,8 @@ export const SwiperSlideItem = styled.div`
 
 export const SlideItemFigure = styled.figure`
   position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 2;
   overflow: hidden;
   border: 1px solid ${color.line};
 

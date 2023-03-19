@@ -5,27 +5,45 @@ const DataSkills = {
     {
       id: 1,
       title: "블루레이 추진<br />호텔델루나 팬페이지",
-      img:"https://via.placeholder.com/1080x720/000/fff",
+      img:"/db/skills/s_slide_1.png",
       type: ["반응형"],
       desc: "블루레이 추친을 위한 팬페이지",
-      url: "",
+      url: "https://leh317.iwinv.net/portfolio/website/delluna",
       ia: ""
     },
     {
       id: 2,
-      title: "인프런 1분코딩<br />클론코딩, 3D 리플릿",
-      img:"https://via.placeholder.com/1080x720/000/fff",
-      type: ["적응형", "PC"],
+      title: "비플레인(beplain)<br />라쿠텐 모바일 페이지",
+      img:"/db/skills/s_slide_2.png",
+      type: ["적응형", "MO"],
       desc: "인터렉티브 웹 만들기 클론코딩",
-      url: "",
+      url: "https://leh317.iwinv.net/portfolio/beplain",
       ia: ""
     },
     {
       id: 3,
       title: "인프런 1분코딩<br />클론코딩, 전진! 3D 스크롤",
-      img:"https://via.placeholder.com/1080x720/000/fff",
+      img:"/db/skills/s_slide_3.png",
       type: ["반응형"],
       desc: "스크롤 이벤트 구현",
+      url: "",
+      ia: ""
+    },
+    {
+      id: 4,
+      title: "인프런 1분코딩<br />클론코딩, BBC 페이지",
+      img:"/db/skills/s_slide_4.png",
+      type: ["반응형"],
+      desc: "스크롤 이벤트 구현",
+      url: "",
+      ia: ""
+    },
+    {
+      id: 5,
+      title: "인프런 1분코딩<br />클론코딩, 3D 리플릿",
+      img:"/db/skills/s_slide_5.png",
+      type: ["적응형", "PC"],
+      desc: "인터렉티브 웹 만들기 클론코딩",
       url: "",
       ia: ""
     }
