@@ -12,7 +12,7 @@ const ListMore = ({ data, dataCount, countNumber }: PropsList) => {
           if (countNumber && dataCount * countNumber <= idx) return false;
           return (
             <li key={id}>
-              <Link to={url}>
+              <Link to={url} target="_blank">
                 <img src={img} alt={id + title} />
               </Link>
             </li>
