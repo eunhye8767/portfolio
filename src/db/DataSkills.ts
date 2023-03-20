@@ -1,6 +1,6 @@
 const DataSkills = {
   mainTitle: ["재밌게","배워요"],
-  subTitle: "기능구현",
+  subTitle: "클론코딩",
   slide: [
     {
       id: 1,
@@ -45,6 +45,15 @@ const DataSkills = {
       type: ["적응형", "PC"],
       desc: "인터렉티브 웹 만들기 클론코딩",
       url: "https://leh317.iwinv.net/skills/slide/5",
+      ia: ""
+    },
+    {
+      id: 6,
+      title: "인프런 클론코딩<br />이미지를 활용한 패럴렉스 구현",
+      img:"/db/skills/s_slide_6.png",
+      type: ["적응형", "PC"],
+      desc: "패럴렉스 구현 클론코딩",
+      url: "https://leh317.iwinv.net/skills/slide/6",
       ia: ""
     }
   ],
