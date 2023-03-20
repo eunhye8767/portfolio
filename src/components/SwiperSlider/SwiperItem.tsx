@@ -23,7 +23,14 @@ interface Props {
 }
 
 const SwiperItem = ({ title, img, type, desc, url, ia }: Props) => {
-  const links = [url, ia];
+  const renderItemLink = (n: number) => {
+    return (
+      <Link to={n === 0 ? ia : url} target="_blank">
+        <Icon size={16} color={color.lightGrey} icon="link" />
+        <span>{n === 0 ? "화면목록(IA)" : "Web Site"}</span>
+      </Link>
+    );
+  };
 
   return (
     <SwiperSlideItem>
@@ -41,30 +48,19 @@ const SwiperItem = ({ title, img, type, desc, url, ia }: Props) => {
           ))}
         </SlideItemType>
 
-        {url.length > 0 ? (
-          <SlideItemTitle>
-            <Link
-              to={url}
-              target="_blank"
-              dangerouslySetInnerHTML={{ __html: title }}
-            />
-          </SlideItemTitle>
-        ) : (
-          <SlideItemTitle dangerouslySetInnerHTML={{ __html: title }} />
-        )}
+        <SlideItemTitle>
+          <Link
+            to={ia ? ia : url}
+            target="_blank"
+            dangerouslySetInnerHTML={{ __html: title }}
+          />
+        </SlideItemTitle>
 
         <SlideItemDesc>{desc}</SlideItemDesc>
 
         <SlideItemUrl>
-          {links.map(
-            (link: string, idx: number) =>
-              link.length > 0 && (
-                <Link to={link} target="_blank" key={link + idx}>
-                  <Icon size={16} color={color.lightGrey} icon="link" />
-                  <span>{idx === 0 ? "WEB" : "화면목록(IA)"}</span>
-                </Link>
-              )
-          )}
+          {ia && renderItemLink(0)}
+          {url && renderItemLink(1)}
         </SlideItemUrl>
       </SlideItemConts>
     </SwiperSlideItem>
