@@ -53,7 +53,7 @@ const DataWork = {
       img: "/db/work/w_slide_6.png",
       type: ["적응형", "PC"],
       desc: "미디어로그 디자인팀 프로젝트",
-      url: "https://leh317.iwinv.net/portfolio/website/dstudio.html",
+      url: "https://leh317.iwinv.net/work/slide/6/dstudio.html",
       ia: "",
     },
     {
@@ -72,17 +72,8 @@ const DataWork = {
       type: ["IA"],
       desc: "화면목록, 퍼블 산출물 확인(이은혜)",
       url: "",
-      ia: "https://portal.atops.or.kr/dxp/main",
-    },
-    {
-      id: 9,
-      title: "브레인드넷<br />자사 홈페이지",
-      img: "/db/work/w_slide_9.png",
-      type: ["반응형"],
-      desc: "main, solution, history, contact 작업",
-      url: "http://brainednet.com/",
-      ia: "",
-    },
+      ia: "https://leh317.iwinv.net/work/slide/8/publish/pub",
+    }
   ],
   banner: [
     {

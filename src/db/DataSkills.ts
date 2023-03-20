@@ -8,7 +8,7 @@ const DataSkills = {
       img:"/db/skills/s_slide_1.png",
       type: ["반응형"],
       desc: "블루레이 추친을 위한 팬페이지",
-      url: "https://leh317.iwinv.net/portfolio/website/delluna",
+      url: "https://leh317.iwinv.net/skills/slide/1/delluna",
       ia: ""
     },
     {
@@ -17,7 +17,7 @@ const DataSkills = {
       img:"/db/skills/s_slide_2.png",
       type: ["적응형", "MO"],
       desc: "인터렉티브 웹 만들기 클론코딩",
-      url: "https://leh317.iwinv.net/portfolio/beplain",
+      url: "https://leh317.iwinv.net/skills/slide/2/beplain",
       ia: ""
     },
     {
@@ -26,7 +26,7 @@ const DataSkills = {
       img:"/db/skills/s_slide_3.png",
       type: ["반응형"],
       desc: "스크롤 이벤트 구현",
-      url: "",
+      url: "https://leh317.iwinv.net/skills/slide/3",
       ia: ""
     },
     {
@@ -35,7 +35,7 @@ const DataSkills = {
       img:"/db/skills/s_slide_4.png",
       type: ["반응형"],
       desc: "스크롤 이벤트 구현",
-      url: "",
+      url: "https://leh317.iwinv.net/skills/slide/4",
       ia: ""
     },
     {
@@ -44,7 +44,7 @@ const DataSkills = {
       img:"/db/skills/s_slide_5.png",
       type: ["적응형", "PC"],
       desc: "인터렉티브 웹 만들기 클론코딩",
-      url: "",
+      url: "https://leh317.iwinv.net/skills/slide/5",
       ia: ""
     }
   ],
