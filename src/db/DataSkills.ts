@@ -1,6 +1,6 @@
 const DataSkills = {
   mainTitle: ["재밌게","배워요"],
-  subTitle: "클론코딩",
+  subTitle: "기능구현",
   slide: [
     {
       id: 1,
@@ -60,108 +60,148 @@ const DataSkills = {
   list: [
     {
       id: 1,
-      title: "미러볼 회전효과",
-      url: "https://portal.atops.or.kr/dxp/main"
+      title: "미러볼 회전 & 글리치 효과",
+      url: "https://leh317.iwinv.net/skills/list/1"
     },
     {
       id: 2,
-      title: "메뉴 마우스 오버",
-      url: "https://portal.atops.or.kr/dxp/main"
+      title: "라인따라 불빛이동 애니메이션",
+      url: "https://leh317.iwinv.net/skills/list/2"
     },
     {
       id: 3,
-      title: "스포트라이트 효과",
-      url: "https://portal.atops.or.kr/dxp/main"
+      title: "물방울 결합 배경",
+      url: "https://leh317.iwinv.net/skills/list/3"
     },
     {
       id: 4,
-      title: "물방울 결합 배경",
-      url: "https://portal.atops.or.kr/dxp/main"
+      title: "원형 & 배경화면 교체 효과",
+      url: "https://leh317.iwinv.net/skills/list/4"
     },
     {
       id: 5,
-      title: "마우스 커서 커스텀",
-      url: "https://portal.atops.or.kr/dxp/main"
+      title: "텍스트 롱 쉐도우 효과",
+      url: "https://leh317.iwinv.net/skills/list/5"
     },
     {
       id: 6,
-      title: "썸네일 마우스 오버",
-      url: "https://portal.atops.or.kr/dxp/main"
+      title: "Spotlight 효과",
+      url: "https://leh317.iwinv.net/skills/list/6"
     },
     {
       id: 7,
-      title: "햄버거 메뉴",
-      url: "https://portal.atops.or.kr/dxp/main"
+      title: "배너, 원형 점선 루프 회전",
+      url: "https://leh317.iwinv.net/skills/list/7"
     },
     {
       id: 8,
-      title: "날아오는 글씨 효과",
-      url: "https://portal.atops.or.kr/dxp/main"
+      title: "컬러풀한 배경 루프",
+      url: "https://leh317.iwinv.net/skills/list/8"
     },
     {
       id: 9,
-      title: "특정 영역 마우스 오버",
-      url: "https://portal.atops.or.kr/dxp/main"
+      title: "텍스트 아웃라인 모션",
+      url: "https://leh317.iwinv.net/skills/list/9"
     },
     {
       id: 10,
-      title: "낙엽 떨어지는 모션",
-      url: "https://portal.atops.or.kr/dxp/main"
+      title: "손글씨 모션",
+      url: "https://leh317.iwinv.net/skills/list/10"
     },
     {
       id: 11,
-      title: "배경 이미지 자동 변경",
-      url: "https://portal.atops.or.kr/dxp/main"
+      title: "폰트 객체별 확대 축소",
+      url: "https://leh317.iwinv.net/skills/list/11"
     },
     {
       id: 12,
-      title: "체크박스 모션",
-      url: "https://portal.atops.or.kr/dxp/main"
+      title: "떨어지는 낙엽 모션",
+      url: "https://leh317.iwinv.net/skills/list/12"
     },
     {
       id: 13,
-      title: "폰트 객체별 확대축소",
-      url: "https://portal.atops.or.kr/dxp/main"
+      title: "마우스 오버, 텍스트 출력",
+      url: "https://leh317.iwinv.net/skills/list/13"
     },
     {
       id: 14,
-      title: "박스 채워지는 효과",
-      url: "https://portal.atops.or.kr/dxp/main"
+      title: "마우스 오버, 움직이는 영역",
+      url: "https://leh317.iwinv.net/skills/list/14"
     },
     {
       id: 15,
-      title: "손글씨 효과",
-      url: "https://portal.atops.or.kr/dxp/main"
+      title: "체크박스 커스텀",
+      url: "https://leh317.iwinv.net/skills/list/15"
     },
     {
       id: 16,
-      title: "컬러풀 배경",
-      url: "https://portal.atops.or.kr/dxp/main"
+      title: "마우스 오버, 회전 효과",
+      url: "https://leh317.iwinv.net/skills/list/16"
     },
     {
       id: 17,
-      title: "HotSpot",
-      url: "https://portal.atops.or.kr/dxp/main"
+      title: "전송 버튼 모션",
+      url: "https://leh317.iwinv.net/skills/list/17"
     },
     {
       id: 18,
-      title: "전송 버튼 모션",
-      url: "https://portal.atops.or.kr/dxp/main"
+      title: "장바구니 버튼 모션",
+      url: "https://leh317.iwinv.net/skills/list/18"
     },
     {
       id: 19,
-      title: "원형 점선 회전 루프",
-      url: "https://portal.atops.or.kr/dxp/main"
+      title: "햄버거 메뉴 버튼, 클릭 모션",
+      url: "https://leh317.iwinv.net/skills/list/19"
     },
     {
       id: 20,
-      title: "라인따라 불빛이동",
-      url: "https://portal.atops.or.kr/dxp/main"
+      title: "Hotspot 애니메이션",
+      url: "https://leh317.iwinv.net/skills/list/20"
     },
     {
       id: 21,
-      title: "장바구니 버튼 모션",
-      url: "https://portal.atops.or.kr/dxp/main"
+      title: "마우스 커서 커스텀",
+      url: "https://leh317.iwinv.net/skills/list/21"
+    },
+    {
+      id: 22,
+      title: "마우스 오버, 차오르는 효과",
+      url: "https://leh317.iwinv.net/skills/list/22"
+    },
+    {
+      id: 23,
+      title: "패럴렉스 스크롤 이벤트",
+      url: "https://leh317.iwinv.net/skills/list/23"
+    },
+    {
+      id: 24,
+      title: "날아오는 글씨 효과",
+      url: "https://leh317.iwinv.net/skills/list/24"
+    },
+    {
+      id: 25,
+      title: "마우스 커서 커스텀(UI 구현)",
+      url: "https://leh317.iwinv.net/skills/list/25"
+    },
+    {
+      id: 26,
+      title: "문서 높이에 따른 가로 진행바",
+      url: "https://leh317.iwinv.net/skills/list/26"
+    },
+    {
+      id: 27,
+      title: "문서 높이에 따른 세로 진행바",
+      url: "https://leh317.iwinv.net/skills/list/27"
+    },
+    {
+      id: 28,
+      title: "translate를 사용한 패럴렉스 구현",
+      url: "https://leh317.iwinv.net/skills/list/28"
+    },
+    {
+      id: 29,
+      title: "scale를 사용한 패럴렉스 구현",
+      url: "https://leh317.iwinv.net/skills/list/29"
     }
   ]
 }

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Props, TypeItems } from "Assets/CommonType";
+import { Props } from "Assets/CommonType";
 
 import { ListSection, ListTitle } from "./style";
 
