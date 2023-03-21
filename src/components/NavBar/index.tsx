@@ -1,5 +1,3 @@
-import { useState, useEffect } from "react";
-
 import Icon from "Assets/Ico/Icons";
 import { ScreenOutTitle } from "Assets/MixinStyle";
 import { color } from "Assets/StyleVariable";

@@ -1,13 +1,7 @@
 import styled from "styled-components";
 import { flexAlignCen, flexCenter, FontStyle, SizeWH } from "Assets/MixinStyle";
 import { width, color } from "Assets/StyleVariable";
-import {
-  commonSection,
-  subTitle,
-  roundBox,
-  btnInTxt,
-  btnDisabled,
-} from "Assets/CommonStyle";
+import { roundBox, btnInTxt, btnDisabled } from "Assets/CommonStyle";
 
 export const MoreBtnGroup = styled.div`
   @media (min-width: ${width.minMobile}) {
