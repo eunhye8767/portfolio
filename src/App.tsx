@@ -104,6 +104,13 @@ const App = () => {
     handleScrollRefCheck();
   }, [handleRefHeight, handleScrollRefCheck]);
 
+  // 로딩 스피너 적용
+  useEffect(() => {
+    window.addEventListener("load", () => {
+      console.log("다 부름");
+    })
+  }, [])
+
   useEffect(() => {
     setScreenSize();
     window.addEventListener("resize", setScreenSize);
