@@ -22,6 +22,7 @@ const App = () => {
   const [currScrollTop, setCurrScrollTop] = useState<number>(0);
   const [scrollDirect, setScrollDirect] = useState<boolean>(false);
   const [isOpened, setIsOpened] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
 
   const setScreenSize = () => {
     let vh = window.innerHeight * 0.01;
@@ -176,6 +177,8 @@ const App = () => {
 
         {isOpened && <About setIsOpened={setIsOpened} />}
       </div>
+
+      {!loading && "zzz"}
     </section>
   );
 };
