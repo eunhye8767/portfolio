@@ -1,10 +1,12 @@
 import { useState, useEffect, useRef, useCallback, RefObject } from "react";
 import { AppTitle, AppBgSection } from "./style";
 
+import "Assets/Common.css";
 import Visual from "components/Visual";
 import ContsForm from "components/ContsElem";
 import NavBar from "components/NavBar";
 import About from "components/About";
+import Spinners from "components/Spinners";
 
 import MainBgImg from "Assets/Images/bg_main.jpg";
 
@@ -107,10 +109,13 @@ const App = () => {
 
   // 로딩 스피너 적용
   useEffect(() => {
+    document.body.classList.add("overHid");
+
     window.addEventListener("load", () => {
-      console.log("다 부름");
-    })
-  }, [])
+      document.body.classList.remove("overHid");
+      setLoading(true);
+    });
+  }, []);
 
   useEffect(() => {
     setScreenSize();
@@ -178,7 +183,7 @@ const App = () => {
         {isOpened && <About setIsOpened={setIsOpened} />}
       </div>
 
-      {!loading && "zzz"}
+      {!loading && <Spinners />}
     </section>
   );
 };

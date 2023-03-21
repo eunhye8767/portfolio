@@ -1,5 +1,5 @@
 import { css } from "styled-components";
-import { FontStyle, SizeWH } from "Assets/MixinStyle";
+import { FontStyle } from "Assets/MixinStyle";
 import { width, color } from "Assets/StyleVariable";
 
 export const commonSection = css`
@@ -43,8 +43,8 @@ export const btnInTxt = css`
 
 export const btnDisabled = css`
   cursor: not-allowed;
-  
+
   span {
     opacity: 0.2;
   }
-`
+`;

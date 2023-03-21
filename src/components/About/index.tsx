@@ -1,8 +1,5 @@
 import { Dispatch, SetStateAction } from "react";
 
-import Icon from "Assets/Ico/Icons";
-import { color } from "Assets/StyleVariable";
-
 import {
   AboutSection,
   AboutArea,
