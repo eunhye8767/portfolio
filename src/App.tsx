@@ -6,7 +6,6 @@ import Visual from "components/Visual";
 import ContsForm from "components/ContsElem";
 import NavBar from "components/NavBar";
 import About from "components/About";
-import Spinners from "components/Spinners";
 
 import MainBgImg from "Assets/Images/bg_main.jpg";
 
