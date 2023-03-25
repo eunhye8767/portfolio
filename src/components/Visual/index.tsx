@@ -14,7 +14,7 @@ import {
 
 const Visual = () => {
   const resume = "RESUME";
-  const fileUrl = "/leh-resume.pdf";
+  const fileUrl = "https://github.com/eunhye8767/portfolio/raw/master/Files/leh-resume.pdf";
 
   return (
     <VisualSection>
@@ -29,7 +29,7 @@ const Visual = () => {
             <img src={myImg} alt="은혜랑 요셉이랑" />
           </VisualFigure>
           <VisualResumeGroup>
-            <VisualResumeBtn href={fileUrl} download>
+            <VisualResumeBtn href={fileUrl}>
               {resume.split("").map((txt, idx) => (
                 <span className="txt" key={idx}>
                   {txt}
