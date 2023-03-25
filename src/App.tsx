@@ -24,7 +24,6 @@ const App = () => {
   const [currScrollTop, setCurrScrollTop] = useState<number>(0);
   const [scrollDirect, setScrollDirect] = useState<boolean>(false);
   const [isOpened, setIsOpened] = useState<boolean>(false);
-  const [loading, setLoading] = useState<boolean>(false);
 
   const setScreenSize = () => {
     let vh = window.innerHeight * 0.01;
@@ -107,16 +106,6 @@ const App = () => {
     handleScrollRefCheck();
   }, [handleRefHeight, handleScrollRefCheck]);
 
-  // 로딩 스피너 적용
-  useEffect(() => {
-    document.body.classList.add("overHid");
-
-    window.addEventListener("load", () => {
-      document.body.classList.remove("overHid");
-      setLoading(true);
-    });
-  }, []);
-
   useEffect(() => {
     setScreenSize();
     window.addEventListener("resize", setScreenSize);
@@ -182,8 +171,6 @@ const App = () => {
 
         {isOpened && <About setIsOpened={setIsOpened} />}
       </div>
-
-      {!loading && <Spinners />}
     </section>
   );
 };
