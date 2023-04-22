@@ -203,6 +203,16 @@ const DataSkills = {
       title: "scale를 사용한 패럴렉스 구현",
       url: "https://leh317.iwinv.net/skills/list/29",
     },
+    {
+      id: 30,
+      title: "좌우 스크롤, 클릭 시 가운데 정렬",
+      url: "https://leh317.iwinv.net/skills/list/30",
+    },
+    {
+      id: 31,
+      title: "아코디언 안에 이전/다음 버튼 구현",
+      url: "https://leh317.iwinv.net/skills/list/31",
+    },
   ],
 };
 
