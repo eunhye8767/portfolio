@@ -213,6 +213,11 @@ const DataSkills = {
       title: "아코디언 안에 이전/다음 버튼 구현",
       url: "https://leh317.iwinv.net/skills/list/31",
     },
+    {
+      id: 32,
+      title: "검색어 자동완성 (keycode 적용)",
+      url: "https://leh317.iwinv.net/skills/list/32",
+    },
   ],
 };
 
