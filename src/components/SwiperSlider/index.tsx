@@ -11,6 +11,7 @@ import "swiper/css/scrollbar";
 import { SwiperSection, SwiperTitle } from "./style";
 
 import SwiperItem from "./SwiperItem";
+import { useEffect, useState } from "react";
 
 interface Props {
   data: Array<TypeSwiper>;
@@ -28,6 +29,13 @@ interface TypeSwiper {
 }
 
 const SwiperSlider = ({ title, data }: Props) => {
+  const [checkData, setCheckData] = useState<Array<TypeSwiper>>([]);
+
+  useEffect(() => {
+    const copyData = [...data].reverse();
+    setCheckData(copyData);
+  }, [])
+
   return (
     <SwiperSection>
       <Swiper
@@ -49,7 +57,7 @@ const SwiperSlider = ({ title, data }: Props) => {
           ))}
         </SwiperTitle>
 
-        {data.map((item: TypeSwiper, idx: number) => {
+        {checkData.map((item: TypeSwiper) => {
           const { title, img, type, desc, url, ia } = item;
 
           return (
