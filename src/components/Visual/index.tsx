@@ -14,7 +14,9 @@ import {
 
 const Visual = () => {
   const resume = "RESUME";
-  const fileUrl = "https://github.com/eunhye8767/portfolio/raw/master/Files/leh-resume.pdf";
+
+  // https://raw.githubusercontent.com/{owner}/{repo}/{branch}/{file_path}
+  const fileUrl = "https://raw.githubusercontent.com/eunhye8767/portfolio/master/Files/leh-resume.pdf";
 
   return (
     <VisualSection>
