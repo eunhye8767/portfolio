@@ -14,7 +14,10 @@ const Work = ({ cate }: PropsConts) => {
         {MORE ? (
           <List title={DATA.subTitle} data={DATA.banner} more={MORE} />
         ) : (
-          <List title={DATA.subTitle} data={DATA.list} more={MORE} />
+          <>
+            <List title={DATA.subTitle1} data={DATA.react} more={MORE} />
+            <List title={DATA.subTitle2} data={DATA.list} more={MORE} />
+          </>
         )}
       </>
     );

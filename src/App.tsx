@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, useCallback, RefObject } from "react";
+
 import { AppTitle, AppBgSection } from "./style";
 
 import "Assets/Common.css";

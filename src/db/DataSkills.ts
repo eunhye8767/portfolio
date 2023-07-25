@@ -1,6 +1,7 @@
 const DataSkills = {
   mainTitle: ["재밌게", "배워요"],
-  subTitle: "기능구현",
+  subTitle1: "기능구현 (React)",
+  subTitle2: "기능구현 (JS)",
   slide: [
     {
       id: 6,
@@ -218,6 +219,13 @@ const DataSkills = {
       title: "검색어 자동완성 (keycode 적용)",
       url: "https://leh317.iwinv.net/skills/list/32",
     },
+  ],
+  react: [
+    {
+      id: 1,
+      title: "inputText test",
+      url: "/playground/inputText",
+    }
   ],
 };
 

@@ -2,10 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "App";
 import reportWebVitals from "reportWebVitals";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+import PageInputText from "playground/pages/PageInputText";
 
 import GlobalStyle from "Assets/GlobalStyle";
-
-import { BrowserRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -14,7 +15,11 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <GlobalStyle />
-      <App />
+
+      <Routes>
+        <Route path="/playground/inputText" element={<PageInputText />} />
+        <Route path="/" element={<App />} />
+      </Routes>
     </BrowserRouter>
   </React.StrictMode>
 );
