@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import { color } from "Assets/StyleVariable";
 
 export const screenOut = css`
   position: absolute !important;
@@ -56,6 +57,18 @@ export const flexColumn = css`
   flex-direction: column;
 `;
 
+export const svgIcoGroup = (size = "20px", color = "red") => css`
+  ${SizeWH(size)}
+  color: ${color};
+
+  > svg {
+    ${SizeWH("100%")}
+
+    display: block;
+    color: currentColor;
+  }
+`;
+
 export const FontStyle = (
   size = 16,
   weight = 400,
@@ -74,6 +87,13 @@ export const FontStyle = (
 export const SizeWH = (width = "100%", height = width) => css`
   width: ${width};
   height: ${height};
+`;
+
+export const ObjFitCover = css`
+  ${SizeWH("100%")}
+
+  object-fit: cover;
+  object-position: 50% 50%;
 `;
 
 export const Ellipsis = css`
@@ -101,13 +121,14 @@ export const MultiEllipsis = (
   /* autoprefixer: off */
 `;
 
-export const ObjFitCover = css`
-  ${SizeWH("100%")}
-  
-  object-fit: cover;
-  object-position: 50% 50%;
+export const CommonFocused = (
+  bdColor = color.teal,
+  boxShadow = bdColor,
+) => css`
+  border: 1px solid ${bdColor};
+  box-shadow: 0 0 4px 0 ${boxShadow};
 `;
 
 export const ScreenOutTitle = styled.h2`
   ${screenOut}
-`
+`;

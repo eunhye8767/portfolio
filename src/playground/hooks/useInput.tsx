@@ -1,29 +1,81 @@
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent, KeyboardEvent, useEffect, useState, useRef } from "react";
 
-const useInput = (initialValue:string, validator:Function) => {
+const useInput = (
+  typeNumber: number,
+  initialValue: string,
+  ...validator: Function[]
+) => {
+  const refInput = useRef<HTMLInputElement | null>(null);
+
+  const [validMax, validIncludes, validPhone] = validator;
+
+  const validReset = {
+    error: false,
+    success: false,
+  };
+
   const [value, setValue] = useState(initialValue);
-  const onChange = (event:ChangeEvent<HTMLInputElement>) => {
-    const {
-      target: { value },
-    } = event;
+  const [valid, setValid] = useState(validReset);
+  const [focus, setFocus] = useState(false);
 
-    let willUpdate = true;
-
-    if (typeof validator === "function") {
-      willUpdate = validator(value);
-    }
-
-    if (willUpdate) {
+  // validMax (글자 수)
+  const handleValidMax = (value: string) => {
+    if (!validMax(value)) {
+      setValid({ ...validReset, error: true });
+    } else {
+      setValid({ ...validReset });
       setValue(value);
     }
   };
 
-  useEffect(() => {
-    console.log(value);
+  // focus
+  const onFocus = () => setFocus(true);
+
+  // foucs out
+  const onBlur = () => setFocus(false);
+
+  // 엔터키 눌렀을 때
+  const onSubmit = (event: KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === "Enter" && value.length > 0) {
+      console.log("Enter 키 눌렀을 때");
+      setValue("");
+    } 
+  };
+
+  const onChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const {
+      target: { value },
+    } = event;
+
     
-  }, [value])
+    
 
-  return { value, onChange };
-}
+    handleValidMax(value);
+    validPhone(value);
+  };
 
-export default useInput
+  // value 삭제
+  const onDelete = () => {
+    setValue("");
+    setValid(validReset);
+    refInput.current?.focus();
+  };
+
+  useEffect(() => {
+    // console.log("input value : ", value, typeNumber);
+  }, [value]);
+
+  return {
+    value,
+    onChange,
+    onDelete,
+    refInput,
+    onFocus,
+    onBlur,
+    focus,
+    onSubmit,
+    valid,
+  };
+};
+
+export default useInput;

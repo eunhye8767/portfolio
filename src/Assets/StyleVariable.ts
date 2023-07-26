@@ -18,5 +18,6 @@ export const color = {
   black: "#06161c",
   line: "#e0e0e0",
   grey: "#555",
-  lightGrey: "#999"
+  lightGrey: "#999",
+  teal:"#17bebb",
 };
