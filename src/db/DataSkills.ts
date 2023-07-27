@@ -224,11 +224,11 @@ const DataSkills = {
     {
       id: 1,
       title: "Input Text",
-      url: "/playground/inputTel",
+      url: "/playground/inputText",
     },
     {
-      id: 1,
-      title: "전화번호 입력 시 자동 하이픈 추가",
+      id: 2,
+      title: "Input Tel (하이픈 자동 추가)",
       url: "/playground/inputTel",
     }
   ],

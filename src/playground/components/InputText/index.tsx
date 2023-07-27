@@ -2,70 +2,55 @@
  * https://react-icons.github.io/react-icons
  */
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { RiCloseCircleLine } from "react-icons/ri";
+
+import { InputSection, InputGroup } from "playground/components/styles/input";
+
+import useInputText from "playground/hooks/useInputText";
+import useFocus from "playground/hooks/useFocus";
+
+import FormMsg from "playground/components/FormMsg";
 
 import { InputProps } from "playground/playground";
 
-import useInput from "playground/hooks/useInput";
-import FormMsg from "playground/components/FormMsg";
+interface InputTextProps extends InputProps {
+  maxLength: number;
+}
 
-import { InputSection, InputGroup } from "../styles/input";
+const InputText = ({
+  label,
+  placeholder,
+  initialValue,
+  maxLength,
+}: InputTextProps) => {
+  const validReset = {
+    error: false,
+    success: false,
+    msg: "",
+  };
 
-const Input = (props: InputProps) => {
-  // const validMax = (value: string) => value.length <= maxLength;
-  // const validIncludes = (value: string) => !value.includes("@");
+  const validMax = (value: string) => value.length <= maxLength;
 
+  const [valid, setValid] = useState(validReset);
 
-  // const {
-  //   value,
-  //   onChange,
-  //   onDelete,
-  //   refInput,
-  //   focus,
-  //   onFocus,
-  //   onBlur,
-  //   onSubmit,
-  //   onKey,
-  //   valid,
-  // } = useInput(initialValue, validMax, validIncludes, validPhone);
+  const { refInput, value, onChange, clickDelete } = useInputText(
+    initialValue,
+    maxLength,
+    validReset,
+    setValid,
+    validMax,
+  );
+  const { focus, onFocus, onBlur } = useFocus();
 
-  // const [type, setType] = useState("");
-
-  // useEffect(() => {
-  //   switch (typeNumber) {
-  //     case 0:
-  //       setType("text");
-  //       break;
-  //     case 1:
-  //       setType("number");
-  //       break;
-  //     case 2:
-  //       setType("tel");
-  //       break;
-  //     case 3:
-  //       setType("search");
-  //       break;
-  //     case 4:
-  //       setType("password");
-  //       break;
-  //     case 5:
-  //       setType("email");
-  //       break;
-  //     default:
-  //       break;
-  //   }
-  // }, []);
-
-  // // useEffect(() => {
-  // //   console.log(value);
-  // // }, [value])
-
-  // const [values, setValues] = useState("")
+  const onFocusOut = () => {
+    onBlur();
+    setValid(validReset);
+  };
 
   return (
-    <>1
-      {/* <InputSection>
+    <>
+      <InputSection>
         <InputGroup
           $focus={focus}
           $valid={valid}
@@ -74,21 +59,20 @@ const Input = (props: InputProps) => {
           <label className="screen-out">{label}</label>
 
           <input
-            type={type}
             ref={refInput}
-            placeholder={placeholder}
+            type="text"
             value={value}
+            placeholder={placeholder}
             onChange={onChange}
             onFocus={onFocus}
-            onBlur={onBlur}
-            onKeyUp={onKey}
+            onBlur={onFocusOut}
           />
 
           {value.length > 0 && (
             <button
               type="button"
               className="btn-delete"
-              onClick={onDelete}
+              onClick={clickDelete}
               onFocus={onFocus}
               onBlur={onBlur}
             >
@@ -99,9 +83,9 @@ const Input = (props: InputProps) => {
         </InputGroup>
 
         {(valid.error || valid.success) && <FormMsg valid={valid} />}
-      </InputSection> */}
+      </InputSection>
     </>
   );
 };
 
-export default Input;
+export default InputText;

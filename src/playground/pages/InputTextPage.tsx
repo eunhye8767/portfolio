@@ -1,29 +1,28 @@
-
-
+import { GuideSection, GuideTitle, GuideList } from "playground/GuideStyle";
+import InputText from "playground/components/InputText";
 
 const InputTextPage = () => {
   return (
-    <ul>
-      {/* <li>
-        <Input
-          label="제목"
-          placeholder="20자 이내"
-          initialValue=""
-          typeNumber={0}
-          maxLength={20}
-        />
-      </li>
-      <li>
-        <Input
-          label="제목"
-          placeholder="10자 이내"
-          initialValue="초기"
-          typeNumber={0}
-          maxLength={10}
-        />
-      </li> */}
-      
-    </ul>
+    <GuideSection>
+      <GuideTitle>Input Text</GuideTitle>
+      <GuideList>
+        <li>
+          <InputText
+            label="입력해주세요"
+            placeholder="입력해주세요"
+            initialValue=""
+            maxLength={10}
+          />
+        </li>
+        <li>
+          {/* <InputTel
+              label="전화번호 입력해주세요"
+              placeholder="전화번호 입력해주세요"
+              initialValue="010-2990-8767"
+            /> */}
+        </li>
+      </GuideList>
+    </GuideSection>
   );
 };
 
