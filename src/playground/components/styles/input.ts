@@ -47,6 +47,7 @@ export const InputGroup = styled.div<StyleInputProps>`
 
     &:focus-visible {
       border-radius: 50%;
+      ${CommonFocused()}
 
       ${(props) => {
         if (props.$valid?.error) {
@@ -56,10 +57,6 @@ export const InputGroup = styled.div<StyleInputProps>`
         } else if (props.$valid?.success) {
           return css`
             ${CommonFocused(color.green)}
-          `;
-        } else if (props.$focus) {
-          return css`
-            ${CommonFocused()}
           `;
         }
       }}

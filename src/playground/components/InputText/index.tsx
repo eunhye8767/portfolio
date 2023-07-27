@@ -39,7 +39,7 @@ const InputText = ({
     maxLength,
     validReset,
     setValid,
-    validMax,
+    validMax
   );
   const { focus, onFocus, onBlur } = useFocus();
 
@@ -68,18 +68,7 @@ const InputText = ({
             onBlur={onFocusOut}
           />
 
-          {value.length > 0 && (
-            <button
-              type="button"
-              className="btn-delete"
-              onClick={clickDelete}
-              onFocus={onFocus}
-              onBlur={onBlur}
-            >
-              <RiCloseCircleLine />
-              <span className="screen-out">삭제</span>
-            </button>
-          )}
+          {value.length > 0 && clickDelete}
         </InputGroup>
 
         {(valid.error || valid.success) && <FormMsg valid={valid} />}

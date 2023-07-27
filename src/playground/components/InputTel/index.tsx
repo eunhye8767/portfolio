@@ -74,18 +74,7 @@ const InputTel = ({ label, placeholder, initialValue }: InputProps) => {
             onBlur={onFocusOut}
           />
 
-          {valueNum.length > 0 && (
-            <button
-              type="button"
-              className="btn-delete"
-              onClick={clickDelete}
-              onFocus={onFocus}
-              onBlur={onBlur}
-            >
-              <RiCloseCircleLine />
-              <span className="screen-out">삭제</span>
-            </button>
-          )}
+          {valueNum.length > 0 && clickDelete}
         </InputGroup>
 
         {(valid.error || valid.success) && <FormMsg valid={valid} />}
