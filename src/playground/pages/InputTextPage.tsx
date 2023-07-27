@@ -1,9 +1,10 @@
-import Input from "playground/components/Input";
 
-const PageInput = () => {
+
+
+const InputTextPage = () => {
   return (
     <ul>
-      <li>
+      {/* <li>
         <Input
           label="제목"
           placeholder="20자 이내"
@@ -20,18 +21,10 @@ const PageInput = () => {
           typeNumber={0}
           maxLength={10}
         />
-      </li>
-      <li>
-        <Input
-          label="제목"
-          placeholder="숫자만"
-          initialValue=""
-          typeNumber={1}
-          maxLength={13}
-        />
-      </li>
+      </li> */}
+      
     </ul>
   );
 };
 
-export default PageInput;
+export default InputTextPage;

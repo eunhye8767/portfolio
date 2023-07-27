@@ -4,7 +4,8 @@ import App from "App";
 import reportWebVitals from "reportWebVitals";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import PageInput from "playground/pages/PageInput";
+import InputTextPage from "playground/pages/InputTextPage"
+import InputTelPage from "playground/pages/InputTelPage";
 
 import GlobalStyle from "Assets/GlobalStyle";
 
@@ -17,7 +18,8 @@ root.render(
       <GlobalStyle />
 
       <Routes>
-        <Route path="/playground/input" element={<PageInput />} />
+        <Route path="/playground/inputText" element={<InputTextPage />} />
+        <Route path="/playground/inputTel" element={<InputTelPage />} />
         <Route path="/" element={<App />} />
       </Routes>
     </BrowserRouter>

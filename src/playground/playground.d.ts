@@ -7,13 +7,15 @@ export interface StyleInputProps {
 
 // component
 export interface ValidProps {
-  valid: { error: boolean; success: boolean };
+  valid: { 
+    error: boolean; 
+    success: boolean; 
+    msg: string 
+  };
 }
 
 export interface InputProps {
   label: string;
   placeholder: string;
   initialValue: string;
-  typeNumber: number;
-  maxLength: number;
 }

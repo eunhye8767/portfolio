@@ -223,8 +223,13 @@ const DataSkills = {
   react: [
     {
       id: 1,
-      title: "inputText test",
-      url: "/playground/inputText",
+      title: "Input Text",
+      url: "/playground/inputTel",
+    },
+    {
+      id: 1,
+      title: "전화번호 입력 시 자동 하이픈 추가",
+      url: "/playground/inputTel",
     }
   ],
 };

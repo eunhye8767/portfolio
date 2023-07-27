@@ -9,9 +9,7 @@ import { color } from "Assets/StyleVariable";
 
 import { StyleInputProps } from "playground/playground";
 
-export const InputSection = styled.div`
-  margin: 50px;
-`;
+export const InputSection = styled.div``;
 
 export const InputGroup = styled.div<StyleInputProps>`
   ${SizeWH("400px", "50px")}
