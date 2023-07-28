@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { RiCloseCircleLine } from "react-icons/ri";
 
 import { InputSection, InputGroup } from "playground/components/styles/input";
@@ -31,6 +31,7 @@ const InputTel = ({ label, placeholder, initialValue }: InputProps) => {
       code.replace("Numpad", "").match(number) ||
       code.includes("Backspace") ||
       code.includes("Tab") ||
+      code.includes("Shift") ||
       code.includes("NumpadEnter")
         ? setValid(validReset)
         : setValid({
@@ -52,6 +53,12 @@ const InputTel = ({ label, placeholder, initialValue }: InputProps) => {
         })
       : setValid(validReset);
   };
+
+  useEffect(() => {
+    if(validReset.error || valueNum.length === 13) {
+      setValid(validReset)
+    }
+  }, [valueNum])
 
   return (
     <>
