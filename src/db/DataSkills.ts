@@ -230,6 +230,11 @@ const DataSkills = {
       id: 2,
       title: "Input Tel (하이픈 자동 추가)",
       url: "/playground/inputTel",
+    },
+    {
+      id: 3,
+      title: "Input Email",
+      url: "/playground/inputEmail",
     }
   ],
 };
