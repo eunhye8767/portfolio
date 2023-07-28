@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import useInputRef from "playground/hooks/useInputRef";
 import useInputDelete from "playground/hooks/useInputDelete";

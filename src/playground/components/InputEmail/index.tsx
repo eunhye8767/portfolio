@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { InputSection, InputGroup } from "playground/components/styles/input";
 
@@ -10,6 +10,9 @@ import FormMsg from "playground/components/FormMsg";
 import { InputProps } from "playground/playground";
 
 const InputEmail = ({ label, placeholder, initialValue }: InputProps) => {
+  const regExp =
+    /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+
   const validReset = {
     error: false,
     success: false,
@@ -23,12 +26,9 @@ const InputEmail = ({ label, placeholder, initialValue }: InputProps) => {
 
   const { focus, onFocus, onBlur } = useFocus();
 
-  const validIncludes = () => {
-    console.log(value.includes("@"));
-    
-  }
-
-  validIncludes()
+  useEffect(() => {
+    console.log(regExp.test(value));
+  }, [value]);
 
   return (
     <InputSection>
