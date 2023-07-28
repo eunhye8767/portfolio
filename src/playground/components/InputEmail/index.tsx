@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import { InputSection, InputGroup } from "playground/components/styles/input";
 
@@ -26,16 +26,28 @@ const InputEmail = ({ label, placeholder, initialValue }: InputProps) => {
 
   const { focus, onFocus, onBlur } = useFocus();
 
-  useEffect(() => {
-    console.log(regExp.test(value));
-  }, [value]);
+  const onFocusOut = () => {
+    onBlur();
+    regExp.test(value)
+      ? setValid(validReset)
+      : setValid({
+          ...validReset,
+          error: true,
+          msg: "올바른 이메일 주소를 입력하세요",
+        });
+  };
+
+  const onChangeValid = (evt: React.ChangeEvent<HTMLInputElement>) => {
+    if (regExp.test(value)) setValid(validReset);
+    onChange(evt);
+  }
 
   return (
     <InputSection>
       <InputGroup
         $focus={focus}
-        // $valid={valid}
-        // $value={valueNum.length > 0 ? true : false}
+        $valid={valid}
+        $value={value.length > 0 ? true : false}
       >
         <label className="screen-out">{label}</label>
 
@@ -44,10 +56,9 @@ const InputEmail = ({ label, placeholder, initialValue }: InputProps) => {
           type="email"
           value={value}
           placeholder={placeholder}
-          onChange={onChange}
-          // onKeyUp={onKeyEvt}
+          onChange={onChangeValid}
           onFocus={onFocus}
-          onBlur={onBlur}
+          onBlur={onFocusOut}
         />
 
         {value.length > 0 && clickDelete}
