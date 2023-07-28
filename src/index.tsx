@@ -2,9 +2,10 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "App";
 import reportWebVitals from "reportWebVitals";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import routes from "routes";
 
-import InputTextPage from "playground/pages/InputTextPage"
+import InputTextPage from "playground/pages/InputTextPage";
 import InputTelPage from "playground/pages/InputTelPage";
 
 import GlobalStyle from "Assets/GlobalStyle";
@@ -14,15 +15,16 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <Router>
       <GlobalStyle />
 
       <Routes>
-        <Route path="/playground/inputText" element={<InputTextPage />} />
-        <Route path="/playground/inputTel" element={<InputTelPage />} />
-        <Route path="/" element={<App />} />
+      <Route path="/" element={<App />} />
+        {routes.map(({ path, element }) => (
+          <Route key={path} path={`/playground/${path}`} element={element} />
+        ))}
       </Routes>
-    </BrowserRouter>
+    </Router>
   </React.StrictMode>
 );
 

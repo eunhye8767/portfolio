@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { RiCloseCircleLine } from "react-icons/ri";
 
 import { InputSection, InputGroup } from "playground/components/styles/input";
 
@@ -55,38 +54,36 @@ const InputTel = ({ label, placeholder, initialValue }: InputProps) => {
   };
 
   useEffect(() => {
-    if(validReset.error || valueNum.length === 13) {
-      setValid(validReset)
+    if (validReset.error || valueNum.length === 13) {
+      setValid(validReset);
     }
-  }, [valueNum])
+  }, [valueNum]);
 
   return (
-    <>
-      <InputSection>
-        <InputGroup
-          $focus={focus}
-          $valid={valid}
-          $value={valueNum.length > 0 ? true : false}
-        >
-          <label className="screen-out">{label}</label>
+    <InputSection>
+      <InputGroup
+        $focus={focus}
+        $valid={valid}
+        $value={valueNum.length > 0 ? true : false}
+      >
+        <label className="screen-out">{label}</label>
 
-          <input
-            ref={refInput}
-            type="tel"
-            value={valueNum}
-            placeholder={placeholder}
-            onChange={handleAutoHyphen}
-            onKeyUp={onKeyEvt}
-            onFocus={onFocus}
-            onBlur={onFocusOut}
-          />
+        <input
+          ref={refInput}
+          type="tel"
+          value={valueNum}
+          placeholder={placeholder}
+          onChange={handleAutoHyphen}
+          onKeyUp={onKeyEvt}
+          onFocus={onFocus}
+          onBlur={onFocusOut}
+        />
 
-          {valueNum.length > 0 && clickDelete}
-        </InputGroup>
+        {valueNum.length > 0 && clickDelete}
+      </InputGroup>
 
-        {(valid.error || valid.success) && <FormMsg valid={valid} />}
-      </InputSection>
-    </>
+      {(valid.error || valid.success) && <FormMsg valid={valid} />}
+    </InputSection>
   );
 };
 

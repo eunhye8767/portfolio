@@ -1,9 +1,4 @@
-/**
- * https://react-icons.github.io/react-icons
- */
-
 import { useState } from "react";
-import { RiCloseCircleLine } from "react-icons/ri";
 
 import { InputSection, InputGroup } from "playground/components/styles/input";
 
@@ -49,31 +44,29 @@ const InputText = ({
   };
 
   return (
-    <>
-      <InputSection>
-        <InputGroup
-          $focus={focus}
-          $valid={valid}
-          $value={value.length > 0 ? true : false}
-        >
-          <label className="screen-out">{label}</label>
+    <InputSection>
+      <InputGroup
+        $focus={focus}
+        $valid={valid}
+        $value={value.length > 0 ? true : false}
+      >
+        <label className="screen-out">{label}</label>
 
-          <input
-            ref={refInput}
-            type="text"
-            value={value}
-            placeholder={placeholder}
-            onChange={onChange}
-            onFocus={onFocus}
-            onBlur={onFocusOut}
-          />
+        <input
+          ref={refInput}
+          type="text"
+          value={value}
+          placeholder={placeholder}
+          onChange={onChange}
+          onFocus={onFocus}
+          onBlur={onFocusOut}
+        />
 
-          {value.length > 0 && clickDelete}
-        </InputGroup>
+        {value.length > 0 && clickDelete}
+      </InputGroup>
 
-        {(valid.error || valid.success) && <FormMsg valid={valid} />}
-      </InputSection>
-    </>
+      {(valid.error || valid.success) && <FormMsg valid={valid} />}
+    </InputSection>
   );
 };
 
