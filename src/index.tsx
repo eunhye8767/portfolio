@@ -5,9 +5,6 @@ import reportWebVitals from "reportWebVitals";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import routes from "routes";
 
-import InputTextPage from "playground/pages/InputTextPage";
-import InputTelPage from "playground/pages/InputTelPage";
-
 import GlobalStyle from "Assets/GlobalStyle";
 
 const root = ReactDOM.createRoot(
@@ -19,7 +16,7 @@ root.render(
       <GlobalStyle />
 
       <Routes>
-      <Route path="/" element={<App />} />
+        <Route path="/" element={<App />} />
         {routes.map(({ path, element }) => (
           <Route key={path} path={`/playground/${path}`} element={element} />
         ))}

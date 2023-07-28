@@ -14,13 +14,6 @@ const InputTextPage = () => {
             maxLength={10}
           />
         </li>
-        <li>
-          {/* <InputTel
-              label="전화번호 입력해주세요"
-              placeholder="전화번호 입력해주세요"
-              initialValue="010-2990-8767"
-            /> */}
-        </li>
       </GuideList>
     </GuideSection>
   );
