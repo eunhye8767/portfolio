@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 import useInputRef from "playground/hooks/useInputRef";
 import useInputDelete from "playground/hooks/useInputDelete";
@@ -13,10 +13,15 @@ const useInputText = (
   const [value, setValue] = useState(initialValue);
 
   const refInput = useInputRef();
+  const clickDelete = useInputDelete(refInput, setValue);
 
   const checkValidMax = (value: string) => {
     if (!validMax(value)) {
-      setValid({ ...validReset, error: true, msg: `${maxLength}자 초과되었습니다.` });
+      setValid({
+        ...validReset,
+        error: true,
+        msg: `${maxLength}자 초과되었습니다.`,
+      });
     } else {
       setValid({ ...validReset });
       setValue(value);
@@ -30,8 +35,6 @@ const useInputText = (
 
     checkValidMax(value);
   };
-
-  const clickDelete = useInputDelete(refInput, setValue);
 
   return { refInput, value, onChange, clickDelete };
 };
