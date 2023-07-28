@@ -63,13 +63,13 @@ const List = ({ title, data, more }: PropsList) => {
   return (
     <ListSection
       className={
-        more
+        (more
           ? ""
           : countNumber === 0
           ? "is-disabled-prev"
           : countNumber === maxNumber - 1
           ? "is-disabled-next"
-          : ""
+          : "") + (countNumber + 1 === maxNumber ? " is-disabled-next" : "")
       }
     >
       <ListTitle>{title}</ListTitle>
