@@ -4,8 +4,18 @@ import {
 } from "Assets/MixinStyle";
 import { color } from "Assets/StyleVariable";
 
+export const GuideDesc = styled.div`
+  p {
+    ${FontStyle(14, 400, color.black)}  
+  }
+`
+
 export const GuideTitle = styled.h2`
   ${FontStyle(24, 700, color.black)}
+
+  & + ${GuideDesc} {
+    margin-top: 10px;
+  }
 `
 
 export const GuideList = styled.ul`

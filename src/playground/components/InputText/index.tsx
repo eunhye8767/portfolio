@@ -32,7 +32,6 @@ const InputText = ({
   const { refInput, value, onChange, clickDelete } = useInputText(
     initialValue,
     maxLength,
-    validReset,
     setValid,
     validMax
   );

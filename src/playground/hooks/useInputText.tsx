@@ -6,10 +6,14 @@ import useInputDelete from "playground/hooks/useInputDelete";
 const useInputText = (
   initialValue: string,
   maxLength: number,
-  validReset: { error: boolean; success: boolean; msg: string },
   setValid: React.Dispatch<React.SetStateAction<typeof validReset>>,
   validMax: Function
 ) => {
+  const validReset = {
+    error: false,
+    success: false,
+    msg: "",
+  };
   const [value, setValue] = useState(initialValue);
 
   const refInput = useInputRef();

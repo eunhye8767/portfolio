@@ -235,6 +235,11 @@ const DataSkills = {
       id: 3,
       title: "Input Email",
       url: "/playground/inputEmail",
+    },
+    {
+      id: 4,
+      title: "Input Password (비밀번호 보기/숨기기)",
+      url: "/playground/inputPassword",
     }
   ],
 };
