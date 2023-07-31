@@ -15,21 +15,20 @@ const InputPassword = ({ label, placeholder, initialValue }: InputProps) => {
     success: false,
     msg: "",
   };
-
   const validCommon = {
     ...validReset,
     error: true,
   };
+  const reg = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,15}$/;
 
   const [valid, setValid] = useState(validReset);
 
   const { pwType, refInput, value, onChange, clickView } =
-    useInputPassword(initialValue);
+    useInputPassword(initialValue, setValid);
 
   const { focus, onFocus, onBlur } = useFocus();
 
   const onFocusOut = () => {
-    const reg = /^(?=.*[a-zA-Z])(?=.*[^\\!\\@\\#\\$\\%\\^\\*\\+\\=\\-])(?=.*[0-9]).{8,15}$/;
     const startRegex = /^[a-zA-Z]/;
     const hangulCheck = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
     const id = "abcd";
@@ -45,11 +44,6 @@ const InputPassword = ({ label, placeholder, initialValue }: InputProps) => {
       setValid({
         ...validCommon,
         msg: "같은 문자를 3번 이상 사용하실 수 없습니다.",
-      });
-    } else if (/[!@#$%^*+=-]{3,}/.test(value)) {
-      setValid({
-        ...validCommon,
-        msg: "특수문자(!@#$%^*+=-)를 3번 이상 사용하실 수 없습니다.",
       });
     } else if (value.search(id) >= 0) {
       setValid({
@@ -73,8 +67,13 @@ const InputPassword = ({ label, placeholder, initialValue }: InputProps) => {
       });
     } else {
       setValid(validReset);
-    }    
+    }
   };
+
+  useEffect(() => {
+    console.log(valid);
+    
+  }, [valid])
 
   return (
     <InputSection>
@@ -92,7 +91,7 @@ const InputPassword = ({ label, placeholder, initialValue }: InputProps) => {
           placeholder={placeholder}
           onChange={onChange}
           onFocus={onFocus}
-          onBlur={onFocusOut}
+          onBlur={onBlur}
         />
 
         {value.length > 0 && clickView}
