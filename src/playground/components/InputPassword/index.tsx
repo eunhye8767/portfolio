@@ -70,10 +70,10 @@ const InputPassword = ({ label, placeholder, initialValue }: InputProps) => {
     }
   };
 
-  useEffect(() => {
-    console.log(valid);
+  // useEffect(() => {
+  //   console.log(valid);
     
-  }, [valid])
+  // }, [valid])
 
   return (
     <InputSection>
