@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 import useInputRef from "playground/hooks/useInputRef";
 import useInputView from "playground/hooks/useInputView";
+import useFocus from "playground/hooks/useFocus";
 
 import errorMsg from "playground/components/InputPassword/errorMsg";
 
@@ -32,75 +33,16 @@ const useInputPassword = (
     visible: false,
   });
   const [entityCount, setEntityCount] = useState(0);
-  const [boolean, setBoolean] = useState(false);
+  const [validError, setvalidError] = useState(false);
 
   const refInput = useInputRef();
   const clickView = useInputView(pwType, setPwType);
+  const { focus, onFocus, onBlur } = useFocus();
 
   // 3개 이상 오류 메세지 1번 출력
   const checkEntity = () => {
     if (entityCount >= 3) printErrorMsg(1);
   };
-
-  // 특수문자 포함여부
-  const validEntity = (value: string) => {
-    setEntityCount(0);
-
-    for (let i = 0; i < value.length; i++) {
-      if (/\W/.test(value.charAt(i))) {
-        // 포함 갯수 체크
-        if (regExp.entity.test(value.charAt(i))) {
-          setEntityCount((prev) => prev + 1);
-        }
-
-        // 포함 있을 때 에러메세지 출력
-        if (!regExp.entity.test(value.charAt(i))) {
-          setBoolean(true)
-          // return printErrorMsg(0);
-        } else {
-          setValid(validReset);
-        }
-      }
-    }
-
-    setBoolean(false)
-
-    // setValue(value);
-  };
-
-  // 영어로 시작
-  const validStartEng = (value: string) => {
-    !regExp.eng.test(value) ? setBoolean(true) : setBoolean(false);
-    !regExp.eng.test(value) ? printErrorMsg(2) : setValid(validReset);
-
-    setBoolean(false)
-    // setValue(value);
-  };
-
-  // 같은 문자 3번이상
-  const validWord = (value: string) => {
-    regExp.word.test(value) ? printErrorMsg(3) : setValid(validReset);
-  };
-
-  // 비밀번호에 아이디 포함
-  const validId = (value: string) => {
-    value.search(idRegExp) >= 0 ? printErrorMsg(4) : setValid(validReset);
-  };
-
-  // 공백없이
-  const validSpace = (value: string) => {
-    value.search(regExp.space) > 0 ? printErrorMsg(5) : setValid(validReset);
-  };
-
-  // 한글 사용 불가
-  const validKor = (value: string) => {
-    regExp.kor.test(value) ? printErrorMsg(6) : setValid(validReset);
-  };
-
-  // // 전체 검사
-  // const validPassword = (value: string) => {
-  //   !regExp.full.test(value) ? printErrorMsg(7) : setValid(validReset);
-  // };
 
   // 오류메세지 출력
   const printErrorMsg = (number: number) => {
@@ -116,18 +58,52 @@ const useInputPassword = (
       target: { value },
     } = evt;
 
-    if (!boolean && value.length <= 15) {
+    if (value.length <= 15) {
+      setEntityCount(0);
+
+      for (let i = 0; i < value.length; i++) {
+        if (/\W/.test(value.charAt(i))) {
+          // 포함 갯수 체크
+          if (regExp.entity.test(value.charAt(i))) {
+            setEntityCount((prev) => prev + 1);
+          }
+
+          // 포함 있을 때 에러메세지 출력
+          if (!regExp.entity.test(value.charAt(i))) {
+            return printErrorMsg(0);
+          } else {
+            setValid(validReset);
+          }
+        }
+      }
+
+      setvalidError(true);
+
+      if (!regExp.eng.test(value)) {
+        printErrorMsg(2);
+      } else if (regExp.word.test(value)) {
+        printErrorMsg(3);
+      } else if (value.search(idRegExp) >= 0) {
+        printErrorMsg(4);
+      } else if (value.search(regExp.space) > 0) {
+        printErrorMsg(5);
+      } else if (regExp.kor.test(value)) {
+        printErrorMsg(6);
+      } else {
+        setValid(validReset);
+        setvalidError(false);
+      }
 
       setValue(value);
+    }
+  };
 
-
-      validEntity(value);
-      validStartEng(value);
-      // validWord(value);
-      // validId(value);
-      // validSpace(value);
-      // validKor(value);
-      // validPassword(value);
+  const onFocusOut = (evt: React.ChangeEvent<HTMLInputElement>) => {
+    onBlur();
+    if (validError) {
+      if (!regExp.full.test(value)) printErrorMsg(7);
+    } else {
+      onChange(evt);
     }
   };
 
@@ -141,6 +117,9 @@ const useInputPassword = (
     value,
     onChange,
     clickView,
+    focus,
+    onFocus,
+    onFocusOut,
   };
 };
 
