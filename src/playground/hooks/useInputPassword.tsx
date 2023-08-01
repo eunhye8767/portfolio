@@ -33,7 +33,7 @@ const useInputPassword = (
     visible: false,
   });
   const [entityCount, setEntityCount] = useState(0);
-  const [validError, setvalidError] = useState(false);
+  const [validError, setValidError] = useState(false);
 
   const refInput = useInputRef();
   const clickView = useInputView(pwType, setPwType);
@@ -77,7 +77,7 @@ const useInputPassword = (
         }
       }
 
-      setvalidError(true);
+      setValidError(true);
 
       if (!regExp.eng.test(value)) {
         printErrorMsg(2);
@@ -91,7 +91,7 @@ const useInputPassword = (
         printErrorMsg(6);
       } else {
         setValid(validReset);
-        setvalidError(false);
+        setValidError(false);
       }
 
       setValue(value);
