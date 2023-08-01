@@ -39,7 +39,7 @@ const useInputPassword = (
   const { focus, onFocus, onBlur } = useFocus();
 
   const checkErrorMsg = () => {
-    if(value.length !== 0) {
+    if (value.length !== 0) {
       if (entityCount >= 3) {
         printErrorMsg(1);
       } else if (!regExp.eng.test(value)) {
@@ -98,8 +98,10 @@ const useInputPassword = (
 
   const onFocusOut = () => {
     onBlur();
-    checkErrorMsg()
+    checkErrorMsg();
+    
     if (!regExp.full.test(value)) printErrorMsg(7);
+    if (value.length === 0) setValid(validReset);
   };
 
   useEffect(() => {
