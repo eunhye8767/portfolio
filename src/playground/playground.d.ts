@@ -5,6 +5,10 @@ export interface StyleInputProps {
   $valid?: { error: boolean; success: boolean };
 }
 
+export interface StyleSelectProps {
+  $show?: boolean;
+}
+
 // component
 export interface ValidProps {
   valid: { 

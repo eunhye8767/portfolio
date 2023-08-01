@@ -2,6 +2,7 @@ import InputTextPage from "playground/pages/InputTextPage";
 import InputTelPage from "playground/pages/InputTelPage";
 import InputEmailPage from "playground/pages/InputEmailPage";
 import InputPasswordPage from "playground/pages/InputPasswordPage";
+import SelectPage from "playground/pages/SelectPage";
 
 const routes = [
   {
@@ -19,6 +20,10 @@ const routes = [
   {
     path: "inputPassword",
     element: <InputPasswordPage />,
+  },
+  {
+    path: "select",
+    element: <SelectPage />,
   },
 ];
 
