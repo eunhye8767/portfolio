@@ -33,15 +33,29 @@ const useInputPassword = (
     visible: false,
   });
   const [entityCount, setEntityCount] = useState(0);
-  const [validError, setValidError] = useState(false);
 
   const refInput = useInputRef();
   const clickView = useInputView(pwType, setPwType);
   const { focus, onFocus, onBlur } = useFocus();
 
-  // 3개 이상 오류 메세지 1번 출력
-  const checkEntity = () => {
-    if (entityCount >= 3) printErrorMsg(1);
+  const checkErrorMsg = () => {
+    if(value.length !== 0) {
+      if (entityCount >= 3) {
+        printErrorMsg(1);
+      } else if (!regExp.eng.test(value)) {
+        printErrorMsg(2);
+      } else if (regExp.word.test(value)) {
+        printErrorMsg(3);
+      } else if (value.search(idRegExp) >= 0) {
+        printErrorMsg(4);
+      } else if (value.search(regExp.space) > 0) {
+        printErrorMsg(5);
+      } else if (regExp.kor.test(value)) {
+        printErrorMsg(6);
+      } else {
+        setValid(validReset);
+      }
+    }
   };
 
   // 오류메세지 출력
@@ -77,39 +91,20 @@ const useInputPassword = (
         }
       }
 
-      setValidError(true);
-
-      if (!regExp.eng.test(value)) {
-        printErrorMsg(2);
-      } else if (regExp.word.test(value)) {
-        printErrorMsg(3);
-      } else if (value.search(idRegExp) >= 0) {
-        printErrorMsg(4);
-      } else if (value.search(regExp.space) > 0) {
-        printErrorMsg(5);
-      } else if (regExp.kor.test(value)) {
-        printErrorMsg(6);
-      } else {
-        setValid(validReset);
-        setValidError(false);
-      }
-
+      checkErrorMsg();
       setValue(value);
     }
   };
 
-  const onFocusOut = (evt: React.ChangeEvent<HTMLInputElement>) => {
+  const onFocusOut = () => {
     onBlur();
-    if (validError) {
-      if (!regExp.full.test(value)) printErrorMsg(7);
-    } else {
-      onChange(evt);
-    }
+    checkErrorMsg()
+    if (!regExp.full.test(value)) printErrorMsg(7);
   };
 
   useEffect(() => {
-    checkEntity();
-  }, [entityCount]);
+    checkErrorMsg();
+  }, [value]);
 
   return {
     pwType,

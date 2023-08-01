@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import { InputSection, InputGroup } from "playground/components/styles/input";
 
@@ -13,11 +13,6 @@ const InputPassword = ({ label, placeholder, initialValue }: InputProps) => {
     success: false,
     msg: "",
   };
-  const validCommon = {
-    ...validReset,
-    error: true,
-  };
-  const reg = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,15}$/;
 
   const [valid, setValid] = useState(validReset);
 
