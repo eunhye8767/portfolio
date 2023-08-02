@@ -11,23 +11,42 @@ import {
   SelectOptionGroup,
   SelectOptionList,
   SelectOptionButton,
-  SelectOptionCheckbox
+  SelectOptionCheckbox,
 } from "./style";
 import useInputRef from "playground/hooks/useInputRef";
+
+const selectOption = ["버튼형 옵션 0 입니다", "버튼형 옵션 1 입니다? 하하"];
 
 const Select = () => {
   const selectRef = useInputRef();
 
-  const [isShow, setIsShow] = useState(false);
+  const [isExpand, setIsExpand] = useState(false);
+  const [isSelected, setIsSelected] = useState(false);
+  const [label, setLabel] = useState("옵션을 선택하세요");
+
+  const clickLabel = () => {
+    setIsExpand((prev) => !prev);
+  };
+
+  const clickOptionButton = (idx: number) => {
+    setLabel(selectOption[idx]);
+    setIsSelected(true);
+    setIsExpand(false);
+  };
 
   const clickCloseSelect = (evt: MouseEvent) => {
     const { target } = evt;
     const elem = target as HTMLElement;
 
-    if (!isShow && selectRef.current && !selectRef.current.contains(elem)) {
-      setIsShow(false);
+    if (!isExpand && selectRef.current && !selectRef.current.contains(elem)) {
+      setIsExpand(false);
     }
   };
+
+  useEffect(() => {
+    console.log(isExpand);
+    
+  }, [isExpand])
 
   useEffect(() => {
     window.addEventListener("click", clickCloseSelect);
@@ -37,14 +56,10 @@ const Select = () => {
   }, []);
 
   return (
-    <SelectSection ref={selectRef} $show={isShow}>
+    <SelectSection ref={selectRef} $expand={isExpand} $selected={isSelected}>
       <SelectLabelGroup>
-        <button
-          type="button"
-          className="label"
-          onClick={() => setIsShow((prev) => !prev)}
-        >
-          <span className="label__text">옵션을 선택하세요</span>
+        <button type="button" className="label" onClick={clickLabel}>
+          <span className="label__text">{label}</span>
           <span className="label__ico">
             <GoChevronDown />
           </span>
@@ -52,9 +67,16 @@ const Select = () => {
       </SelectLabelGroup>
       <SelectOptionGroup>
         <SelectOptionList>
-          <li>
-            <SelectOptionButton type="button">옵션</SelectOptionButton>
-          </li>
+          {selectOption.map((opt, idx) => (
+            <li key={opt + idx}>
+              <SelectOptionButton
+                type="button"
+                onClick={() => clickOptionButton(idx)}
+              >
+                <span className="option__text">{opt}</span>
+              </SelectOptionButton>
+            </li>
+          ))}
           <li>
             <SelectOptionCheckbox>
               <input type="checkbox" name="" id="" />

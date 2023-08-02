@@ -20,4 +20,5 @@ export const color = {
   grey: "#555",
   lightGrey: "#999",
   teal:"#17bebb",
+  hover: "#f0f0f0"
 };

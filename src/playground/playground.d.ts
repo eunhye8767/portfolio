@@ -6,7 +6,8 @@ export interface StyleInputProps {
 }
 
 export interface StyleSelectProps {
-  $show?: boolean;
+  $expand: boolean;
+  $selected: boolean;
 }
 
 // component

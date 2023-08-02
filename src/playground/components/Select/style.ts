@@ -12,23 +12,42 @@ import { color } from "Assets/StyleVariable";
 
 import { StyleSelectProps } from "playground/playground";
 
-export const SelectOptionButton = styled.button``
+export const SelectOptionButton = styled.button`
+  ${SizeWH("100%", "40px")}
 
-export const SelectOptionCheckbox = styled.div``
+  justify-content: flex-start;
+  padding: 0 16px;
+  transition: 0.3s background;
+
+  &:hover,
+  &:active {
+    background: ${color.hover};
+  }
+
+  .option__text {
+    ${FontStyle(12, 400, color.black)}
+    ${Ellipsis}
+  }
+`;
+
+export const SelectOptionCheckbox = styled.div``;
 
 export const SelectOptionList = styled.ul`
   > li {
     & + li {
-      margin-top: 8px;
+      margin-top: 4px;
     }
   }
 `;
 
 export const SelectOptionGroup = styled.div`
   display: none;
+  max-height: 300px;
   margin-top: 1px;
+  padding: 8px 0;
   border: 1px solid ${color.lightGrey};
   border-radius: 4px;
+  overflow: auto;
 `;
 
 export const SelectLabelGroup = styled.div`
@@ -67,7 +86,7 @@ export const SelectSection = styled.section<StyleSelectProps>`
   max-width: 400px;
 
   ${(props) => {
-    if (props.$show) {
+    if (props.$expand) {
       return css`
         ${SelectLabelGroup} {
           .label:not(:focus) {
@@ -77,6 +96,16 @@ export const SelectSection = styled.section<StyleSelectProps>`
 
         ${SelectOptionGroup} {
           display: block;
+        }
+      `;
+    }
+
+    if (props.$selected) {
+      return css`
+        ${SelectLabelGroup} {
+          .label__text {
+            color: ${color.black};
+          }
         }
       `;
     }
