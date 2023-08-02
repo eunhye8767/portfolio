@@ -2,7 +2,7 @@
  * https://react-icons.github.io/react-icons
  */
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 import { GoChevronDown } from "react-icons/go";
 import {
@@ -13,15 +13,15 @@ import {
   SelectOptionButton,
   SelectOptionCheckbox,
 } from "./style";
-import useInputRef from "playground/hooks/useInputRef";
 
 const selectOption = ["버튼형 옵션 0 입니다", "버튼형 옵션 1 입니다? 하하"];
 
 const Select = () => {
-  const selectRef = useInputRef();
+  const selectRef = useRef<HTMLSelectElement | null>(null);
 
   const [isExpand, setIsExpand] = useState(false);
   const [isSelected, setIsSelected] = useState(false);
+  const [isChecked, setIsChecked] = useState(false);
   const [label, setLabel] = useState("옵션을 선택하세요");
 
   const clickLabel = () => {
@@ -30,6 +30,23 @@ const Select = () => {
 
   const clickOptionButton = (idx: number) => {
     setLabel(selectOption[idx]);
+    setIsSelected(true);
+    setIsExpand(false);
+
+    if (isChecked) setIsChecked(false);
+  };
+
+  const changeOptionCheckbox = (evt: React.ChangeEvent<HTMLInputElement>) => {
+    const {
+      target: { value, checked },
+    } = evt;
+    if (checked) {
+      setIsChecked(true);
+      setLabel(value);
+    } else {
+      setIsChecked(false);
+      setLabel("옵션을 선택하세요");
+    }
     setIsSelected(true);
     setIsExpand(false);
   };
@@ -45,8 +62,7 @@ const Select = () => {
 
   useEffect(() => {
     console.log(isExpand);
-    
-  }, [isExpand])
+  }, [isExpand]);
 
   useEffect(() => {
     window.addEventListener("click", clickCloseSelect);
@@ -79,8 +95,18 @@ const Select = () => {
           ))}
           <li>
             <SelectOptionCheckbox>
-              <input type="checkbox" name="" id="" />
-              <label htmlFor="">체크박스</label>
+              <input
+                type="checkbox"
+                name="ck01"
+                id="ck01"
+                checked={isChecked}
+                onChange={changeOptionCheckbox}
+                value="체크"
+              />
+              <label htmlFor="ck01">
+                <span className="checkbox__ico"></span>
+                <span className="checkbox__text">체크</span>
+              </label>
             </SelectOptionCheckbox>
           </li>
         </SelectOptionList>
