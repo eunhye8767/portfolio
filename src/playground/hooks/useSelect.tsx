@@ -61,7 +61,7 @@ const useSelect = ({
 
     if (checkedList.length > 0) {
       checkedList.map((label) => arr.push(label));
-      setLabel(arr.join(","))
+      setLabel(arr.join(", "))
     } else {
       setLabel(initialLabel);
     }
