@@ -2,10 +2,7 @@ import { GuideSection, GuideTitle, GuideList } from "playground/GuideStyle";
 import Select from "playground/components/Select";
 
 const buttonOption = ["버튼형 옵션 0 입니다", "버튼형 옵션 1 입니다? 하하"];
-const checkboxOption = [
-  { id: 0, checked: false, value: "체크항목 1번일까요? ㅋㅋ" },
-  { id: 1, checked: false, value: "체크항목 2번 이죠" },
-];
+const checkboxOption = ["체크항목 1번일까요? ㅋㅋ", "체크항목 2번 이죠"];
 
 const InputEmailPage = () => {
   return (

@@ -2,7 +2,7 @@
  * https://react-icons.github.io/react-icons
  */
 
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import useSelect from "playground/hooks/useSelect";
 import useWindowClose from "playground/hooks/useWindowClose";
 
@@ -33,7 +33,7 @@ const Select = ({
     isExpand,
     setIsExpand,
     isSelected,
-    isChecked,
+    checkedList,
     clickLabel,
     clickOptionButton,
     changeOptionCheckbox,
@@ -73,20 +73,20 @@ const Select = ({
             ))}
 
           {selectType === "checkbox" &&
-            checkboxOption.map((opt) => (
-              <li key={opt.id}>
+            checkboxOption.map((item, idx) => (
+              <li key={idx}>
                 <SelectOptionCheckbox>
                   <input
                     type="checkbox"
-                    name={`ck${opt.id}`}
-                    id={`ck${opt.id}`}
-                    checked={opt.checked}
-                    onChange={changeOptionCheckbox}
-                    value={opt.value}
+                    name={`ck${idx}`}
+                    id={`ck${idx}`}
+                    checked={checkedList.includes(item)}
+                    onChange={(e) => changeOptionCheckbox(e, item)}
+                    value={item}
                   />
-                  <label htmlFor={`ck${opt.id}`}>
+                  <label htmlFor={`ck${idx}`}>
                     <span className="checkbox__ico"></span>
-                    <span className="checkbox__text">{opt.value}</span>
+                    <span className="checkbox__text">{item}</span>
                   </label>
                 </SelectOptionCheckbox>
               </li>

@@ -28,5 +28,5 @@ export interface InputProps {
 export interface SelectProps {
   initialLabel: string;
   buttonOption: string[];
-  checkboxOption: { id: number; checked: boolean; value: string }[];
+  checkboxOption: string[];
 }

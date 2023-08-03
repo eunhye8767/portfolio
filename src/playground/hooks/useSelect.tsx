@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useSelectRef from "playground/hooks/useSelectRef";
 
-import {SelectProps} from 'playground/playground'
+import { SelectProps } from "playground/playground";
 
 const useSelect = ({
   initialLabel,
@@ -13,6 +13,7 @@ const useSelect = ({
   const [isExpand, setIsExpand] = useState(false);
   const [isSelected, setIsSelected] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
+  const [checkedList, setCheckedList] = useState<string[]>([]);
   const [label, setLabel] = useState(initialLabel);
 
   const clickLabel = () => {
@@ -27,22 +28,44 @@ const useSelect = ({
     if (isChecked) setIsChecked(false);
   };
 
-  const changeOptionCheckbox = (evt: React.ChangeEvent<HTMLInputElement>) => {
-    const {
-      target: { value, checked },
-    } = evt;
-    if (checked) {
-      setIsSelected(true);
-      setIsChecked(true);
+  const checkedOptionCheckbox = (value: string, isChecked: boolean) => {
+    if (isChecked) {
+      setCheckedList((prev) => [...prev, value]);
       setLabel(value);
-    } else {
-      setIsSelected(false);
-      setIsChecked(false);
-      setLabel(initialLabel);
+      setIsSelected(true);
+      setIsExpand(false);
+      return;
     }
 
-    setIsExpand(false);
+    if (!isChecked && checkedList.includes(value)) {
+      setCheckedList(checkedList.filter((item) => item !== value));
+      setLabel(initialLabel);
+      setIsSelected(false);
+      setIsExpand(false);
+      return;
+    }
+
+    return;
   };
+
+  const changeOptionCheckbox = (
+    evt: React.ChangeEvent<HTMLInputElement>,
+    value: string
+  ) => {
+    setIsChecked(!isChecked);
+    checkedOptionCheckbox(value, evt.target.checked);
+  };
+
+  useEffect(() => {
+    const arr:string[] = [];
+
+    if (checkedList.length > 0) {
+      checkedList.map((label) => arr.push(label));
+      setLabel(arr.join(","))
+    } else {
+      setLabel(initialLabel);
+    }
+  }, [checkedList]);
 
   return {
     label,
@@ -50,7 +73,7 @@ const useSelect = ({
     isExpand,
     setIsExpand,
     isSelected,
-    isChecked,
+    checkedList,
     clickLabel,
     clickOptionButton,
     changeOptionCheckbox,

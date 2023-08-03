@@ -33,7 +33,6 @@ export const SelectOptionButton = styled.button`
 
 export const SelectOptionCheckbox = styled.div`
   position: relative;
-  padding: 8px 16px;
   transition: background 0.3s;
 
   &:hover {
@@ -45,6 +44,8 @@ export const SelectOptionCheckbox = styled.div`
 
     & + label {
       ${flexAlignCen}
+
+      padding: 8px 16px;
       cursor: pointer;
 
       .checkbox {
@@ -106,10 +107,14 @@ export const SelectOptionList = styled.ul`
 `;
 
 export const SelectOptionGroup = styled.div`
+  position: absolute;
+  top: 41px;
+  z-index: 10;
   display: none;
+  width: 100%;
   max-height: 300px;
-  margin-top: 1px;
   padding: 8px 0;
+  background: ${color.white};
   border: 1px solid ${color.lightGrey};
   border-radius: 4px;
   overflow: auto;
@@ -148,6 +153,7 @@ export const SelectLabelGroup = styled.div`
 `;
 
 export const SelectSection = styled.section<StyleSelectProps>`
+  position: relative;
   max-width: 400px;
 
   ${(props) => {
