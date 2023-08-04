@@ -8,10 +8,43 @@ import {
   FontStyle,
   Ellipsis,
   flexAlignCen,
+  flexWrap,
 } from "Assets/MixinStyle";
 import { color } from "Assets/StyleVariable";
 
 import { StyleSelectProps } from "playground/playground";
+
+export const SelectCheckedTagGroup = styled.div`
+  margin-top: 8px;
+`;
+
+export const SelectCheckedTagList = styled.ul`
+  ${flexWrap}
+  margin: -2px;
+
+  > li {
+    margin: 2px;
+  }
+`;
+
+export const SelectCheckedTagItem = styled.div`
+  ${flexAlignCen}
+  ${FontStyle(12, 400, color.black)}
+
+  height: 24px;
+  padding: 0 8px 0 10px;
+  background: ${color.line};
+  border-radius: 20px;
+
+  .screenOut {
+    ${screenOut}
+  }
+
+  button {
+    ${svgIcoGroup("16px", color.lightGrey)}
+    margin-left: 8px;
+  }
+`;
 
 export const SelectOptionButton = styled.button`
   ${SizeWH("100%", "40px")}

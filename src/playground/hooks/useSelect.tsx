@@ -24,8 +24,6 @@ const useSelect = ({
     setLabel(buttonOption[idx]);
     setIsSelected(true);
     setIsExpand(false);
-
-    if (isChecked) setIsChecked(false);
   };
 
   const checkedOptionCheckbox = (value: string, isChecked: boolean) => {
@@ -33,7 +31,6 @@ const useSelect = ({
       setCheckedList((prev) => [...prev, value]);
       setLabel(value);
       setIsSelected(true);
-      setIsExpand(false);
       return;
     }
 
@@ -41,7 +38,6 @@ const useSelect = ({
       setCheckedList(checkedList.filter((item) => item !== value));
       setLabel(initialLabel);
       setIsSelected(false);
-      setIsExpand(false);
       return;
     }
 
@@ -77,6 +73,8 @@ const useSelect = ({
     clickLabel,
     clickOptionButton,
     changeOptionCheckbox,
+    checkedOptionCheckbox,
+    setIsSelected
   };
 };
 

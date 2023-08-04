@@ -7,6 +7,7 @@ import useSelect from "playground/hooks/useSelect";
 import useWindowClose from "playground/hooks/useWindowClose";
 
 import { GoChevronDown } from "react-icons/go";
+import { AiFillCloseCircle } from "react-icons/ai";
 import {
   SelectSection,
   SelectLabelGroup,
@@ -14,9 +15,13 @@ import {
   SelectOptionList,
   SelectOptionButton,
   SelectOptionCheckbox,
+  SelectCheckedTagGroup,
+  SelectCheckedTagList,
+  SelectCheckedTagItem,
 } from "./style";
 
 import { SelectProps } from "playground/playground";
+
 interface SelectAddProps extends SelectProps {
   selectType: string;
 }
@@ -37,6 +42,8 @@ const Select = ({
     clickLabel,
     clickOptionButton,
     changeOptionCheckbox,
+    checkedOptionCheckbox,
+    setIsSelected,
   } = useSelect({ initialLabel, buttonOption, checkboxOption });
 
   const clickClose = useWindowClose({ refSelect, isExpand, setIsExpand });
@@ -47,6 +54,10 @@ const Select = ({
       window.removeEventListener("click", clickClose);
     };
   }, []);
+
+  useEffect(() => {
+    checkedList.length === 0 ? setIsSelected(false) : setIsSelected(true)
+  }, [checkedList])
 
   return (
     <SelectSection ref={refSelect} $expand={isExpand} $selected={isSelected}>
@@ -93,6 +104,28 @@ const Select = ({
             ))}
         </SelectOptionList>
       </SelectOptionGroup>
+      {checkedList.length > 0 && (
+        <SelectCheckedTagGroup>
+          <SelectCheckedTagList>
+            {checkedList.map((item, idx) => {
+              return (
+                <li key={idx}>
+                  <SelectCheckedTagItem>
+                    {item}
+                    <button
+                      type="button"
+                      onClick={() => checkedOptionCheckbox(item, false)}
+                    >
+                      <span className="screenOut">삭제</span>
+                      <AiFillCloseCircle />
+                    </button>
+                  </SelectCheckedTagItem>
+                </li>
+              );
+            })}
+          </SelectCheckedTagList>
+        </SelectCheckedTagGroup>
+      )}
     </SelectSection>
   );
 };
