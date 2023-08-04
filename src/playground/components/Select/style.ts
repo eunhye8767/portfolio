@@ -189,6 +189,12 @@ export const SelectSection = styled.section<StyleSelectProps>`
   position: relative;
   max-width: 400px;
 
+  &.is-label {
+    .label__text {
+      color: ${color.black};
+    }
+  }
+
   ${(props) => {
     if (props.$expand) {
       return css`

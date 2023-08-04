@@ -28,5 +28,4 @@ export interface InputProps {
 export interface SelectProps {
   initialLabel: string;
   buttonOption: string[];
-  checkboxOption: string[];
 }

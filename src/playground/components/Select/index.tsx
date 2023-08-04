@@ -24,6 +24,7 @@ import { SelectProps } from "playground/playground";
 
 interface SelectAddProps extends SelectProps {
   selectType: string;
+  checkboxOption: string[];
 }
 
 const Select = ({
@@ -34,6 +35,7 @@ const Select = ({
 }: SelectAddProps) => {
   const {
     label,
+    checkLabel,
     refSelect,
     isExpand,
     setIsExpand,
@@ -44,7 +46,7 @@ const Select = ({
     changeOptionCheckbox,
     checkedOptionCheckbox,
     setIsSelected,
-  } = useSelect({ initialLabel, buttonOption, checkboxOption });
+  } = useSelect({ initialLabel, buttonOption });
 
   const clickClose = useWindowClose({ refSelect, isExpand, setIsExpand });
 
@@ -56,11 +58,16 @@ const Select = ({
   }, []);
 
   useEffect(() => {
-    checkedList.length === 0 ? setIsSelected(false) : setIsSelected(true)
-  }, [checkedList])
+    checkedList.length === 0 ? setIsSelected(false) : setIsSelected(true);
+  }, [checkedList]);
 
   return (
-    <SelectSection ref={refSelect} $expand={isExpand} $selected={isSelected}>
+    <SelectSection
+      ref={refSelect}
+      className={checkLabel}
+      $expand={isExpand}
+      $selected={isSelected}
+    >
       <SelectLabelGroup>
         <button type="button" className="label" onClick={clickLabel}>
           <span className="label__text">{label}</span>

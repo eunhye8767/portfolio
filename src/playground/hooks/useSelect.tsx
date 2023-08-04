@@ -3,11 +3,7 @@ import useSelectRef from "playground/hooks/useSelectRef";
 
 import { SelectProps } from "playground/playground";
 
-const useSelect = ({
-  initialLabel,
-  buttonOption,
-  checkboxOption,
-}: SelectProps) => {
+const useSelect = ({ initialLabel, buttonOption }: SelectProps) => {
   const refSelect = useSelectRef();
 
   const [isExpand, setIsExpand] = useState(false);
@@ -15,6 +11,7 @@ const useSelect = ({
   const [isChecked, setIsChecked] = useState(false);
   const [checkedList, setCheckedList] = useState<string[]>([]);
   const [label, setLabel] = useState(initialLabel);
+  const [checkLabel, setCheckLabel] = useState(label);
 
   const clickLabel = () => {
     setIsExpand((prev) => !prev);
@@ -52,12 +49,20 @@ const useSelect = ({
     checkedOptionCheckbox(value, evt.target.checked);
   };
 
+  const checkedLabelClass = () => {
+    isSelected ? setCheckLabel("is-label") : setCheckLabel("is-label-no");
+  };
+
   useEffect(() => {
-    const arr:string[] = [];
+    checkedLabelClass();
+  }, [label])
+
+  useEffect(() => {
+    const arr: string[] = [];
 
     if (checkedList.length > 0) {
       checkedList.map((label) => arr.push(label));
-      setLabel(arr.join(", "))
+      setLabel(arr.join(", "));
     } else {
       setLabel(initialLabel);
     }
@@ -65,6 +70,7 @@ const useSelect = ({
 
   return {
     label,
+    checkLabel,
     refSelect,
     isExpand,
     setIsExpand,
@@ -74,7 +80,7 @@ const useSelect = ({
     clickOptionButton,
     changeOptionCheckbox,
     checkedOptionCheckbox,
-    setIsSelected
+    setIsSelected,
   };
 };
 
