@@ -34,6 +34,7 @@ export const SelectCheckedTagItem = styled.div`
   height: 24px;
   padding: 0 8px 0 10px;
   background: ${color.line};
+  border: 1px solid ${color.lightGrey};
   border-radius: 20px;
 
   .screenOut {
