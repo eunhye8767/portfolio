@@ -12,6 +12,7 @@ const useSelect = ({ initialLabel, buttonOption }: SelectProps) => {
   const [checkedList, setCheckedList] = useState<string[]>([]);
   const [label, setLabel] = useState(initialLabel);
   const [checkLabel, setCheckLabel] = useState(label);
+  const [currIdx, setCurrIdx] = useState<number | null>(null);
 
   const clickLabel = () => {
     setIsExpand((prev) => !prev);
@@ -19,6 +20,7 @@ const useSelect = ({ initialLabel, buttonOption }: SelectProps) => {
 
   const clickOptionButton = (idx: number) => {
     setLabel(buttonOption[idx]);
+    setCurrIdx(idx);
     setIsSelected(true);
     setIsExpand(false);
   };
@@ -69,6 +71,7 @@ const useSelect = ({ initialLabel, buttonOption }: SelectProps) => {
   }, [checkedList]);
 
   return {
+    currIdx,
     label,
     checkLabel,
     refSelect,

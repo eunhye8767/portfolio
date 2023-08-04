@@ -8,6 +8,7 @@ import useWindowClose from "playground/hooks/useWindowClose";
 
 import { GoChevronDown } from "react-icons/go";
 import { AiFillCloseCircle } from "react-icons/ai";
+import { BsCheck } from "react-icons/bs";
 import {
   SelectSection,
   SelectLabelGroup,
@@ -34,6 +35,7 @@ const Select = ({
   checkboxOption,
 }: SelectAddProps) => {
   const {
+    currIdx,
     label,
     checkLabel,
     refSelect,
@@ -49,6 +51,11 @@ const Select = ({
   } = useSelect({ initialLabel, buttonOption });
 
   const clickClose = useWindowClose({ refSelect, isExpand, setIsExpand });
+
+  const focusButton = (evt: React.FocusEvent<HTMLButtonElement>) => {
+    // 버튼 포커스 이벤트
+    console.log(evt.relatedTarget);
+  };
 
   useEffect(() => {
     window.addEventListener("click", clickClose);
@@ -83,9 +90,16 @@ const Select = ({
               <li key={opt + idx}>
                 <SelectOptionButton
                   type="button"
+                  className={currIdx === idx ? "is-selected" : ""}
                   onClick={() => clickOptionButton(idx)}
+                  onFocus={focusButton}
                 >
                   <span className="option__text">{opt}</span>
+                  {currIdx === idx && (
+                    <span className="option__checked">
+                      <BsCheck />
+                    </span>
+                  )}
                 </SelectOptionButton>
               </li>
             ))}

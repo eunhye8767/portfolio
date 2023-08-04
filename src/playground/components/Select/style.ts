@@ -59,9 +59,24 @@ export const SelectOptionButton = styled.button`
     background: ${color.hover};
   }
 
-  .option__text {
-    ${FontStyle(12, 400, color.black)}
-    ${Ellipsis}
+  .option {
+    &__text {
+      ${FontStyle(12, 400, color.black)}
+      ${Ellipsis}
+    }
+
+    &__checked {
+      ${svgIcoGroup("18px", color.black)}
+
+      flex-shrink: 0;
+      margin-left: auto;
+      padding-left: 4px;
+      box-sizing: content-box;
+    }
+  }
+
+  &.is-selected {
+    background: ${color.hover};
   }
 `;
 
