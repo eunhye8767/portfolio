@@ -4,7 +4,6 @@
 
 import { useEffect } from "react";
 import useSelect from "playground/hooks/useSelect";
-import useWindowClose from "playground/hooks/useWindowClose";
 
 import { GoChevronDown } from "react-icons/go";
 import { AiFillCloseCircle } from "react-icons/ai";
@@ -40,7 +39,6 @@ const Select = ({
     checkLabel,
     refSelect,
     isExpand,
-    setIsExpand,
     isSelected,
     checkedList,
     clickLabel,
@@ -50,19 +48,10 @@ const Select = ({
     setIsSelected,
   } = useSelect({ initialLabel, buttonOption });
 
-  const clickClose = useWindowClose({ refSelect, isExpand, setIsExpand });
-
   const focusButton = (evt: React.FocusEvent<HTMLButtonElement>) => {
     // 버튼 포커스 이벤트
     console.log(evt.relatedTarget);
   };
-
-  useEffect(() => {
-    window.addEventListener("click", clickClose);
-    return () => {
-      window.removeEventListener("click", clickClose);
-    };
-  }, []);
 
   useEffect(() => {
     checkedList.length === 0 ? setIsSelected(false) : setIsSelected(true);

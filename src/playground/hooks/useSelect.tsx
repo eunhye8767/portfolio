@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
-import useSelectRef from "playground/hooks/useSelectRef";
+import useOutside from "playground/hooks/useOutside";
 
 import { SelectProps } from "playground/playground";
 
 const useSelect = ({ initialLabel, buttonOption }: SelectProps) => {
-  const refSelect = useSelectRef();
-
   const [isExpand, setIsExpand] = useState(false);
   const [isSelected, setIsSelected] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
@@ -13,6 +11,8 @@ const useSelect = ({ initialLabel, buttonOption }: SelectProps) => {
   const [label, setLabel] = useState(initialLabel);
   const [checkLabel, setCheckLabel] = useState(label);
   const [currIdx, setCurrIdx] = useState<number | null>(null);
+
+  const refSelect = useOutside({ setIsExpand });
 
   const clickLabel = () => {
     setIsExpand((prev) => !prev);
@@ -57,7 +57,7 @@ const useSelect = ({ initialLabel, buttonOption }: SelectProps) => {
 
   useEffect(() => {
     checkedLabelClass();
-  }, [label])
+  }, [label]);
 
   useEffect(() => {
     const arr: string[] = [];
