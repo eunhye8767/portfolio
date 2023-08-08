@@ -3,7 +3,11 @@ import useOutside from "playground/hooks/useOutside";
 
 import { SelectProps } from "playground/playground";
 
-const useSelect = ({ initialLabel, buttonOption }: SelectProps) => {
+interface Props extends SelectProps {
+  optionMax: number
+}
+
+const useSelect = ({ initialLabel, buttonOption, optionMax }: Props) => {
   const [isExpand, setIsExpand] = useState(false);
   const [isSelected, setIsSelected] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
@@ -55,6 +59,39 @@ const useSelect = ({ initialLabel, buttonOption }: SelectProps) => {
     isSelected ? setCheckLabel("is-label") : setCheckLabel("is-label-no");
   };
 
+  const focusLabel = () => {
+    setIsExpand(true);
+  };
+
+  const focusOutLabel = () => {
+    setIsExpand(false);
+  };
+
+  const onKeyUp = (evt:React.KeyboardEvent<HTMLElement>) => {
+    const { code } = evt;
+    evt.preventDefault();
+    
+    if (code === "ArrowDown") {
+      console.log("ArrowDown", buttonOption[0]);
+      setIsExpand(true);
+      
+    } else if (code === "ArrowUp") {
+      setIsExpand(true);
+      console.log("ArrowUp");
+    }
+    
+    const test = refSelect.current!.children[1].children[0].children[0].children[0];
+    console.dir(test);
+    
+    
+
+  };
+
+  useEffect(() => {
+    console.log(optionMax);
+    
+  }, [optionMax])
+
   useEffect(() => {
     checkedLabelClass();
   }, [label]);
@@ -84,6 +121,9 @@ const useSelect = ({ initialLabel, buttonOption }: SelectProps) => {
     changeOptionCheckbox,
     checkedOptionCheckbox,
     setIsSelected,
+    focusLabel,
+    focusOutLabel,
+    onKeyUp,
   };
 };
 

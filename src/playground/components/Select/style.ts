@@ -55,7 +55,8 @@ export const SelectOptionButton = styled.button`
   transition: 0.3s background;
 
   &:hover,
-  &:active {
+  &:active,
+  &:focus {
     background: ${color.hover};
   }
 
