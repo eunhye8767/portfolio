@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import useOutside from "playground/hooks/useOutside";
 
 import { SelectProps } from "playground/playground";
@@ -17,6 +17,7 @@ const useSelect = ({ initialLabel, buttonOption, optionMax }: Props) => {
   const [currIdx, setCurrIdx] = useState<number | null>(null);
 
   const refSelect = useOutside({ setIsExpand });
+  const refOptButton = useRef<null[] | HTMLButtonElement[]>([]);
 
   const clickLabel = () => {
     setIsExpand((prev) => !prev);
@@ -80,15 +81,17 @@ const useSelect = ({ initialLabel, buttonOption, optionMax }: Props) => {
       console.log("ArrowUp");
     }
     
-    const test = refSelect.current!.children[1].children[0].children[0].children[0];
-    console.dir(test);
+    refOptButton.current[0]?.focus()
+    // const test = refSelect.current!.children[1].children[0].children[0].children[0];
+    // console.log(test, refSelect.current);
     
+    // console.log(refOptButton.current[currIdx].focus());
     
 
   };
 
   useEffect(() => {
-    console.log(optionMax);
+    // console.log(optionMax);
     
   }, [optionMax])
 
@@ -124,6 +127,7 @@ const useSelect = ({ initialLabel, buttonOption, optionMax }: Props) => {
     focusLabel,
     focusOutLabel,
     onKeyUp,
+    refOptButton
   };
 };
 

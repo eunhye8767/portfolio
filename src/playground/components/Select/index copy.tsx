@@ -2,7 +2,7 @@
  * https://react-icons.github.io/react-icons
  */
 
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import useSelect from "playground/hooks/useSelect";
 
 import { GoChevronDown } from "react-icons/go";
@@ -50,9 +50,7 @@ const Select = ({
     focusLabel,
     focusOutLabel,
     onKeyUp,
-    refOptButton
   } = useSelect({ initialLabel, buttonOption, optionMax });
-
 
   useEffect(() => {
     checkedList.length === 0 ? setIsSelected(false) : setIsSelected(true);
@@ -91,9 +89,6 @@ const Select = ({
               buttonOption.map((opt, idx) => (
                 <li key={opt + idx}>
                   <SelectOptionButton
-                    ref={(element) => {
-                      refOptButton.current[idx] = element;
-                    }}
                     type="button"
                     className={currIdx === idx ? "is-selected" : ""}
                     onClick={() => clickOptionButton(idx)}
