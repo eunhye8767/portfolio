@@ -16,7 +16,8 @@ const useSelect = ({ initialLabel, buttonOption, optionMax }: Props) => {
   const [label, setLabel] = useState(initialLabel);
   const [checkLabel, setCheckLabel] = useState(label);
   const [currIdx, setCurrIdx] = useState<number | null>(null);
-  const [kbdIdxOld, setKbdIdxOld] = useState(0);
+  
+  const [kbdInit, setKbdInit] = useState(true);
   const [kbdIdxCurr, setKbdIdxCurr] = useState(0);
 
   const refSelect = useOutside({ setIsExpand });
@@ -73,51 +74,39 @@ const useSelect = ({ initialLabel, buttonOption, optionMax }: Props) => {
 
   const onKeyUp = (evt: React.KeyboardEvent<HTMLElement>) => {
     const { code } = evt;
+    
     evt.preventDefault();
 
-    setIsExpand(true);
-    // refOptButton.current[kbdIdxCurr]!.focus();
-    
-
-
-    // refOptButton.current.map((opt, i) => {
-    //   if (kbdIdxCurr === i) console.log(opt)
-    //   return <>1</> 
-    // })
-    
-
-    // if (code === "ArrowDown") {
-    //   setCurrIdx(prev => prev === null ? prev = 0 : prev +1 )
-    //   // if (kbdIdxCurr < optionMax) {
-    //   //   setKbdIdxOld(kbdIdxCurr)
-    //   //   setKbdIdxCurr(prev => prev + 1)
-    //   // }
-      
-    // } else if (code === "ArrowUp") {
-    //   // if (kbdIdxCurr < 1) {
-    //   //   setKbdIdxOld(kbdIdxCurr)
-    //   //   setKbdIdxCurr(prev => prev - 1)
-    //   // }
-    // }
-
-    if (code === "ArrowDown") {
-    setKbdIdxCurr(prev => prev + 1)
-    }
-    
-    if (code === "ArrowUp") {
-      setKbdIdxCurr(prev => prev - 1)
+    if (code === "ArrowDown" || code === "ArrowUp") {
+      setIsExpand(true);
     }
 
-    // const test = refSelect.current!.children[1].children[0].children[0].children[0];
-    // console.log(test, refSelect.current);
+    switch (code) {
+      case "ArrowDown":
+        if (!kbdInit) {
+          kbdIdxCurr < optionMax - 1
+            ? setKbdIdxCurr((prev) => prev + 1)
+            : setKbdIdxCurr(optionMax - 1);
+        }
 
-    // console.log(refOptButton.current[currIdx].focus());
+        if (kbdInit && kbdIdxCurr === 0) {
+          setKbdIdxCurr(0);
+          setKbdInit(false)
+        }
+
+        break;
+      case "ArrowUp":
+        kbdIdxCurr >= 1 ? setKbdIdxCurr((prev) => prev - 1) : setKbdIdxCurr(0);
+        break;
+
+      default:
+        break;
+    }
   };
 
   useEffect(() => {
     console.log(kbdIdxCurr);
-    
-  }, [kbdIdxCurr])
+  }, [kbdIdxCurr]);
 
   useEffect(() => {
     checkedLabelClass();
