@@ -76,7 +76,8 @@ export const SelectOptionButton = styled.button`
     }
   }
 
-  &.is-selected {
+  &.is-selected,
+  &.is-kbd {
     background: ${color.hover};
   }
 `;

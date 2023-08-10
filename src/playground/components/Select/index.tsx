@@ -35,6 +35,7 @@ const Select = ({
 }: SelectAddProps) => {
   const optionMax = buttonOption.length || checkboxOption.length;
   const {
+    kbdIdxCurr,
     currIdx,
     label,
     checkLabel,
@@ -50,9 +51,8 @@ const Select = ({
     focusLabel,
     focusOutLabel,
     onKeyUp,
-    refOptButton
+    refOptButton,
   } = useSelect({ initialLabel, buttonOption, optionMax });
-
 
   useEffect(() => {
     checkedList.length === 0 ? setIsSelected(false) : setIsSelected(true);
@@ -95,7 +95,9 @@ const Select = ({
                       refOptButton.current[idx] = element;
                     }}
                     type="button"
-                    className={currIdx === idx ? "is-selected" : ""}
+                    className={`${currIdx === idx ? "is-selected" : ""} ${
+                      kbdIdxCurr === idx ? "is-kbd" : ""
+                    }`}
                     onClick={() => clickOptionButton(idx)}
                   >
                     <span className="option__text">{opt}</span>

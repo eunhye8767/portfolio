@@ -2,9 +2,10 @@ import { useEffect, useState, useRef } from "react";
 import useOutside from "playground/hooks/useOutside";
 
 import { SelectProps } from "playground/playground";
+import { keyboard } from "@testing-library/user-event/dist/keyboard";
 
 interface Props extends SelectProps {
-  optionMax: number
+  optionMax: number;
 }
 
 const useSelect = ({ initialLabel, buttonOption, optionMax }: Props) => {
@@ -15,6 +16,8 @@ const useSelect = ({ initialLabel, buttonOption, optionMax }: Props) => {
   const [label, setLabel] = useState(initialLabel);
   const [checkLabel, setCheckLabel] = useState(label);
   const [currIdx, setCurrIdx] = useState<number | null>(null);
+  const [kbdIdxOld, setKbdIdxOld] = useState(0);
+  const [kbdIdxCurr, setKbdIdxCurr] = useState(0);
 
   const refSelect = useOutside({ setIsExpand });
   const refOptButton = useRef<null[] | HTMLButtonElement[]>([]);
@@ -68,32 +71,53 @@ const useSelect = ({ initialLabel, buttonOption, optionMax }: Props) => {
     setIsExpand(false);
   };
 
-  const onKeyUp = (evt:React.KeyboardEvent<HTMLElement>) => {
+  const onKeyUp = (evt: React.KeyboardEvent<HTMLElement>) => {
     const { code } = evt;
     evt.preventDefault();
-    
-    if (code === "ArrowDown") {
-      console.log("ArrowDown", buttonOption[0]);
-      setIsExpand(true);
-      
-    } else if (code === "ArrowUp") {
-      setIsExpand(true);
-      console.log("ArrowUp");
-    }
-    
-    refOptButton.current[0]?.focus()
-    // const test = refSelect.current!.children[1].children[0].children[0].children[0];
-    // console.log(test, refSelect.current);
-    
-    // console.log(refOptButton.current[currIdx].focus());
+
+    setIsExpand(true);
+    // refOptButton.current[kbdIdxCurr]!.focus();
     
 
+
+    // refOptButton.current.map((opt, i) => {
+    //   if (kbdIdxCurr === i) console.log(opt)
+    //   return <>1</> 
+    // })
+    
+
+    // if (code === "ArrowDown") {
+    //   setCurrIdx(prev => prev === null ? prev = 0 : prev +1 )
+    //   // if (kbdIdxCurr < optionMax) {
+    //   //   setKbdIdxOld(kbdIdxCurr)
+    //   //   setKbdIdxCurr(prev => prev + 1)
+    //   // }
+      
+    // } else if (code === "ArrowUp") {
+    //   // if (kbdIdxCurr < 1) {
+    //   //   setKbdIdxOld(kbdIdxCurr)
+    //   //   setKbdIdxCurr(prev => prev - 1)
+    //   // }
+    // }
+
+    if (code === "ArrowDown") {
+    setKbdIdxCurr(prev => prev + 1)
+    }
+    
+    if (code === "ArrowUp") {
+      setKbdIdxCurr(prev => prev - 1)
+    }
+
+    // const test = refSelect.current!.children[1].children[0].children[0].children[0];
+    // console.log(test, refSelect.current);
+
+    // console.log(refOptButton.current[currIdx].focus());
   };
 
   useEffect(() => {
-    // console.log(optionMax);
+    console.log(kbdIdxCurr);
     
-  }, [optionMax])
+  }, [kbdIdxCurr])
 
   useEffect(() => {
     checkedLabelClass();
@@ -111,6 +135,7 @@ const useSelect = ({ initialLabel, buttonOption, optionMax }: Props) => {
   }, [checkedList]);
 
   return {
+    kbdIdxCurr,
     currIdx,
     label,
     checkLabel,
@@ -127,7 +152,7 @@ const useSelect = ({ initialLabel, buttonOption, optionMax }: Props) => {
     focusLabel,
     focusOutLabel,
     onKeyUp,
-    refOptButton
+    refOptButton,
   };
 };
 
