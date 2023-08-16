@@ -58,10 +58,6 @@ const Select = ({
     checkedList.length === 0 ? setIsSelected(false) : setIsSelected(true);
   }, [checkedList]);
 
-  useEffect(() => {
-    console.log(isExpand);
-  }, [isExpand]);
-
   return (
     <>
       <SelectSection
@@ -75,8 +71,6 @@ const Select = ({
             type="button"
             className="label"
             onClick={clickLabel}
-            // onFocus={focusLabel}
-            // onBlur={focusOutLabel}
             onKeyUp={onKeyUp}
           >
             <span className="label__text">{label}</span>
@@ -95,13 +89,11 @@ const Select = ({
                       refOptButton.current[idx] = element;
                     }}
                     type="button"
-                    className={`${currIdx === idx ? "is-selected" : ""} ${
-                      kbdIdxCurr === idx ? "is-kbd" : ""
-                    }`}
+                    className={`${(currIdx === idx || kbdIdxCurr === idx) ? "is-selected" : ""}`}
                     onClick={() => clickOptionButton(idx)}
                   >
                     <span className="option__text">{opt}</span>
-                    {currIdx === idx && (
+                    {(currIdx === idx || kbdIdxCurr === idx) && (
                       <span className="option__checked">
                         <BsCheck />
                       </span>
@@ -154,14 +146,6 @@ const Select = ({
           </SelectCheckedTagGroup>
         )}
       </SelectSection>
-      <select name="" id="">
-        {selectType === "button" &&
-          buttonOption.map((opt, idx) => (
-            <option key={opt + idx} value={opt}>
-              {opt}
-            </option>
-          ))}
-      </select>
     </>
   );
 };

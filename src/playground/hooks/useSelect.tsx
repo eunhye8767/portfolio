@@ -12,13 +12,14 @@ const useSelect = ({ initialLabel, buttonOption, optionMax }: Props) => {
   const [isExpand, setIsExpand] = useState(false);
   const [isSelected, setIsSelected] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
+
   const [checkedList, setCheckedList] = useState<string[]>([]);
   const [label, setLabel] = useState(initialLabel);
   const [checkLabel, setCheckLabel] = useState(label);
   const [currIdx, setCurrIdx] = useState<number | null>(null);
-  
+
   const [kbdInit, setKbdInit] = useState(true);
-  const [kbdIdxCurr, setKbdIdxCurr] = useState(0);
+  const [kbdIdxCurr, setKbdIdxCurr] = useState(-1);
 
   const refSelect = useOutside({ setIsExpand });
   const refOptButton = useRef<null[] | HTMLButtonElement[]>([]);
@@ -74,7 +75,7 @@ const useSelect = ({ initialLabel, buttonOption, optionMax }: Props) => {
 
   const onKeyUp = (evt: React.KeyboardEvent<HTMLElement>) => {
     const { code } = evt;
-    
+
     evt.preventDefault();
 
     if (code === "ArrowDown" || code === "ArrowUp") {
@@ -83,21 +84,36 @@ const useSelect = ({ initialLabel, buttonOption, optionMax }: Props) => {
 
     switch (code) {
       case "ArrowDown":
-        if (!kbdInit) {
+        if (kbdIdxCurr === -1) setKbdIdxCurr(0);
+
+        if (kbdInit) {
+          setKbdIdxCurr(0);
+          setKbdInit(false);
+        } else {
           kbdIdxCurr < optionMax - 1
             ? setKbdIdxCurr((prev) => prev + 1)
             : setKbdIdxCurr(optionMax - 1);
         }
-
-        if (kbdInit && kbdIdxCurr === 0) {
-          setKbdIdxCurr(0);
-          setKbdInit(false)
-        }
-
         break;
+
       case "ArrowUp":
         kbdIdxCurr >= 1 ? setKbdIdxCurr((prev) => prev - 1) : setKbdIdxCurr(0);
         break;
+
+      case "Enter":
+        if (kbdIdxCurr >= 0) setLabel(buttonOption[kbdIdxCurr]);
+        setIsSelected(true);
+        break;
+
+      case "NumpadEnter":
+        if (kbdIdxCurr >= 0) setLabel(buttonOption[kbdIdxCurr]);
+        setIsSelected(true);
+        break;
+
+      // case "Tab":
+      //   if (kbdIdxCurr === -1) return;
+        
+      //   break;
 
       default:
         break;
@@ -105,7 +121,7 @@ const useSelect = ({ initialLabel, buttonOption, optionMax }: Props) => {
   };
 
   useEffect(() => {
-    console.log(kbdIdxCurr);
+    setCurrIdx(kbdIdxCurr);
   }, [kbdIdxCurr]);
 
   useEffect(() => {
