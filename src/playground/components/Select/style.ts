@@ -44,6 +44,11 @@ export const SelectCheckedTagItem = styled.div`
   button {
     ${svgIcoGroup("16px", color.lightGrey)}
     margin-left: 8px;
+
+    &:focus-visible {
+      ${CommonFocused(color.lightGrey, color.lightGrey)}
+      border-radius: 50%;
+    }
   }
 `;
 
@@ -76,8 +81,7 @@ export const SelectOptionButton = styled.button`
     }
   }
 
-  &.is-selected,
-  &.is-kbd {
+  &.is-selected {
     background: ${color.hover};
   }
 `;
@@ -143,6 +147,14 @@ export const SelectOptionCheckbox = styled.div`
           &::after {
             display: block;
           }
+        }
+      }
+    }
+
+    &:focus + label {
+      .checkbox {
+        &__ico {
+          ${CommonFocused()}
         }
       }
     }
@@ -230,9 +242,11 @@ export const SelectSection = styled.section<StyleSelectProps>`
 
     if (props.$selected) {
       return css`
-        ${SelectLabelGroup} {
-          .label__text {
-            color: ${color.black};
+        &:not(.is-label-no) {
+          ${SelectLabelGroup} {
+            .label__text {
+              color: ${color.black};
+            }
           }
         }
       `;

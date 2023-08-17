@@ -48,8 +48,6 @@ const Select = ({
     changeOptionCheckbox,
     checkedOptionCheckbox,
     setIsSelected,
-    focusLabel,
-    focusOutLabel,
     onKeyUp,
     refOptButton,
   } = useSelect({ initialLabel, buttonOption, optionMax });
@@ -89,7 +87,9 @@ const Select = ({
                       refOptButton.current[idx] = element;
                     }}
                     type="button"
-                    className={`${(currIdx === idx || kbdIdxCurr === idx) ? "is-selected" : ""}`}
+                    className={`${
+                      currIdx === idx || kbdIdxCurr === idx ? "is-selected" : ""
+                    }`}
                     onClick={() => clickOptionButton(idx)}
                   >
                     <span className="option__text">{opt}</span>

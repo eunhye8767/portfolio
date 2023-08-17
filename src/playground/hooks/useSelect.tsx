@@ -2,7 +2,6 @@ import { useEffect, useState, useRef } from "react";
 import useOutside from "playground/hooks/useOutside";
 
 import { SelectProps } from "playground/playground";
-import { keyboard } from "@testing-library/user-event/dist/keyboard";
 
 interface Props extends SelectProps {
   optionMax: number;
@@ -65,13 +64,6 @@ const useSelect = ({ initialLabel, buttonOption, optionMax }: Props) => {
     isSelected ? setCheckLabel("is-label") : setCheckLabel("is-label-no");
   };
 
-  const focusLabel = () => {
-    setIsExpand(true);
-  };
-
-  const focusOutLabel = () => {
-    setIsExpand(false);
-  };
 
   const onKeyUp = (evt: React.KeyboardEvent<HTMLElement>) => {
     const { code } = evt;
@@ -109,11 +101,6 @@ const useSelect = ({ initialLabel, buttonOption, optionMax }: Props) => {
         if (kbdIdxCurr >= 0) setLabel(buttonOption[kbdIdxCurr]);
         setIsSelected(true);
         break;
-
-      // case "Tab":
-      //   if (kbdIdxCurr === -1) return;
-        
-      //   break;
 
       default:
         break;
@@ -154,8 +141,6 @@ const useSelect = ({ initialLabel, buttonOption, optionMax }: Props) => {
     changeOptionCheckbox,
     checkedOptionCheckbox,
     setIsSelected,
-    focusLabel,
-    focusOutLabel,
     onKeyUp,
     refOptButton,
   };
