@@ -79,7 +79,7 @@ const DataWork = {
       title: "MediaBee (미디어비)<br /><span>디지털 홍보 플랫폼 </span>퍼블리싱 개발",
       img: "/db/work/w_slide_9.png",
       type: ["IA"],
-      desc: "화면목록, 퍼블 산출물 확인(이은혜)",
+      desc: "화면목록, 퍼블 산출물",
       url: "",
       ia: "https://work-mediabee.vercel.app",
     }
