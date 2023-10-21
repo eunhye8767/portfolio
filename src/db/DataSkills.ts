@@ -219,6 +219,11 @@ const DataSkills = {
       title: "검색어 자동완성 (keycode 적용)",
       url: "https://leh317.iwinv.net/skills/list/32",
     },
+    {
+      id: 33,
+      title: "Input Range Slide 2종류",
+      url: "https://leh317.iwinv.net/skills/list/33",
+    },
   ],
   react: [
     {
@@ -245,7 +250,7 @@ const DataSkills = {
       id: 5,
       title: "SelectBox (셀렉트박스)",
       url: "/playground/select",
-    }
+    },
   ],
 };
 
