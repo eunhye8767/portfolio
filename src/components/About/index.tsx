@@ -1,4 +1,5 @@
 import { Dispatch, SetStateAction } from "react";
+import { Link } from "react-router-dom";
 
 import {
   AboutSection,
@@ -6,12 +7,12 @@ import {
   AboutBtnClose,
   AboutGreet,
   AboutInfoList,
-  AboutKakao,
-  AboutKakaoQRname,
-  AboutKakaoQRcode,
+  // AboutKakao,
+  // AboutKakaoQRname,
+  // AboutKakaoQRcode,
 } from "./style";
 
-import QRcode from "Assets/Images/obj_qrcode.jpeg";
+// import QRcode from "Assets/Images/obj_qrcode.jpeg";
 
 interface Props {
   setIsOpened: Dispatch<SetStateAction<boolean>>;
@@ -28,6 +29,18 @@ const About = ({ setIsOpened }: Props) => {
         </AboutGreet>
 
         <AboutInfoList>
+          <li>
+            <Link 
+              to={"https://github.com/eunhye8767?tab=repositories"} 
+              className="git"
+              target="_blank"
+            >
+              My GitHub
+            </Link>
+          </li>
+        </AboutInfoList>
+
+        {/* <AboutInfoList>
           <li>
             <span className="email">leh8767@nate.com</span>
           </li>
@@ -46,7 +59,7 @@ const About = ({ setIsOpened }: Props) => {
               카카오톡 ID<b>leh8767</b>
             </AboutKakaoQRname>
           </AboutKakaoQRcode>
-        </AboutKakao>
+        </AboutKakao> */}
 
         <AboutBtnClose
           onClick={() => {

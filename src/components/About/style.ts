@@ -55,12 +55,14 @@ export const AboutArea = styled.div`
   @media (min-width: ${width.minMobile}) {
     max-height: calc(100vh - 120px);
     padding-top: 50px;
+    padding-bottom: 50px;
     border-radius: 20px;
   }
 
   @media (max-width: ${width.mobile}) {
     max-height: calc(100vh - 100px);
     padding-top: 20px;
+    padding-bottom: 20px;
     border-radius: 10px;
   }
 `;
@@ -86,6 +88,7 @@ export const AboutInfoList = styled.ul`
   > li {
     ${flexCenter}
 
+    a,
     span {
       ${FontStyle(20, 400, color.grey, "1", 0.02)}
 
@@ -108,6 +111,10 @@ export const AboutInfoList = styled.ul`
 
       &.phone::before {
         content: "P.";
+      }
+      
+      &.git::before {
+        content: "G.";
       }
     }
 
